@@ -110,11 +110,13 @@ class B2bBotController extends \yii\web\Controller
         if ($message) {
             if ($message['text']) {
                 $this->request['request'] = $message['text'];
-            } elseif ($message['contact']){
-                $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
-            } else {
-                $this->request['request'] = 'no text';
             }
+            if ($message['contact']){
+                $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
+            } 
+//            else {
+//                $this->request['request'] = 'no text';
+//            }
 
         } elseif ($inlineQuery){
             $this->request['request'] = 'inlineQuery '.$inlineQuery['query'];
@@ -181,6 +183,7 @@ class B2bBotController extends \yii\web\Controller
             if (substr($this->request['request'],0,6) == 'phone/' ){
                 $commandArr = explode('/', $this->request['request']);
                 $phone = $commandArr[1];
+
                 $this->user['phone'] = $phone;
                 $this->user->save();
                 Yii::info([
