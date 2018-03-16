@@ -134,19 +134,30 @@ class B2bBotController extends \yii\web\Controller
 
         if ($message) {
 
-            $this->sendMessage([
-                'chat_id' => $this->user['telegram_user_id'],
-                'text' => 'вижу message',
-            ]);
+//            $this->sendMessage([
+//                'chat_id' => $this->user['telegram_user_id'],
+//                'text' => 'вижу message',
+//            ]);
+            Yii::info([
+                'action'=>'i see the message',
+                'message'=> $message,
+                'message[contact][phone_number]'=> $message['contact']['phone_number'],
+            ], 'b2bBot');
 
-            if ($message['text']!= null) {
+            if ($message['text'] != null) {
                 $this->request['request'] = $message['text'];
             }
-            elseif ($message['contact']!= null){
+            elseif ($message['contact'] != null){
+
+                Yii::info([
+                    'action'=>'i see the message contact',
+                    '$this->request'=> $message['contact'],
+                ], 'b2bBot');
+
                 $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
 
                 Yii::info([
-                    'action'=>'message contact',
+                    'action'=>'i see the request',
                     '$this->request'=> $this->request['request'],
                 ], 'b2bBot');
             }
