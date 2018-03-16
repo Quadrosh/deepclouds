@@ -99,6 +99,12 @@ class B2bBotController extends \yii\web\Controller
             $user->save();
         }
 
+        $this->sendMessage([
+            'chat_id' => $message['from']['id'],
+            'text' => 'нет такой команды',
+        ]);
+        return 'ok';
+        
 
         $this->user = $user;
         $this->dealer = $user->dealer;
@@ -114,11 +120,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessage([
-            'chat_id' => $message['from']['id'],
-            'text' => 'нет такой команды',
-        ]);
-        return 'ok';
+
 
 
 
