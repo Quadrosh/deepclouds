@@ -1069,7 +1069,8 @@ class B2bBotController extends \yii\web\Controller
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, true);
-        return Json::decode($jsonResponse);
+//        return Json::decode($jsonResponse);
+        return $jsonResponse;
     }
 
     /**
