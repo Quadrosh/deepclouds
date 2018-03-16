@@ -971,8 +971,8 @@ class B2bBotController extends \yii\web\Controller
 
     private function getOrdersFromServer($options = [])
     {
-        $jsonResponse = $this->sendToServer('http://deepclouds.ru/test', $options);
-//        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
+//        $jsonResponse = $this->sendToServer('http://deepclouds.ru/test', $options);
+        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
 
 //        return Json::decode($jsonResponse);
         return $jsonResponse;
@@ -984,6 +984,9 @@ class B2bBotController extends \yii\web\Controller
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
         $optQuery = http_build_query($options);
         $ch = curl_init($url.'?'.$optQuery);
+
+
+
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
         curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
