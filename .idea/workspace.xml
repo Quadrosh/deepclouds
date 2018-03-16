@@ -106,8 +106,8 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19604863">
-              <caret line="951" column="0" selection-start-line="951" selection-start-column="0" selection-end-line="952" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.30254778">
+              <caret line="983" column="16" selection-start-line="983" selection-start-column="16" selection-end-line="983" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -285,10 +285,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="120" />
+    <option name="x" value="48" />
+    <option name="y" value="461" />
     <option name="width" value="1394" />
-    <option name="height" value="778" />
+    <option name="height" value="434" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -515,7 +515,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="120" width="1394" height="778" extended-state="0" />
+    <frame x="48" y="461" width="1394" height="434" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -768,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19604863">
-          <caret line="951" column="0" selection-start-line="951" selection-start-column="0" selection-end-line="952" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.30254778">
+          <caret line="983" column="16" selection-start-line="983" selection-start-column="16" selection-end-line="983" selection-end-column="16" />
           <folding />
         </state>
       </provider>
