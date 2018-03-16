@@ -104,6 +104,12 @@ class B2bBotController extends \yii\web\Controller
             $user['username'] = $message['from']['username'];
             $user['status'] = 'unconfirmed';
             $user->save();
+            if( !$user->save()){
+                Yii::info([
+                    'action'=>'Error when save user',
+                    'errors'=>$user->errors,
+                ], 'b2bBot');
+            }
         }
 
 
