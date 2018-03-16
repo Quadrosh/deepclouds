@@ -971,7 +971,9 @@ class B2bBotController extends \yii\web\Controller
 
     private function getOrdersFromServer($options = [])
     {
-        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
+        $jsonResponse = $this->sendToServer('http://deepclouds.ru/test', $options);
+//        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
+
 //        return Json::decode($jsonResponse);
         return $jsonResponse;
     }
@@ -987,8 +989,8 @@ class B2bBotController extends \yii\web\Controller
         curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+//        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
         if (count($options)) {
             curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
@@ -1174,6 +1176,26 @@ class B2bBotController extends \yii\web\Controller
     }
 
 
+
+
+    public function actionTest()
+    {
+        $input = Yii::$app->request->getRawBody();
+        $updateId = Yii::$app->request->post('update_id');
+        $message = Yii::$app->request->post('message'); // array
+        $callbackQuery = Yii::$app->request->post('callback_query'); // array
+        $inlineQuery = Yii::$app->request->post('inline_query'); // array
+
+        Yii::info([
+            'action'=>'Test request from User',
+            'input'=>Json::decode($input),
+
+        ], 'b2bBot');
+
+
+        return 'test ok';
+
+    }
 
 
 

@@ -54,7 +54,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 $params['b2bBotPath']=>'b2b-bot/do',
-                'chekbot'=>'b2b-bot/do',
+                'test'=>'b2b-bot/test',
 
             ],
         ],
