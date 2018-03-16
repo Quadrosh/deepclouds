@@ -96,7 +96,7 @@ class B2bBotController extends \yii\web\Controller
             $user['status'] = 'unconfirmed';
             $user->save();
         }
-        
+
 
         $this->user = $user;
         $this->dealer = $user->dealer;
