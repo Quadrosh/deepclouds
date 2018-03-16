@@ -980,13 +980,15 @@ class B2bBotController extends \yii\web\Controller
     private function sendToServer($url, $options = [])
     {
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
-//        $optQuery = http_build_query($options);
-        $ch = curl_init($url.'?'.$options);
+        $optQuery = http_build_query($options);
+        $ch = curl_init($url.'?'.$optQuery);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
         curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
         if (count($options)) {
             curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
