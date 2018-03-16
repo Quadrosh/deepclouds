@@ -109,16 +109,18 @@ class B2bBotController extends \yii\web\Controller
         $this->request['user_time'] = intval($message['date']);
 
         if ($message) {
-            Yii::info([
-                'action'=>'input message',
-                'message'=>$message,
-            ], 'b2bBot');
+
 
             if ($message['text']!= null) {
                 $this->request['request'] = $message['text'];
             }
             elseif ($message['contact']!= null){
                 $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
+
+                Yii::info([
+                    'action'=>'message contact',
+                    '$this->request'=> $this->request['request'],
+                ], 'b2bBot');
             }
             else {
                 $this->request['request'] = 'no text';
@@ -129,6 +131,7 @@ class B2bBotController extends \yii\web\Controller
         } elseif ($callbackQuery){
             $this->request['request'] = 'callbackQuery '.$callbackQuery['data'];
         }
+        
         $this->request->save();
 
         //  проверка авторизации
