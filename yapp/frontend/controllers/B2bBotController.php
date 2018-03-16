@@ -1079,7 +1079,7 @@ class B2bBotController extends \yii\web\Controller
      *  boolean  $dataInBody флаг отправки информации в теле запроса (кнопы )
      *
      */
-    public function sendMessage(array $options, $dataInBody = false)
+    public function sendMessage($options, $dataInBody = false)
     {
         $this->request['answer'] = $options['text'];
         $this->request['answer_time'] = time();
