@@ -106,8 +106,8 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75757575">
-              <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.65848213">
+              <caret line="140" column="15" selection-start-line="140" selection-start-column="15" selection-end-line="140" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -286,9 +286,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="46" />
-    <option name="y" value="91" />
+    <option name="y" value="303" />
     <option name="width" value="1394" />
-    <option name="height" value="807" />
+    <option name="height" value="595" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -515,7 +515,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="91" width="1394" height="807" extended-state="0" />
+    <frame x="46" y="303" width="1394" height="595" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -554,11 +554,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>193</line>
+          <line>222</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
+          <line>112</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
+          <line>119</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
+          <line>137</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -775,8 +790,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75757575">
-          <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.65848213">
+          <caret line="140" column="15" selection-start-line="140" selection-start-column="15" selection-end-line="140" selection-end-column="15" />
           <folding />
         </state>
       </provider>

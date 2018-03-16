@@ -108,8 +108,37 @@ class B2bBotController extends \yii\web\Controller
         $this->request['update_id'] = strval($updateId);
         $this->request['user_time'] = intval($message['date']);
 
+
+
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'вход',
+        ]);
+
+        if ($message['contact']!= null){
+
+            $this->sendMessage([
+                'chat_id' => $this->user['telegram_user_id'],
+                'text' => 'вижу контакт',
+            ]);
+
+            $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
+
+            Yii::info([
+                'action'=>'message contact',
+                '$this->request'=> $this->request['request'],
+            ], 'b2bBot');
+
+        }
+
+
+
         if ($message) {
 
+            $this->sendMessage([
+                'chat_id' => $this->user['telegram_user_id'],
+                'text' => 'вижу message',
+            ]);
 
             if ($message['text']!= null) {
                 $this->request['request'] = $message['text'];
@@ -131,7 +160,7 @@ class B2bBotController extends \yii\web\Controller
         } elseif ($callbackQuery){
             $this->request['request'] = 'callbackQuery '.$callbackQuery['data'];
         }
-        
+
         $this->request->save();
 
         //  проверка авторизации
