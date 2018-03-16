@@ -82,7 +82,7 @@ class B2bBotController extends \yii\web\Controller
         $this->sendMessage([
             'chat_id' => $message['from']['id'],
             'text' => 'нет такой команды',
-        ]);
+        ],false);
         return 'ok';
 
 
