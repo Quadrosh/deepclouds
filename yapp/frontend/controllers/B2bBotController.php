@@ -107,7 +107,13 @@ class B2bBotController extends \yii\web\Controller
         $this->request['user_id'] = $this->user['id'];
         $this->request['update_id'] = strval($updateId);
         $this->request['user_time'] = intval($message['date']);
+
         if ($message) {
+            Yii::info([
+                'action'=>'input message',
+                'message'=>$message,
+            ], 'b2bBot');
+
             if ($message['text']!= null) {
                 $this->request['request'] = $message['text'];
             }
