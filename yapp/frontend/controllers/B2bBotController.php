@@ -51,7 +51,7 @@ class B2bBotController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
-        if (in_array($action->id, ['do'])) {
+        if (in_array($action->id, ['do','test'])) {
             $this->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
