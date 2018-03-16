@@ -113,7 +113,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        return ['message' => 'ok', 'code' => 200];
+//        return ['message' => 'ok', 'code' => 200];
 
 //        if ($message['contact']!= null){
 //
