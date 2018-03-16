@@ -111,12 +111,12 @@ class B2bBotController extends \yii\web\Controller
             if ($message['text']) {
                 $this->request['request'] = $message['text'];
             }
-            if ($message['contact']){
+            elseif ($message['contact']){
                 $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
-            } 
-//            else {
-//                $this->request['request'] = 'no text';
-//            }
+            }
+            else {
+                $this->request['request'] = 'no text';
+            }
 
         } elseif ($inlineQuery){
             $this->request['request'] = 'inlineQuery '.$inlineQuery['query'];
