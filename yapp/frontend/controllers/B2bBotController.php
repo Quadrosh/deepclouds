@@ -113,6 +113,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
+        return ['message' => 'ok', 'code' => 200];
 
 //        if ($message['contact']!= null){
 //
@@ -134,27 +135,15 @@ class B2bBotController extends \yii\web\Controller
 
         if ($message) {
 
-//            $this->sendMessage([
-//                'chat_id' => $this->user['telegram_user_id'],
-//                'text' => 'вижу message',
-//            ]);
-            Yii::info([
-                'action'=>'i see the message',
-                'message'=> $message,
-                'message[contact][phone_number]'=> $message['contact']['phone_number'],
-            ], 'b2bBot');
-
             if (isset($message['text'])) {
                 $this->request['request'] = $message['text'];
             }
-//            elseif (isset($message['contact'])){
-            elseif ($message['contact']){
-
+            elseif (isset($message['contact'])){
 
                 $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
 
                 Yii::info([
-                    'action'=>'i see the request',
+                    'action'=>'request',
                     '$this->request'=> $this->request['request'],
                 ], 'b2bBot');
             }
