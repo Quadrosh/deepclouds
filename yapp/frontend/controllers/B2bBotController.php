@@ -1033,7 +1033,8 @@ class B2bBotController extends \yii\web\Controller
         $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
-        return Json::decode($jsonResponse);
+//        return Json::decode($jsonResponse);
+        return $jsonResponse;
     }
     /**
      *   @var array
@@ -1049,7 +1050,8 @@ class B2bBotController extends \yii\web\Controller
         $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
-        return Json::decode($jsonResponse);
+//        return Json::decode($jsonResponse);
+        return $jsonResponse;
     }
 
     /**
