@@ -80,7 +80,7 @@ class B2bBotController extends \yii\web\Controller
         ], 'b2bBot');
 
         $this->sendMessage([
-            'chat_id' => 232544919,
+            'chat_id' => '232544919',
             'text' => 'чек чек',
         ],false);
         return 'ok';
