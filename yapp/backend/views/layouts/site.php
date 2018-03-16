@@ -41,46 +41,14 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        Yii::$app->user->can('creatorPermission', [])
-            ? (['label' => 'Admins', 'url' => ['/usermanage']])
-            : (['label' => false]),
-
-
-
-        [
-            'label' => 'БОТ Development',
-            'items' => [
-                ['label' => 'b2bDealer', 'url' => ['/b2b-dealer']],
-                ['label' => 'b2bBotUser', 'url' => ['/b2b-bot-user']],
-                ['label' => 'b2bBotRequest', 'url' => ['/b2b-bot-request']],
-            ],
-        ],
-//        [
-//            'label' => 'Библиотека',
-//            'items' => [
-//                ['label' => 'Article page', 'url' => ['/article/index']],
-//                ['label' => 'Article section', 'url' => ['/articlesection/index']],
-//                ['label' => 'Happiness page', 'url' => ['/happypage/index']],
-//                ['label' => 'Happiness section', 'url' => ['/happysection/index']],
-//                ['label' => 'Index Pages', 'url' => ['/page/index']],
-//                ['label' => 'Категории', 'url' => ['/category/index']],
-//                ['label' => 'Quotepad', 'url' => ['/quotepad/index']],
-//                ['label' => 'Quotepad Images', 'url' => ['/quotepadimg/index']],
-//                ['label' => 'Картинки', 'url' => ['/imagefile/index']],
-//                ['label' => 'Заявки', 'url' => ['/feedback/index']],
-//
-//            ],
-//        ],
-
-
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                'Выйти (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
@@ -94,9 +62,6 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
@@ -105,8 +70,6 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Deepclouds <?= date('Y') ?></p>
-
-<!--        <p class="pull-right">Круто же)</p>-->
     </div>
 </footer>
 

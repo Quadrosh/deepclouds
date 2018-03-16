@@ -2,7 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/composer.json" afterPath="$PROJECT_DIR$/yapp/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/B2bBotRequestController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/B2bBotUserController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/B2bDealerController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/BackController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/UserController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/controllers/UsermanageController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/rbac/AdminRule.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/rbac/CreatorRule.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/rbac/StatRule.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-request/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-request/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-request/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-request/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-request/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/site.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/user/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/user/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/user/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/user/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/user/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/_formCreate.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/backend/views/usermanage/view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/B2bBotRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/B2bBotUser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/Roles.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/RolesAssignment.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/RolesChild.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/RolesItem.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/config/main.php" afterPath="$PROJECT_DIR$/yapp/backend/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" afterPath="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/site/index.php" afterPath="$PROJECT_DIR$/yapp/backend/views/site/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/config/main.php" afterPath="$PROJECT_DIR$/yapp/common/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/User.php" afterPath="$PROJECT_DIR$/yapp/common/models/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/config/main.php" afterPath="$PROJECT_DIR$/yapp/frontend/config/main.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,11 +124,121 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-local.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yapp/common/config/main-local.php">
+      <file leaf-file-name="SiteController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.456869">
+              <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params-local.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/views/layouts/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="108" column="50" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsermanageController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/UsermanageController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/common/models/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/views/site/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,16 +249,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yapp/frontend/views/layouts/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -159,6 +310,19 @@
         <option value="$PROJECT_DIR$/yapp/frontend/web/js/main.js" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
         <option value="$PROJECT_DIR$/yapp/common/config/main-local.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/layouts/site.php" />
+        <option value="$PROJECT_DIR$/yapp/common/models/User.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/site/index.php" />
+        <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/usermanage/index.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/usermanage/create.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/usermanage/view.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/config/main.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/usermanage/update.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/config/main.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
       </list>
     </option>
   </component>
@@ -172,8 +336,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
-    <option name="y" value="445" />
+    <option name="x" value="46" />
+    <option name="y" value="438" />
     <option name="width" value="1394" />
     <option name="height" value="460" />
   </component>
@@ -270,84 +434,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="particles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -366,25 +452,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -412,8 +480,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/yapp/frontend/views/layouts" />
-      <recent name="$PROJECT_DIR$/yapp/frontend/web/css" />
+      <recent name="$PROJECT_DIR$/yapp/frontend/controllers" />
+      <recent name="$PROJECT_DIR$/yapp/backend/views" />
+      <recent name="$PROJECT_DIR$/yapp/backend/controllers" />
+      <recent name="$PROJECT_DIR$/yapp/backend" />
+      <recent name="$PROJECT_DIR$/yapp/backend/views/layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -455,7 +526,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="445" width="1394" height="460" extended-state="0" />
+    <frame x="46" y="438" width="1394" height="460" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -568,10 +639,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/console/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.55">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/UsermanageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/usermanage/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="50" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/layouts/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/config/main-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.456869">
+          <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
           <folding />
         </state>
       </provider>
