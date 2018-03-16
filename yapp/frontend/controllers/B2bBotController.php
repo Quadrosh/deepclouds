@@ -108,10 +108,10 @@ class B2bBotController extends \yii\web\Controller
         $this->request['update_id'] = strval($updateId);
         $this->request['user_time'] = intval($message['date']);
         if ($message) {
-            if ($message['text']) {
+            if ($message['text']!= null) {
                 $this->request['request'] = $message['text'];
             }
-            elseif ($message['contact']){
+            elseif ($message['contact']!= null){
                 $this->request['request'] = 'phone/'.$message['contact']['phone_number'];
             }
             else {
