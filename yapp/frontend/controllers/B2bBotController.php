@@ -75,14 +75,14 @@ class B2bBotController extends \yii\web\Controller
         Yii::info([
             'action'=>'request from User',
             'input'=>Json::decode($input),
-            'message'=>$message,
+//            'message'=>$message,
 
         ], 'b2bBot');
 
-        $this->sendMessage([
-            'chat_id' => $message['from']['id'],
-            'text' => 'нет такой команды',
-        ],false);
+//        $this->sendMessage([
+//            'chat_id' => $message['from']['id'],
+//            'text' => 'нет такой команды',
+//        ],false);
         return 'ok';
 
 
