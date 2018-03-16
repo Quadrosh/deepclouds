@@ -144,10 +144,10 @@ class B2bBotController extends \yii\web\Controller
                 'message[contact][phone_number]'=> $message['contact']['phone_number'],
             ], 'b2bBot');
 
-            if ($message['text'] != null) {
+            if (isset($message['text'])) {
                 $this->request['request'] = $message['text'];
             }
-            elseif ($message['contact'] != null){
+            elseif (isset($message['contact'])){
 
                 Yii::info([
                     'action'=>'i see the message contact',
