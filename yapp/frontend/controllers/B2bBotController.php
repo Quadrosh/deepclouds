@@ -79,6 +79,13 @@ class B2bBotController extends \yii\web\Controller
 
         ], 'b2bBot');
 
+        $this->sendMessage([
+            'chat_id' => $message['from']['id'],
+            'text' => 'нет такой команды',
+        ]);
+        return 'ok';
+
+
         if ($message) {
             $user = B2bBotUser::find()->where(['telegram_user_id'=>$message['from']['id']])->one();
         } elseif ($inlineQuery){
@@ -99,12 +106,7 @@ class B2bBotController extends \yii\web\Controller
             $user->save();
         }
 
-        $this->sendMessage([
-            'chat_id' => $message['from']['id'],
-            'text' => 'нет такой команды',
-        ]);
-        return 'ok';
-        
+
 
         $this->user = $user;
         $this->dealer = $user->dealer;
