@@ -1000,6 +1000,7 @@ class B2bBotController extends \yii\web\Controller
         curl_setopt($ch, CURLOPT_STDERR, $fp);
 
 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 //        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
         if (count($options)) {
