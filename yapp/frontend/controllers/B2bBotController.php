@@ -1021,6 +1021,15 @@ class B2bBotController extends \yii\web\Controller
                 curl_close($ch);
                 return Json::encode($serverError);
             }
+            if ($info['http_code'] == 400) {
+                $serverError = [];
+                $serverError['error'] = 1;
+                $serverError['message'] = 'Извините, у нас проблемы со связью.'
+                    .PHP_EOL .'В данный момент запрос не может быть обработан.';
+                $serverError['code'] = 400;
+                curl_close($ch);
+                return Json::encode($serverError);
+            }
         }
         curl_close($ch);
         return $r;
