@@ -949,7 +949,6 @@ class B2bBotController extends \yii\web\Controller
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdProduct'], $options);
         return Json::decode($jsonResponse);
-//        return $jsonResponse;
     }
 
 
@@ -957,7 +956,6 @@ class B2bBotController extends \yii\web\Controller
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdProducts'], $options);
         return Json::decode($jsonResponse);
-//        return $jsonResponse;
     }
 
 
@@ -965,17 +963,13 @@ class B2bBotController extends \yii\web\Controller
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdOrder'], $options);
         return Json::decode($jsonResponse);
-//        return $jsonResponse;
     }
 
 
     private function getOrdersFromServer($options = [])
     {
-//        $jsonResponse = $this->sendToServer('http://deepclouds.ru/test', $options);
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
-
         return Json::decode($jsonResponse);
-//        return $jsonResponse;
     }
 
 
@@ -1000,9 +994,6 @@ class B2bBotController extends \yii\web\Controller
 //        $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
 //        curl_setopt($ch, CURLOPT_VERBOSE, 1);
 //        curl_setopt($ch, CURLOPT_STDERR, $fp);
-
-
-
 
 
         $r = curl_exec($ch);
@@ -1110,7 +1101,7 @@ class B2bBotController extends \yii\web\Controller
      *  boolean  $dataInBody флаг отправки информации в теле запроса (кнопы )
      *
      */
-    public function sendMessage($options, $dataInBody = false)
+    public function sendMessage($options, $dataInBody = true)
     {
         $this->request['answer'] = $options['text'];
         $this->request['answer_time'] = time();
