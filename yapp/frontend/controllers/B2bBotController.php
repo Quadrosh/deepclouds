@@ -992,6 +992,14 @@ class B2bBotController extends \yii\web\Controller
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+        // debug
+//        $fp = fopen(dirname(__FILE__).'/curl_debug_log.txt', 'w');
+        $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
+
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_STDERR, $fp);
+
+
 //        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
         if (count($options)) {
