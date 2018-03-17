@@ -986,10 +986,9 @@ class B2bBotController extends \yii\web\Controller
         $ch = curl_init($url.'?'.$optQuery);
 
 
-
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
-        curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
+//        curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
