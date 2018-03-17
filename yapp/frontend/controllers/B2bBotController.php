@@ -993,6 +993,7 @@ class B2bBotController extends \yii\web\Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // debug
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
 //        $fp = fopen(dirname(__FILE__).'/curl_debug_log.txt', 'w');
         $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
 
@@ -1010,11 +1011,11 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-//                'Content-Length: ' . strlen($optQuery),
-                )
-        );
+//        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+//                'Content-Type: application/json',
+////                'Content-Length: ' . strlen($optQuery),
+//                )
+//        );
 
 
 
