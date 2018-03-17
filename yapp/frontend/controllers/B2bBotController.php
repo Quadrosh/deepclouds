@@ -948,24 +948,24 @@ class B2bBotController extends \yii\web\Controller
     private function getOneProductFromServer($options = [])
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdProduct'], $options);
-//        return Json::decode($jsonResponse);
-        return $jsonResponse;
+        return Json::decode($jsonResponse);
+//        return $jsonResponse;
     }
 
 
     private function getSearchResultsFromServer($options = [])
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdProducts'], $options);
-//        return Json::decode($jsonResponse);
-        return $jsonResponse;
+        return Json::decode($jsonResponse);
+//        return $jsonResponse;
     }
 
 
     private function getOrderFromServer($options = [])
     {
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdOrder'], $options);
-//        return Json::decode($jsonResponse);
-        return $jsonResponse;
+        return Json::decode($jsonResponse);
+//        return $jsonResponse;
     }
 
 
@@ -974,8 +974,8 @@ class B2bBotController extends \yii\web\Controller
 //        $jsonResponse = $this->sendToServer('http://deepclouds.ru/test', $options);
         $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
 
-//        return Json::decode($jsonResponse);
-        return $jsonResponse;
+        return Json::decode($jsonResponse);
+//        return $jsonResponse;
     }
 
 
