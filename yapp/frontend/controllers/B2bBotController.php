@@ -1010,6 +1010,7 @@ class B2bBotController extends \yii\web\Controller
             $info = [
                     'action'=>'curl to Server',
                     'options'=>$options,
+                    'curl_version'=>curl_version(),
                 ] + $info;
             Yii::info($info, 'b2bBot');
             if ($info['http_code'] == 500) {
