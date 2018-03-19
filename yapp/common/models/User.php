@@ -26,6 +26,9 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
+
+    public $role;
 
     /**
      * @inheritdoc
@@ -53,9 +56,34 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['username', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['status'], 'integer'],
+            [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['password'], 'string'],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
+            [['password_reset_token'], 'unique'],
+            [[ 'role'], 'safe'],
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Username',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password' => 'Password',
+            'password_reset_token' => 'Password Reset Token',
+            'email' => 'Email',
+            'status' => 'Status',
+            'created_at' => 'created_at',
+            'updated_at' => 'updated_at',
+
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -185,5 +213,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     *
+     */
+    public function getRoleAssign()
+    {
+        return $this->hasOne(RolesAssignment::className(),['user_id'=>'id']);
     }
 }

@@ -87,22 +87,15 @@ class UsermanageController extends Controller
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) ) {
+//            var_dump($model); die;
+//            var_dump(Yii::$app->request->post()); die;
             $model->password_hash = Yii::$app->security->generatePasswordHash($model->password);
-            $model->status = 10;
+
             $model->status = 10;
             $date = new \DateTime();
             $model->created_at =  new Expression('CURRENT_TIMESTAMP()');
             $model->updated_at = time();
-//            $model->updated_at = date('U');
 
-//            $model->updated_at = $date->format('Y-m-d H:i:s');
-//            $model->created_at =  'kjashgdfljhg';
-
-//            $model->updated_at = 'chek234';
-
-//var_dump($model); die;
-
-//            var_dump($model->created_at);var_dump($model->updated_at); die;
 
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);

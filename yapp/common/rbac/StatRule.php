@@ -1,11 +1,11 @@
 <?php
-namespace app\rbac;
+namespace common\rbac;
 
 use yii\rbac\Rule;
 
-class AdminRule extends Rule
+class StatRule extends Rule
 {
-    public $name = 'Admin';
+    public $name = 'Stat';
 
     public function execute($user, $item, $params)
     {
