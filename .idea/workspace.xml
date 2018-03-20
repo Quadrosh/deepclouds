@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/models/Menu.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/widgets/MenuWidget.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/widgets/SidemenuWidget.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/widgets/menu_formfactor/accordion.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/widgets/menu_formfactor/html.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yapp/common/widgets/menu_formfactor/ul.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/assets/AppAsset.php" afterPath="$PROJECT_DIR$/yapp/backend/assets/AppAsset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" afterPath="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/web/css/site.css" afterPath="$PROJECT_DIR$/yapp/backend/web/css/site.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
     </list>
     <ignored path="deepclouds.iws" />
@@ -45,8 +35,28 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5033557">
-              <caret line="425" column="26" selection-start-line="425" selection-start-column="15" selection-end-line="425" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.23379175">
+              <caret line="1084" column="44" selection-start-line="1084" selection-start-column="44" selection-end-line="1084" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params-local.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/config/params-local.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params-local.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,8 +126,6 @@
         <option value="$PROJECT_DIR$/yapp/frontend/views/site/index.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/js/main.js" />
         <option value="$PROJECT_DIR$/yapp/frontend/web/css/style.css" />
-        <option value="$PROJECT_DIR$/yapp/backend/config/params-local.php" />
-        <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
         <option value="$PROJECT_DIR$/yapp/backend/assets/AppAsset.php" />
         <option value="$PROJECT_DIR$/yapp/backend/web/css/site.css" />
         <option value="$PROJECT_DIR$/yapp/common/models/MenuSide.php" />
@@ -127,6 +135,8 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/yapp/common/widgets/menu_formfactor/accordion.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/config/params-local.php" />
+        <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
       </list>
     </option>
@@ -141,10 +151,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="453" />
+    <option name="x" value="46" />
+    <option name="y" value="234" />
     <option name="width" value="1394" />
-    <option name="height" value="443" />
+    <option name="height" value="654" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -345,6 +355,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deepclouds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deepclouds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -367,33 +399,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,7 +499,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="453" width="1394" height="443" extended-state="0" />
+    <frame x="46" y="234" width="1394" height="654" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -503,7 +509,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32577905" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -813,20 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/assets/AppAsset.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42105263">
@@ -931,10 +923,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/config/params-local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5033557">
-          <caret line="425" column="26" selection-start-line="425" selection-start-column="15" selection-end-line="425" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.23379175">
+          <caret line="1084" column="44" selection-start-line="1084" selection-start-column="44" selection-end-line="1084" selection-end-column="44" />
           <folding />
         </state>
       </provider>

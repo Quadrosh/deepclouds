@@ -1082,17 +1082,19 @@ class B2bBotController extends \yii\web\Controller
      */
     public function sendMessageWithBody(array $options)
     {
-        $this->request['answer'] = $options['text'];
-        $this->request['answer_time'] = time();
-        $this->request->save();
-        $chat_id = $options['chat_id'];
-        $urlEncodedText = urlencode($options['text']);
-        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
-            Yii::$app->params['b2bBotToken'].
-            '/sendMessage?chat_id='.$chat_id .
-            '&text='.$urlEncodedText, $options, true);
-//        return Json::decode($jsonResponse);
-        return $jsonResponse;
+        return $this->sendMessage($options);
+
+//        $this->request['answer'] = $options['text'];
+//        $this->request['answer_time'] = time();
+//        $this->request->save();
+//        $chat_id = $options['chat_id'];
+//        $urlEncodedText = urlencode($options['text']);
+//        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'].
+//            '/sendMessage?chat_id='.$chat_id .
+//            '&text='.$urlEncodedText, $options, true);
+////        return Json::decode($jsonResponse);
+//        return $jsonResponse;
     }
 
     /**
@@ -1128,38 +1130,38 @@ class B2bBotController extends \yii\web\Controller
         return $jsonResponse;
     }
 
-    private function sendToUser($url, $options = [], $dataInBody = false)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Telebot');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        if (count($options)) {
-            curl_setopt($ch, CURLOPT_POST, true);
-            if ($dataInBody) {
-                $bodyOptions = $options;
-                unset($bodyOptions['chat_id']);
-                unset($bodyOptions['text']);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyOptions);
-            }
-        }
-        $r = curl_exec($ch);
-        if($r == false){
-            $text = 'curl error '.curl_error($ch);
-            Yii::info($text, 'b2bBot');
-        } else {
-            $info = curl_getinfo($ch);
-            $info['url'] = str_replace(Yii::$app->params['b2bBotToken'],'_not_logged_',  $info['url']);
-            $info = [
-                    'action'=>'curl to User',
-                    'options'=>$options,
-                    'dataInBody'=>$dataInBody,
-                ] + $info;
-            Yii::info($info, 'b2bBot');
-        }
-        curl_close($ch);
-        return $r;
-    }
+//    private function sendToUser($url, $options = [], $dataInBody = false)
+//    {
+//        $ch = curl_init($url);
+//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//        curl_setopt($ch, CURLOPT_USERAGENT, 'Telebot');
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        if (count($options)) {
+//            curl_setopt($ch, CURLOPT_POST, true);
+//            if ($dataInBody) {
+//                $bodyOptions = $options;
+//                unset($bodyOptions['chat_id']);
+//                unset($bodyOptions['text']);
+//                curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyOptions);
+//            }
+//        }
+//        $r = curl_exec($ch);
+//        if($r == false){
+//            $text = 'curl error '.curl_error($ch);
+//            Yii::info($text, 'b2bBot');
+//        } else {
+//            $info = curl_getinfo($ch);
+//            $info['url'] = str_replace(Yii::$app->params['b2bBotToken'],'_not_logged_',  $info['url']);
+//            $info = [
+//                    'action'=>'curl to User',
+//                    'options'=>$options,
+//                    'dataInBody'=>$dataInBody,
+//                ] + $info;
+//            Yii::info($info, 'b2bBot');
+//        }
+//        curl_close($ch);
+//        return $r;
+//    }
 
     private function sendErrorMessage ($error){
         $this->sendMessageWithBody([
