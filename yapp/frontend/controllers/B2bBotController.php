@@ -980,6 +980,9 @@ class B2bBotController extends \yii\web\Controller
 
     private function sendToServer($url, $options = [])
     {
+        return B2bSender::sendToServer($url, $options = []);
+
+
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
         $optQuery = http_build_query($options);
         $ch = curl_init($url.'?'.$optQuery);
