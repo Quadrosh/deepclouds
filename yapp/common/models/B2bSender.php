@@ -32,17 +32,20 @@ class B2bSender extends Model
                     'application/json' => Response::FORMAT_JSON,
                 ],
             ],
-//            'rateLimiter'       => [
-//                'class' => RateLimiter::className(),
-//            ],
-//            'authenticator' => [
-//                'class' => \app\components\auth\QueryParamAuth::className(),
-////                'except' => [ 'create' ],
-//            ],
+
         ];
     }
 
 
+
+    /**
+     * get info from server
+     *
+     * @param string $url
+     * @param string []  $options
+     *
+     * @return string json
+     */
 
     public function sendToServer($url, $options = [])
     {
@@ -61,11 +64,9 @@ class B2bSender extends Model
         curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
 
         // debug
-
 //        $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
 //        curl_setopt($ch, CURLOPT_VERBOSE, 1);
 //        curl_setopt($ch, CURLOPT_STDERR, $fp);
-
 
         $r = curl_exec($ch);
 
@@ -107,6 +108,16 @@ class B2bSender extends Model
     }
 
 
+
+    /**
+     * Sends message to user
+     *
+     * @param string $url
+     * @param string []  $options
+     * @param boolean  $dataInBody
+     *
+     * @return string json
+     */
     public static function sendToUser($url, $options = [], $dataInBody = false)
     {
         $ch = curl_init($url);
