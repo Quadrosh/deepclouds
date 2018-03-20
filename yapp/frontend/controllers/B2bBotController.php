@@ -1050,7 +1050,7 @@ class B2bBotController extends \yii\web\Controller
      */
     public function answerCallbackQuery(array $options = [])
     {
-        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+        $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
 //        return Json::decode($jsonResponse);
@@ -1067,7 +1067,7 @@ class B2bBotController extends \yii\web\Controller
      */
     public function answerInlineQuery(array $options = [])
     {
-        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+        $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
 //        return Json::decode($jsonResponse);
@@ -1202,25 +1202,6 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-
-    public function actionTest()
-    {
-        $input = Yii::$app->request->getRawBody();
-        $updateId = Yii::$app->request->post('update_id');
-        $message = Yii::$app->request->post('message'); // array
-        $callbackQuery = Yii::$app->request->post('callback_query'); // array
-        $inlineQuery = Yii::$app->request->post('inline_query'); // array
-
-        Yii::info([
-            'action'=>'Test request from User',
-            'input'=>Json::decode($input),
-
-        ], 'b2bBot');
-
-
-        return 'test ok';
-
-    }
 
 
 
