@@ -976,77 +976,11 @@ class B2bBotController extends \yii\web\Controller
 
     private function getOrdersFromServer($options = [])
     {
-//        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
         $sender = new B2bSender;
         $jsonResponse = $sender->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
         return Json::decode($jsonResponse);
     }
 
-
-//    private function sendToServer($url, $options = [])
-//    {
-////        return B2bSender::sendToServer($url, $options = []);
-//
-//
-//        $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
-//        $optQuery = http_build_query($options);
-//        $ch = curl_init($url.'?'.$optQuery);
-//
-//
-//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-//        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
-////        curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
-//        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
-//        curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
-//
-//        // debug
-//
-////        $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
-////        curl_setopt($ch, CURLOPT_VERBOSE, 1);
-////        curl_setopt($ch, CURLOPT_STDERR, $fp);
-//
-//
-//        $r = curl_exec($ch);
-//
-//        if($r == false){
-//            $text = 'curl error '.curl_error($ch);
-//            Yii::info($text, 'b2bBot');
-//            return $text;
-//        } else {
-//            $info = curl_getinfo($ch);
-//            $info['url'] = str_replace(Yii::$app->params['b2bServerApiKey'],'_not_logged_',  $info['url']);
-//            $options['apiKey']='_not_logged_';
-//            $info = [
-//                    'action'=>'curl to Server',
-//                    'options'=>$options,
-//                    'curl_version'=>curl_version(),
-//                ] + $info;
-//            Yii::info($info, 'b2bBot');
-//            if ($info['http_code'] == 500) {
-//                $serverError = [];
-//                $serverError['error'] = 1;
-//                $serverError['message'] = 'Извините, на сервере технические проблемы.'
-//                    .PHP_EOL .'В данный момент запрос не может быть обработан';
-//                $serverError['code'] = 500;
-//                curl_close($ch);
-//                return Json::encode($serverError);
-//            }
-//            if ($info['http_code'] == 400) {
-//                $serverError = [];
-//                $serverError['error'] = 1;
-//                $serverError['message'] = 'Извините, у нас проблемы со связью.'
-//                    .PHP_EOL .'В данный момент запрос не может быть обработан.';
-//                $serverError['code'] = 400;
-//                curl_close($ch);
-//                return Json::encode($serverError);
-//            }
-//        }
-//        curl_close($ch);
-//        return $r;
-//    }
 
 
 
@@ -1062,11 +996,14 @@ class B2bBotController extends \yii\web\Controller
      */
     public function answerCallbackQuery(array $options = [])
     {
-        $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
+        $sender = new B2bSender;
+        $jsonResponse = $sender->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
         return $jsonResponse;
     }
+
+
     /**
      *   @var array
      *   sample
@@ -1078,18 +1015,14 @@ class B2bBotController extends \yii\web\Controller
      */
     public function answerInlineQuery(array $options = [])
     {
-        $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
+        $sender = new B2bSender;
+        $jsonResponse = $sender->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
         return $jsonResponse;
     }
 
-    /**
-     *   @var array
-     *   аргументы
-     *  массив опций
-     *
-     */
+
 
 
     /**
@@ -1106,7 +1039,8 @@ class B2bBotController extends \yii\web\Controller
         $this->request->save();
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
-        $jsonResponse = B2bSender::sendToUser(
+        $sender = new B2bSender;
+        $jsonResponse = $sender->sendToUser(
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
@@ -1115,38 +1049,8 @@ class B2bBotController extends \yii\web\Controller
         return $jsonResponse;
     }
 
-//    private function sendToUser($url, $options = [], $dataInBody = false)
-//    {
-//        $ch = curl_init($url);
-//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-//        curl_setopt($ch, CURLOPT_USERAGENT, 'Telebot');
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        if (count($options)) {
-//            curl_setopt($ch, CURLOPT_POST, true);
-//            if ($dataInBody) {
-//                $bodyOptions = $options;
-//                unset($bodyOptions['chat_id']);
-//                unset($bodyOptions['text']);
-//                curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyOptions);
-//            }
-//        }
-//        $r = curl_exec($ch);
-//        if($r == false){
-//            $text = 'curl error '.curl_error($ch);
-//            Yii::info($text, 'b2bBot');
-//        } else {
-//            $info = curl_getinfo($ch);
-//            $info['url'] = str_replace(Yii::$app->params['b2bBotToken'],'_not_logged_',  $info['url']);
-//            $info = [
-//                    'action'=>'curl to User',
-//                    'options'=>$options,
-//                    'dataInBody'=>$dataInBody,
-//                ] + $info;
-//            Yii::info($info, 'b2bBot');
-//        }
-//        curl_close($ch);
-//        return $r;
-//    }
+
+
 
     private function sendErrorMessage ($error){
         $this->sendMessage([
@@ -1185,11 +1089,5 @@ class B2bBotController extends \yii\web\Controller
         return ['message' => 'ok', 'code' => 200];
     }
 
-
-
-
-
-
-
 }
-//
+
