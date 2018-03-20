@@ -196,7 +196,9 @@ class B2bBotController extends \yii\web\Controller
         }
 
         if ( $this->user['status'] == 'unconfirmed' ) {
-            $this->sendMessageWithBody([
+//            $this->sendMessageWithBody([
+            $this->sendMessage([
+
                 'chat_id' => $this->user['telegram_user_id'],
                 'text' => 'Для начала процесса авторизации уточните номер телефона, на который зарегистрирован Ваш аккаунт Телеграм.',
                 'reply_markup' => Json::encode([
@@ -284,7 +286,9 @@ class B2bBotController extends \yii\web\Controller
 
 
             } else {
-                $this->sendMessageWithBody([
+//                $this->sendMessageWithBody([
+                $this->sendMessage([
+
                     'chat_id' => $this->user['telegram_user_id'],
                     'text' => 'Неверный формат, отправьте телефон нажатием на кнопку',
                     'reply_markup' => Json::encode([
@@ -536,7 +540,9 @@ class B2bBotController extends \yii\web\Controller
      * */
     private function options()
     {
-        $this->sendMessageWithBody([
+//        $this->sendMessageWithBody([
+        $this->sendMessage([
+
             'chat_id' => $this->user['telegram_user_id'],
             'text' => 'Список доступных опций показан ниже на клавиатуре:',
             'reply_markup' => Json::encode([
@@ -581,7 +587,9 @@ class B2bBotController extends \yii\web\Controller
             '/help - памятка помощи'.PHP_EOL.
             PHP_EOL
         ;
-        $this->sendMessageWithBody([
+//        $this->sendMessageWithBody([
+        $this->sendMessage([
+
             'chat_id' => $this->user['telegram_user_id'],
             'text' => $text,
             'reply_markup' => Json::encode([
@@ -871,7 +879,8 @@ class B2bBotController extends \yii\web\Controller
                 .PHP_EOL .'-------------------------'.PHP_EOL;
         }
 
-        $this->sendMessageWithBody([
+//        $this->sendMessageWithBody([
+        $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
             'text' => $responseToUser,
             'reply_markup' => Json::encode([
@@ -928,7 +937,9 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessageWithBody([
+//        $this->sendMessageWithBody([
+        $this->sendMessage([
+
             'chat_id' => $this->user['telegram_user_id'],
             'text' => $responseToUser,
             'reply_markup' => Json::encode([
@@ -1053,7 +1064,6 @@ class B2bBotController extends \yii\web\Controller
         $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
-//        return Json::decode($jsonResponse);
         return $jsonResponse;
     }
     /**
@@ -1070,7 +1080,6 @@ class B2bBotController extends \yii\web\Controller
         $jsonResponse = B2bSender::sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
-//        return Json::decode($jsonResponse);
         return $jsonResponse;
     }
 
@@ -1080,22 +1089,22 @@ class B2bBotController extends \yii\web\Controller
      *  массив опций
      *
      */
-    public function sendMessageWithBody(array $options)
-    {
-        return $this->sendMessage($options);
-
-//        $this->request['answer'] = $options['text'];
-//        $this->request['answer_time'] = time();
-//        $this->request->save();
-//        $chat_id = $options['chat_id'];
-//        $urlEncodedText = urlencode($options['text']);
-//        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
-//            Yii::$app->params['b2bBotToken'].
-//            '/sendMessage?chat_id='.$chat_id .
-//            '&text='.$urlEncodedText, $options, true);
-////        return Json::decode($jsonResponse);
-//        return $jsonResponse;
-    }
+//    public function sendMessageWithBody(array $options)
+//    {
+//        return $this->sendMessage($options);
+//
+////        $this->request['answer'] = $options['text'];
+////        $this->request['answer_time'] = time();
+////        $this->request->save();
+////        $chat_id = $options['chat_id'];
+////        $urlEncodedText = urlencode($options['text']);
+////        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+////            Yii::$app->params['b2bBotToken'].
+////            '/sendMessage?chat_id='.$chat_id .
+////            '&text='.$urlEncodedText, $options, true);
+//////        return Json::decode($jsonResponse);
+////        return $jsonResponse;
+//    }
 
     /**
      *   @var array
@@ -1164,7 +1173,8 @@ class B2bBotController extends \yii\web\Controller
 //    }
 
     private function sendErrorMessage ($error){
-        $this->sendMessageWithBody([
+//        $this->sendMessageWithBody([
+        $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
             'text' => $error,
             'reply_markup' => Json::encode([
