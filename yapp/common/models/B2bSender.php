@@ -5,7 +5,9 @@ namespace common\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\base\Model;
-
+use yii\filters\ContentNegotiator;
+use yii\helpers\Json;
+use yii\web\Response;
 
 /**
  * This is the sender class.
@@ -22,7 +24,23 @@ use yii\base\Model;
 class B2bSender extends Model
 {
 
-
+    public function behaviors() {
+        return [
+            'contentNegotiator' => [
+                'class'   => ContentNegotiator::className(),
+                'formats' => [
+                    'application/json' => Response::FORMAT_JSON,
+                ],
+            ],
+//            'rateLimiter'       => [
+//                'class' => RateLimiter::className(),
+//            ],
+//            'authenticator' => [
+//                'class' => \app\components\auth\QueryParamAuth::className(),
+////                'except' => [ 'create' ],
+//            ],
+        ];
+    }
 
 
     public static function sendToUser($url, $options = [], $dataInBody = false)
