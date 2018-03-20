@@ -44,7 +44,7 @@ class B2bSender extends Model
 
 
 
-    public static function sendToServer($url, $options = [])
+    public function sendToServer($url, $options = [])
     {
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
         $optQuery = http_build_query($options);
