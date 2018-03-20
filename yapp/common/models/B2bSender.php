@@ -106,6 +106,7 @@ class B2bSender extends Model
         return $r;
     }
 
+
     public static function sendToUser($url, $options = [], $dataInBody = false)
     {
         $ch = curl_init($url);

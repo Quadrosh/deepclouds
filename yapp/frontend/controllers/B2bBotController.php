@@ -973,14 +973,15 @@ class B2bBotController extends \yii\web\Controller
 
     private function getOrdersFromServer($options = [])
     {
-        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
+//        $jsonResponse = $this->sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
+        $jsonResponse = B2bSender::sendToServer(Yii::$app->params['b2bServerPathProdLastOrders'], $options);
         return Json::decode($jsonResponse);
     }
 
 
     private function sendToServer($url, $options = [])
     {
-        return B2bSender::sendToServer($url, $options = []);
+//        return B2bSender::sendToServer($url, $options = []);
 
 
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
