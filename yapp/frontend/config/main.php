@@ -12,6 +12,13 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            // 'useFileTransport'  true = send all mails to a file
+            // 'useFileTransport'  false + configure a transport =  mailer send real emails.
+
+            'useFileTransport' => false,
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'parsers' => [

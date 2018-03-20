@@ -8,12 +8,6 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // 'useFileTransport'  true = send all mails to a file
-            // 'useFileTransport'  false + configure a transport =  mailer send real emails.
 
-            'useFileTransport' => false,
-        ],
     ],
 ];
