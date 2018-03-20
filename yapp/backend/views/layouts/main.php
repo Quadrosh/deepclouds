@@ -34,53 +34,37 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Deepclouds',
-        'brandUrl' => Yii::$app->homeUrl,
+//        'brandLabel' => 'Deepclouds',
+//        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
         Yii::$app->user->can('creatorPermission', [])
-            ? (['label' => 'Admins', 'url' => ['/usermanage']])
+            ? (['label' => 'Администраторы', 'url' => ['/usermanage']])
             : (['label' => false]),
 
 
 
-        [
-            'label' => 'БОТ Development',
-            'items' => [
-                ['label' => 'b2bDealer', 'url' => ['/b2b-dealer']],
-                ['label' => 'b2bBotUser', 'url' => ['/b2b-bot-user']],
-                ['label' => 'b2bBotRequest', 'url' => ['/b2b-bot-request']],
-            ],
-        ],
 //        [
-//            'label' => 'Библиотека',
+//            'label' => 'БОТ Development',
 //            'items' => [
-//                ['label' => 'Article page', 'url' => ['/article/index']],
-//                ['label' => 'Article section', 'url' => ['/articlesection/index']],
-//                ['label' => 'Happiness page', 'url' => ['/happypage/index']],
-//                ['label' => 'Happiness section', 'url' => ['/happysection/index']],
-//                ['label' => 'Index Pages', 'url' => ['/page/index']],
-//                ['label' => 'Категории', 'url' => ['/category/index']],
-//                ['label' => 'Quotepad', 'url' => ['/quotepad/index']],
-//                ['label' => 'Quotepad Images', 'url' => ['/quotepadimg/index']],
-//                ['label' => 'Картинки', 'url' => ['/imagefile/index']],
-//                ['label' => 'Заявки', 'url' => ['/feedback/index']],
-//
+//                ['label' => 'b2bDealer', 'url' => ['/b2b-dealer']],
+//                ['label' => 'b2bBotUser', 'url' => ['/b2b-bot-user']],
+//                ['label' => 'b2bBotRequest', 'url' => ['/b2b-bot-request']],
 //            ],
 //        ],
 
 
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                'Выйти (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
@@ -88,6 +72,7 @@ AppAsset::register($this);
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+//        'options' => ['class' =>'nav-pills'],
         'items' => $menuItems,
     ]);
     NavBar::end();
@@ -97,10 +82,45 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<!--        --><?//= Alert::widget() ?>
+<!--        --><?//= $content ?>
+
+            <div class=" row match-my-cols overhide">
+                <div class="col-sm-3 hidden-xs b-sidebar ">
+                    <div >
+                            <?= common\widgets\SidemenuWidget::widget([
+                                'site'=>Yii::$app->params['site'],
+                                'formfactor'=>'accordion',
+                                'currentItem'=> 1
+                            ]); ?>
+
+                    </div><!-- b-sidebar__no_banner -->
+
+                </div><!-- /.b-sidebar -->
+                <div class="col-sm-9 col-xs-12  b-content pt20">
+
+                    <?= Alert::widget() ?>
+                    <?= $content ?>
+
+
+
+                </div><!-- /.b-content -->
+                <div id="push"></div>
+            </div>
+
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <footer class="footer">
     <div class="container">

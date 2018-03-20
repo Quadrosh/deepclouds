@@ -6,6 +6,7 @@ namespace frontend\controllers;
 use common\models\B2bBotRequest;
 use common\models\B2bBotUser;
 use common\models\B2bDealer;
+use common\models\B2bSender;
 use yii\filters\ContentNegotiator;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -1108,11 +1109,22 @@ class B2bBotController extends \yii\web\Controller
         $this->request->save();
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
-        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+//        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'].
+//            '/sendMessage?chat_id='.$chat_id .
+//            '&text='.$urlEncodedText, $options, $dataInBody);
+        $jsonResponse = B2bSender::sendToUser(
+            'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
-            '&text='.$urlEncodedText, $options, $dataInBody);
-//        return Json::decode($jsonResponse);
+            '&text='.$urlEncodedText, $options, $dataInBody
+        );
+//        $jsonResponse = $this->sendToUser('https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'].
+//            '/sendMessage?chat_id='.$chat_id .
+//            '&text='.$urlEncodedText, $options, $dataInBody);
+
+
         return $jsonResponse;
     }
 
