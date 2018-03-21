@@ -32,7 +32,6 @@ AppAsset::register($this);
 </head>
 <body >
 <?php $this->beginBody() ?>
-<div class="background"></div>
 
 <div class="wrap fullheight">
 
@@ -49,9 +48,6 @@ AppAsset::register($this);
                 <div id="sideMenu" class="col-sm-3 hidde_less767 iconMenu ">
                     <?= Html::img('/att_logo.png',['class'=>'navbar_brand']) ?>
                     <h4 class="text-center navbar_brand_lead">B2B bot</h4>
-
-<!--                    <h5>--><?//= \yii\helpers\Url::current() ?><!--</h5>-->
-
                     <div >
                             <?= common\widgets\SidemenuWidget::widget([
                                 'site'=>Yii::$app->params['site'],
@@ -62,14 +58,10 @@ AppAsset::register($this);
                     </div>
 
                 </div>
-                <div class="col-sm-offset-3 col-sm-9 col-xs-12 workArea ">
-
+                <div class="col-sm-offset-3 col-sm-9 col-xs-12 nopadding">
                     <?php
                     NavBar::begin([
-//        'brandLabel' => 'Deepclouds',
-//        'brandUrl' => Yii::$app->homeUrl,
                         'options' => [
-//                            'class' => 'navbar-inverse navbar-fixed-top',
                             'class' => 'navbar-inverse ',
                         ],
                     ]);
@@ -77,8 +69,6 @@ AppAsset::register($this);
                         Yii::$app->user->can('creatorPermission', [])
                             ? (['label' => 'Администраторы', 'url' => ['/usermanage']])
                             : (['label' => false]),
-
-
                     ];
                     if (Yii::$app->user->isGuest) {
                         $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
@@ -98,6 +88,10 @@ AppAsset::register($this);
                     ]);
                     NavBar::end();
                     ?>
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 col-xs-12 workArea ">
+
+
 
                     <?= Breadcrumbs::widget([
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

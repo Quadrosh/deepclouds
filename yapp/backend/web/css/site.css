@@ -23,15 +23,12 @@ body {
     height: 100%;
 }
 .workArea {
-    /*background-color: #eff3f6;*/
     height: 100%;
     overflow: hidden;
 }
-/*.background {*/
-    /*position: absolute;*/
-    /*height: 100%;*/
-    /*background-color: #eff3f6;*/
-/*}*/
+.nopadding{
+    padding: 0;
+}
 .wrap {
     min-height: 100%;
     height: auto;
@@ -51,7 +48,7 @@ body {
     background-color: #5b6be8;
     border-color: #5b6be8;
     border-radius: 0;
-    position: absolute;
+    position: relative;
     left: 0;
     width: 100%;
 }
@@ -102,7 +99,6 @@ body {
 }
 
 .breadcrumb {
-    margin-top: 60px;
     background-color: transparent;
 }
 
