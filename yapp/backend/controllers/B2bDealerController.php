@@ -12,22 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * B2bDealerController implements the CRUD actions for B2bDealer model.
  */
-class B2bDealerController extends Controller
+class B2bDealerController extends BackController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+    public $currentMenuItem = 4;
 
     /**
      * Lists all B2bDealer models.
@@ -35,6 +22,7 @@ class B2bDealerController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->params['currentMenuItem']  = $this->currentMenuItem;
         $dataProvider = new ActiveDataProvider([
             'query' => B2bDealer::find(),
         ]);

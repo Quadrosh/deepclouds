@@ -15,17 +15,7 @@ class SiteController extends BackController
     public $layout = 'site';
 
 
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
+
 
     /**
      * Displays homepage.

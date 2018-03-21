@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\B2bBotUser */
 
-$this->title = 'Update B2b Bot User: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'B2b Bot Users', 'url' => ['index']];
+$this->title = 'Изменение пользователя: '.$model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

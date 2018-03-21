@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\B2bBotUser */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'B2b Bot Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="b2b-bot-user-view">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Точно удалить?',
                 'method' => 'post',
             ],
         ]) ?>

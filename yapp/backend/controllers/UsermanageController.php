@@ -15,7 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * UsermanageController implements the CRUD actions for User model.
  */
-class UsermanageController extends Controller
+class UsermanageController extends BackController
 {
     /**
      * @inheritdoc
@@ -87,8 +87,7 @@ class UsermanageController extends Controller
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) ) {
-//            var_dump($model); die;
-//            var_dump(Yii::$app->request->post()); die;
+
             $model->password_hash = Yii::$app->security->generatePasswordHash($model->password);
 
             $model->status = 10;

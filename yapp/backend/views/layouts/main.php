@@ -10,6 +10,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
+$currentMenuItem = Yii::$app->params['currentMenuItem'];
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -28,83 +30,92 @@ AppAsset::register($this);
     <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="256x256" href="/img/favicon/apple-touch-icon-256x256.png">
 </head>
-<body>
+<body >
 <?php $this->beginBody() ?>
+<div class="background"></div>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-//        'brandLabel' => 'Deepclouds',
-//        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        Yii::$app->user->can('creatorPermission', [])
-            ? (['label' => 'Администраторы', 'url' => ['/usermanage']])
-            : (['label' => false]),
+<div class="wrap fullheight">
+
+    <div id="newHamburgerMenu" class="newHamburger hide_more768">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container fullheight">
 
 
+            <div class=" row  fullheight ">
+                <div id="sideMenu" class="col-sm-3 hidde_less767 iconMenu ">
+                    <?= Html::img('/att_logo.png',['class'=>'navbar_brand']) ?>
+                    <h4 class="text-center navbar_brand_lead">B2B bot</h4>
 
-//        [
-//            'label' => 'БОТ Development',
-//            'items' => [
-//                ['label' => 'b2bDealer', 'url' => ['/b2b-dealer']],
-//                ['label' => 'b2bBotUser', 'url' => ['/b2b-bot-user']],
-//                ['label' => 'b2bBotRequest', 'url' => ['/b2b-bot-request']],
-//            ],
-//        ],
+<!--                    <h5>--><?//= \yii\helpers\Url::current() ?><!--</h5>-->
 
-
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Выйти (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-//        'options' => ['class' =>'nav-pills'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-<!--        --><?//= Alert::widget() ?>
-<!--        --><?//= $content ?>
-
-            <div class=" row match-my-cols overhide">
-                <div class="col-sm-3 hidden-xs b-sidebar ">
                     <div >
                             <?= common\widgets\SidemenuWidget::widget([
                                 'site'=>Yii::$app->params['site'],
                                 'formfactor'=>'accordion',
-                                'currentItem'=> 1
+                                'currentItem'=> $currentMenuItem
                             ]); ?>
+                        <div id="sideMenuCloseButton" class="closeButton hide_more768">X</div>
+                    </div>
 
-                    </div><!-- b-sidebar__no_banner -->
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 col-xs-12 workArea ">
 
-                </div><!-- /.b-sidebar -->
-                <div class="col-sm-9 col-xs-12  b-content pt20">
+                    <?php
+                    NavBar::begin([
+//        'brandLabel' => 'Deepclouds',
+//        'brandUrl' => Yii::$app->homeUrl,
+                        'options' => [
+//                            'class' => 'navbar-inverse navbar-fixed-top',
+                            'class' => 'navbar-inverse ',
+                        ],
+                    ]);
+                    $menuItems = [
+                        Yii::$app->user->can('creatorPermission', [])
+                            ? (['label' => 'Администраторы', 'url' => ['/usermanage']])
+                            : (['label' => false]),
+
+
+                    ];
+                    if (Yii::$app->user->isGuest) {
+                        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
+                    } else {
+                        $menuItems[] = '<li>'
+                            . Html::beginForm(['/site/logout'], 'post')
+                            . Html::submitButton(
+                                'Выйти (' . Yii::$app->user->identity->username . ')',
+                                ['class' => 'btn btn-link logout']
+                            )
+                            . Html::endForm()
+                            . '</li>';
+                    }
+                    echo Nav::widget([
+                        'options' => ['class' => 'navbar-nav navbar-right'],
+                        'items' => $menuItems,
+                    ]);
+                    NavBar::end();
+                    ?>
+
+                    <?= Breadcrumbs::widget([
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]) ?>
 
                     <?= Alert::widget() ?>
                     <?= $content ?>
 
 
+<!--                    <footer class="footer">-->
+<!--                        <div class="container">-->
+<!--                            <p class="pull-left">&copy; Deepclouds --><?//= date('Y') ?><!--</p>-->
+<!---->
+<!---->
+<!--                        </div>-->
+<!--                    </footer>-->
 
-                </div><!-- /.b-content -->
+                </div>
                 <div id="push"></div>
             </div>
 
@@ -122,13 +133,7 @@ AppAsset::register($this);
 
 
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; Deepclouds <?= date('Y') ?></p>
 
-<!--        <p class="pull-right">Круто же)</p>-->
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

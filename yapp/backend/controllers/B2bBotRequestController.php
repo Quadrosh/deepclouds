@@ -12,22 +12,11 @@ use yii\filters\VerbFilter;
 /**
  * B2bBotRequestController implements the CRUD actions for B2bBotRequest model.
  */
-class B2bBotRequestController extends Controller
+class B2bBotRequestController extends BackController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+
+    public $currentMenuItem = 6;
+
 
     /**
      * Lists all B2bBotRequest models.
@@ -35,6 +24,7 @@ class B2bBotRequestController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->params['currentMenuItem']  = $this->currentMenuItem;
         $dataProvider = new ActiveDataProvider([
             'query' => B2bBotRequest::find(),
             'pagination'=> [

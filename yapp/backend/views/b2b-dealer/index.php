@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'B2b Dealers';
+$this->title = 'Дилеры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="b2b-dealer-index">
@@ -14,19 +14,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create B2b Dealer', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать дилера', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+//            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'name',
-            'email:email',
+//            'email:email',
             'phone',
-            'entry_phones',
+//            'entry_phones',
             'status',
             //'updated_at',
             //'created_at',

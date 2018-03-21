@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\B2bDealer */
 
-$this->title = 'Create B2b Dealer';
-$this->params['breadcrumbs'][] = ['label' => 'B2b Dealers', 'url' => ['index']];
+$this->title = 'Создание дилера';
+$this->params['breadcrumbs'][] = ['label' => 'Дилеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="b2b-dealer-create">

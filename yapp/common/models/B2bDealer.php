@@ -55,11 +55,11 @@ class B2bDealer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'entry_phones' => 'Entry Phones',
-            'status' => 'Status',
+            'phone' => 'Основной телефон',
+            'entry_phones' => 'Телефоны сотрудников',
+            'status' => 'Статус',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
         ];
