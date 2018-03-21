@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "MontserratRegular";
+    src: url("fonts/Montserrat/Montserrat-Regular.eot");
+    src: url("fonts/Montserrat/Montserrat-Regular.eot?#iefix") format("embedded-opentype"),
+    /*url("fonts/MontserratRegular/MontserratRegular.woff") format("woff"),*/
+    url("fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+
 /* =============================================================================
    HTML5 CSS Reset Minified - Eric Meyer
    ========================================================================== */
@@ -80,9 +92,9 @@ canvas{
     top:0;
 
 }
-.deepLogoSvg_st0{
+.deepLogoSvg_st1{
     fill:rgba(255,255,255,0.09);
 }
-.deepLogoSvg_st1{
+.deepLogoSvg_st4{
     stroke: rgba(255,255,255,0.09);
 }
