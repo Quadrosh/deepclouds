@@ -79,6 +79,7 @@ class B2bBotController extends \yii\web\Controller
 
         ], 'b2bBot');
 
+        return Json::encode(['message' => 'ok', 'code' => 200]) ;
         return ['message' => 'ok', 'code' => 200];
 
 
