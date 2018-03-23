@@ -82,11 +82,11 @@ class B2bBotController extends \yii\web\Controller
 
 
         $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
+            'chat_id' => $message['from']['id'],
             'text' => 'Извините, у нас технический перерыв',
         ]);
 
-        return "ok";
+
 
 
         if ($message) {
@@ -98,6 +98,13 @@ class B2bBotController extends \yii\web\Controller
         } else {
             $user = null;
         }
+
+
+
+
+        return "ok";
+
+
 
         if (!$user) {
             $user = new B2bBotUser;
