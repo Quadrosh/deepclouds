@@ -166,10 +166,10 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Извините, у нас технический перерыв',
-        ]);
+//        $this->sendMessage([
+//            'chat_id' => $this->user['telegram_user_id'],
+//            'text' => 'Извините, у нас технический перерыв',
+//        ]);
 
         return ['message' => 'ok', 'code' => 200];
 
