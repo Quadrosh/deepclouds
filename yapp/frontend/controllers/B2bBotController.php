@@ -79,6 +79,7 @@ class B2bBotController extends \yii\web\Controller
 
         ], 'b2bBot');
 
+        return ['message' => 'ok', 'code' => 200];
 
 
 //        $this->sendMessage([
