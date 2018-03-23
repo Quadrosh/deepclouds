@@ -20,12 +20,13 @@ class WorkerController extends Controller {
 
         $worker = new \GearmanWorker();
         $worker->addServer();
-        $worker->addFunction('revert_string','simple_rev');
+        $worker->addFunction('revert_string', 'simple_rev_function');
         $worker->work();
 
 //while($worker->work());
 
-        function simple_rev($job){
+        function simple_rev_function($job)
+        {
             $content = $job->workload();
             return mb_strtoupper(strrev($content));
         }
