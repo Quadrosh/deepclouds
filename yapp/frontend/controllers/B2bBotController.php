@@ -81,11 +81,11 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessage([
-            'chat_id' => $message['from']['id'],
-            'text' => 'Извините, у нас технический перерыв',
-        ]);
-        return "ok";
+//        $this->sendMessage([
+//            'chat_id' => $message['from']['id'],
+//            'text' => 'Извините, у нас технический перерыв',
+//        ]);
+//        return "ok";
 
 
         if ($message) {
@@ -97,10 +97,6 @@ class B2bBotController extends \yii\web\Controller
         } else {
             $user = null;
         }
-
-
-
-
 
 
 
@@ -136,12 +132,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Извините, у нас технический перерыв',
-        ]);
 
-        return "ok";
 
 
 
@@ -170,6 +161,19 @@ class B2bBotController extends \yii\web\Controller
         }
 
         $this->request->save();
+
+
+
+
+
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'Извините, у нас технический перерыв',
+        ]);
+
+        return "ok";
+
+
 
         //  проверка авторизации
         if (!$this->checkAuth()) {
