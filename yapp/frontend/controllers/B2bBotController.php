@@ -67,7 +67,6 @@ class B2bBotController extends \yii\web\Controller
      * */
     public function actionDo()
     {
-        return ['message' => 'ok', 'code' => 200];
 
         $input = Yii::$app->request->getRawBody();
         $updateId = Yii::$app->request->post('update_id');
@@ -81,15 +80,6 @@ class B2bBotController extends \yii\web\Controller
 
         ], 'b2bBot');
 
-        return Json::encode(['message' => 'ok', 'code' => 200]) ;
-        return ['message' => 'ok', 'code' => 200];
-
-
-//        $this->sendMessage([
-//            'chat_id' => $message['from']['id'],
-//            'text' => 'Извините, у нас технический перерыв',
-//        ]);
-//        return "ok";
 
 
         if ($message) {
@@ -174,8 +164,7 @@ class B2bBotController extends \yii\web\Controller
 //            'chat_id' => $this->user['telegram_user_id'],
 //            'text' => 'Извините, у нас технический перерыв',
 //        ]);
-
-        return ['message' => 'ok', 'code' => 200];
+//        return ['message' => 'ok', 'code' => 200];
 
 
 
