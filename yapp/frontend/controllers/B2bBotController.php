@@ -85,8 +85,7 @@ class B2bBotController extends \yii\web\Controller
             'chat_id' => $message['from']['id'],
             'text' => 'Извините, у нас технический перерыв',
         ]);
-
-
+        return "ok";
 
 
         if ($message) {
@@ -102,7 +101,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        return "ok";
+
 
 
 
