@@ -177,9 +177,11 @@ class B2bSender extends Model
         $client = new \GearmanClient();
         $client->addServer();
         $client->setTimeout(29000);
-        $haveGoodServer = $client->echo('');
+
+//        $haveGoodServer = $client->echo('');
+
         $data = 'slon yooo';
-        $res = $client->do('revert_string', $data);
+        $res = $client->doNormal('revert_string', $data);
         return $res;
     }
 }
