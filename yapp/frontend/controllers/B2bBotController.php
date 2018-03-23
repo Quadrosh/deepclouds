@@ -80,7 +80,7 @@ class B2bBotController extends \yii\web\Controller
         ], 'b2bBot');
 
 
-        return "ok";
+
 
         if ($message) {
             $user = B2bBotUser::find()->where(['telegram_user_id'=>$message['from']['id']])->one();
@@ -123,9 +123,12 @@ class B2bBotController extends \yii\web\Controller
 
 
 
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'Извините, у нас технический перерыв',
+        ]);
 
-
-
+        return "ok";
 
 
 
