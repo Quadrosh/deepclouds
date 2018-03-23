@@ -18,7 +18,7 @@ class WorkerController extends Controller {
 
     public function actionIndex() {
 
-        $worker = new GearmanWorker();
+        $worker = new \GearmanWorker();
         $worker->addServer();
         $worker->addFunction('revert_string','simpleRev');
         $worker->work();
