@@ -22,10 +22,15 @@ class WorkerController extends Controller {
         $worker->addServer();
 
 //        $worker->addFunction("reverse", "reverse_cb", $count);
-        $worker->addFunction("reverse", "php yii worker/dojob");
+        $worker->addFunction("reverse", reverse_cb());
 //        $worker->work();
 
         while($worker->work());
+        function reverse_cb($job) {
+
+            return  strrev($job->workload());
+
+        }
 
 
     }

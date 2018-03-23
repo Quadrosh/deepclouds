@@ -174,7 +174,7 @@ class B2bSender extends Model
 
     public function sendByWorker()
     {
-        $client = new GearmanClient();
+        $client = new \GearmanClient();
         $client->addServer();
         $client->setTimeout(29000);
         $haveGoodServer = $client->echo('');
