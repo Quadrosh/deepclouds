@@ -20,17 +20,19 @@ class WorkerController extends Controller {
 
         $worker = new \GearmanWorker();
         $worker->addServer();
-        $count= 0;
-        $worker->addFunction("reverse", "reverse_cb", $count);
+
+//        $worker->addFunction("reverse", "reverse_cb", $count);
+        $worker->addFunction("reverse", "php yii worker/dojob");
 //        $worker->work();
 
         while($worker->work());
 
-        function reverse_cb($job,&$count)
-        {
-            $count++;
-            return "$count: " . strrev($job->workload());
-        }
+
+    }
+
+    public function actionDojob($job) {
+
+            return  strrev($job->workload());
 
     }
 }
