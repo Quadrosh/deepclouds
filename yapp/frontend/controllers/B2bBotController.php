@@ -171,7 +171,7 @@ class B2bBotController extends \yii\web\Controller
             'text' => 'Извините, у нас технический перерыв',
         ]);
 
-        return "ok";
+        return ['message' => 'ok', 'code' => 200];
 
 
 
