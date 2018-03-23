@@ -20,15 +20,16 @@ class WorkerController extends Controller {
 
         $worker = new \GearmanWorker();
         $worker->addServer();
-        $worker->addFunction("revert_string", "simple_rev_function");
+        $count= 0;
+        $worker->addFunction("reverse", "reverse_cb", $count);
 //        $worker->work();
 
         while($worker->work());
 
-        function simple_rev_function($job)
+        function reverse_cb($job,&$count)
         {
-            $content = $job->workload();
-            return mb_strtoupper(strrev($content));
+            $count++;
+            return "$count: " . strrev($job->workload());
         }
 
     }
