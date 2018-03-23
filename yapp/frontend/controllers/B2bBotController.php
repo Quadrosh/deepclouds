@@ -159,15 +159,6 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-
-//        $this->sendMessage([
-//            'chat_id' => $this->user['telegram_user_id'],
-//            'text' => 'Извините, у нас технический перерыв',
-//        ]);
-//        return ['message' => 'ok', 'code' => 200];
-
-
-
         //  проверка авторизации
         if (!$this->checkAuth()) {
             return ['message' => 'ok', 'code' => 200];
@@ -333,9 +324,11 @@ class B2bBotController extends \yii\web\Controller
      * @return array Массив с кодом 200 (индикация успешной обработки запроса)
      * */
     private function textMessageAction($message){
+
         if (trim(strtolower($message['text'])) == '/start') {
             return $this->helloMessage();
         }
+
         if (trim(strtolower($message['text'])) == '/orders' ||
             $message['text'] == 'Мои заказы') {
             return $this->orders();
@@ -348,14 +341,10 @@ class B2bBotController extends \yii\web\Controller
             return $this->order($orderId);
         }
 
-
         elseif (strtolower($message['text']) == '/options' ||
             $message['text'] == 'Опции'){
             return $this->options();
         }
-
-
-
 
         elseif (trim(strtolower($message['text'])) == '/help' ||
             $message['text'] == 'Помощь') {
@@ -430,6 +419,12 @@ class B2bBotController extends \yii\web\Controller
             return $this->searchProcess($message['text'], $limit);
         }
 
+
+        elseif (trim(strtolower($message['text'])) == '/debug' ){
+            $sender = new B2bSender;
+            $jsonResponse = $sender->sendByWorker();
+            return $jsonResponse;
+        }
 
 
         $this->sendMessage([

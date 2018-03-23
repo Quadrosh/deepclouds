@@ -169,4 +169,17 @@ class B2bSender extends Model
             )
             ->send();
     }
+
+
+
+    public function sendByWorker()
+    {
+        $client = new GearmanClient();
+        $client->addServer();
+        $client->setTimeout(29000);
+        $haveGoodServer = $client->echo('');
+        $data = 'slon yooo';
+        $res = $client->do('revert_string', $data);
+        return $res;
+    }
 }
