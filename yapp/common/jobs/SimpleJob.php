@@ -29,12 +29,14 @@ class SimpleJob extends JobBase
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
 
-        $sender = new B2bSender();
+        $sender = new B2bSender;
         $sender->sendToUser('https://api.telegram.org/bot' .
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, true);
+
+        return 'it seems i send something';
     }
 
 
