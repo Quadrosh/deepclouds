@@ -7,6 +7,24 @@ return [
             'gearmanComponent' => 'gearman'
         ],
     ],
+    'log' => [
+        'traceLevel' => YII_DEBUG ? 3 : 0,
+        'targets' => [
+            [
+                'class' => 'yii\log\FileTarget',
+                'levels' => ['error', 'warning'],
+            ],
+            [
+                'class' => 'yii\log\FileTarget',
+                'levels' => ['info'],
+                'categories' => ['b2bBot'],
+                'logFile' => '@runtime/logs/b2bBot.log',
+                'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
+                'maxFileSize' => 1024 * 2,
+                'maxLogFiles' => 20,
+            ],
+        ],
+    ],
     'components' => [
         'gearman' => [
             'class' => 'shakura\yii2\gearman\GearmanComponent',
