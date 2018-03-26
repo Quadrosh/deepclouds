@@ -11,25 +11,8 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'controllerMap' => [
-        'gearman' => [
-            'class' => 'shakura\yii2\gearman\GearmanController',
-            'gearmanComponent' => 'gearman'
-        ],
-    ],
     'components' => [
-        'gearman' => [
-            'class' => 'shakura\yii2\gearman\GearmanComponent',
-            'servers' => [
-                ['host' => '127.0.0.1', 'port' => 4730],
-            ],
-            'user' => 'www-data',
-            'jobs' => [
-                'simpleJob' => [
-                    'class' => 'common\jobs\SimpleJob'
-                ],
-            ]
-        ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // 'useFileTransport'  true = send all mails to a file
