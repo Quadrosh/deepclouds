@@ -18,6 +18,9 @@ return [
                 'simpleJob' => [
                     'class' => 'common\jobs\SimpleJob'
                 ],
+                'syncCalendar' => [
+                    'class' => 'common\jobs\SyncCalendar'
+                ],
             ]
         ],
         'authManager' => [
