@@ -180,13 +180,19 @@ class B2bSender extends Model
             'action'=>'sender sendByWorker',
         ];
         Yii::info($info, 'b2bBot');
-        Yii::$app->gearman->getDispatcher()->background('simpleJob', new JobWorkload([
+//        Yii::$app->gearman->getDispatcher()->background('simpleJob', new JobWorkload([
+//            'params' => [
+//                'data' => 'value'
+//            ]
+//        ]));
+
+        return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
             'params' => [
                 'data' => 'value'
             ]
         ]));
 
-        return 'sent to gearman';
+//        return 'sent to gearman';
 
 //        $client = new \GearmanClient();
 //        $client->addServer();
