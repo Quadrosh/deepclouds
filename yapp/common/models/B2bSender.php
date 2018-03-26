@@ -176,6 +176,10 @@ class B2bSender extends Model
     public function sendByWorker()
     {
 
+        $info = [
+            'action'=>'sender sendByWorker',
+        ];
+        Yii::info($info, 'b2bBot');
         Yii::$app->gearman->getDispatcher()->background('syncCalendar', new JobWorkload([
             'params' => [
                 'data' => 'value'
