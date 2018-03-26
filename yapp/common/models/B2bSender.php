@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use shakura\yii2\gearman\JobWorkload;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\base\Model;
@@ -174,14 +175,19 @@ class B2bSender extends Model
 
     public function sendByWorker()
     {
-        $client = new \GearmanClient();
-        $client->addServer();
-        $client->setTimeout(29000);
 
-//        $haveGoodServer = $client->echo('');
+        Yii::$app->gearman->getDispatcher()->background('syncCalendar', new JobWorkload([
+            'params' => [
+                'data' => 'value'
+            ]
+        ]));
 
-        $data = 'slon yooo';
-        $res = $client->doNormal('revert_string', $data);
-        return $res;
+//        $client = new \GearmanClient();
+//        $client->addServer();
+//        $client->setTimeout(29000);
+//
+//        $data = 'slon yooo';
+//        $res = $client->doNormal('revert_string', $data);
+//        return $res;
     }
 }
