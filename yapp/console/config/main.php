@@ -25,16 +25,14 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['trace'],
+                    'logVars' => [],
+                    'logFile' => '@runtime/logs/commands.log'
+                ]
             ],
-//            [
-//                'class' => 'yii\log\FileTarget',
-//                'levels' => ['info'],
-//                'categories' => ['b2bBot'],
-//                'logFile' => '@runtime/logs/b2bBotConsole.log',
-//                'logVars' => [],   // $_GET, $_POST, $_FILES, $_COOKIE, $_SESSION, $_SERVER
-//                'maxFileSize' => 1024 * 2,
-//                'maxLogFiles' => 20,
-//            ],
+
         ],
     ],
     'params' => $params,
