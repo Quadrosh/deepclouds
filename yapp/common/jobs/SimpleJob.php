@@ -13,6 +13,8 @@ class SimpleJob extends JobBase
         // Do something
 //        $content = $job->workload();
 
+        return 'there job done too';
+
         $info = [
             'action'=>'Gearman job',
             'job->workload'=>$job->workload(),

@@ -181,6 +181,18 @@ class B2bSender extends Model
         ];
         Yii::info($info, 'b2bBot');
 
+//        return Yii::$app->gearman->getDispatcher()->execute('syncCalendar', new JobWorkload([
+//            'params' => [
+//                'data' => 'value'
+//            ]
+//        ]));
+
+        return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
+            'params' => [
+                'data' => 'value'
+            ]
+        ]));
+
 
 //        Yii::$app->gearman->getDispatcher()->background('simpleJob', new JobWorkload([
 //            'params' => [
@@ -188,11 +200,7 @@ class B2bSender extends Model
 //            ]
 //        ]));
 
-        return Yii::$app->gearman->getDispatcher()->execute('syncCalendar', new JobWorkload([
-            'params' => [
-                'data' => 'value'
-            ]
-        ]));
+
 
 //        return 'sent to gearman';
 
