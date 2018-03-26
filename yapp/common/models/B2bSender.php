@@ -186,6 +186,7 @@ class B2bSender extends Model
             ]
         ]));
 
+        return 'sent to gearman';
 //        $client = new \GearmanClient();
 //        $client->addServer();
 //        $client->setTimeout(29000);
