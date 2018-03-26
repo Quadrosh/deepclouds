@@ -30,7 +30,7 @@ return [
                     'levels' => ['trace'],
                     'categories' => ['b2bBot'],
                     'logVars' => [],
-                    'logFile' => '@runtime/logs/commands.log'
+                    'logFile' => '@runtime/logs/b2bBot_commands.log'
                 ]
             ],
 
