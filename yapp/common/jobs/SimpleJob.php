@@ -15,6 +15,8 @@ class SimpleJob extends JobBase
         $workload = $job->workload();
 
         $unserialWorkload = unserialize($workload);
+        $par1 = $unserialWorkload->params;
+        $par2 = $unserialWorkload['params'];
 //        $optionsFrom = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
 
@@ -37,8 +39,8 @@ class SimpleJob extends JobBase
             'options'=>$options,
             'workload'=>$workload,
             'unserialWorkload'=>$unserialWorkload,
-//            'serialOptions'=>$serialOptions,
-            'result'=>$result,
+            '$par1'=>$par1,
+            '$par2'=>$par2,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
