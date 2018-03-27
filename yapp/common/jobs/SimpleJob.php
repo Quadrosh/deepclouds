@@ -13,7 +13,9 @@ class SimpleJob extends JobBase
     public function execute(\GearmanJob $job = null)
     {
         $workload = $job->workload();
-        $optionsFrom = unserialize($workload['options']);
+
+        $unserialWorkload = unserialize($workload);
+//        $optionsFrom = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
 
         $options = [
@@ -34,6 +36,7 @@ class SimpleJob extends JobBase
             'action'=>'B2B Gearman Job send 2 user',
             'options'=>$options,
             'workload'=>$workload,
+            'unserialWorkload'=>$unserialWorkload,
 //            'serialOptions'=>$serialOptions,
             'result'=>$result,
         ];
@@ -41,7 +44,7 @@ class SimpleJob extends JobBase
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
-        return $optionsFrom;
+        return 'true';
     }
 
 
