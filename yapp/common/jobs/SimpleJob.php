@@ -18,13 +18,13 @@ class SimpleJob extends JobBase
 
         $info = [
             'action'=>'B2B Gearman job',
-//            'job->workload'=>$job->workload(),
+            'job->workload'=>$job->workload(),
         ];
 
 
         $path = dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log';
         file_put_contents($path, '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info).PHP_EOL, FILE_APPEND);
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
 
 
