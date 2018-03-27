@@ -18,7 +18,7 @@ class SimpleJob extends JobBase
 
         $info = [
             'action'=>'B2B Gearman job',
-            'job->workload'=>$job->workload(),
+//            'job->workload'=>$job->workload(),
         ];
 
 
