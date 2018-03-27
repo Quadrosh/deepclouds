@@ -2,6 +2,7 @@
 
 namespace common\jobs;
 use common\models\B2bSender;
+use shakura\yii2\gearman\JobWorkload;
 use Yii;
 
 
@@ -15,8 +16,10 @@ class SimpleJob extends JobBase
         $workload = $job->workload();
 
         $jobWorkload = unserialize($workload);
+        $opt = $jobWorkload->params['options'];
 
-
+//        $jw = new JobWorkload;
+//        $opt = $jw->load()
 //        $par1 = $unserialWorkload->params;
 //        $par2 = $unserialWorkload['params'];
 //        $optionsFrom = unserialize($workload['options']);
@@ -41,7 +44,7 @@ class SimpleJob extends JobBase
             'options'=>$options,
             'workload'=>$workload,
             'jobWorkload'=>$jobWorkload,
-//            '$par1'=>$par1,
+            'opt'=>$opt,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
