@@ -20,8 +20,14 @@ class SimpleJob extends JobBase
             'action'=>'B2B Gearman job',
             'job->workload'=>$job->workload(),
         ];
+
         Yii::trace($info, 'b2bBot');
+        Yii::trace('chek trace', 'b2bBot');
+        Yii::trace('chek trace b2bBot');
         Yii::warning($info);
+        Yii::warning('chek trace','b2bBot' );
+        Yii::warning('chek trace' );
+
 
         $options = [
             'chat_id' => '232544919',
