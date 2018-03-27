@@ -28,9 +28,10 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['trace'],
-//                    'categories' => ['b2bBot'],
+                    'categories' => ['b2bBot'],
                     'logVars' => [],
-                    'logFile' => '@runtime/logs/b2bBot_commands.log'
+                    'logFile' => '@console/runtime/logs/b2bBot_commands.log'
+//                    'logFile' => '@runtime/logs/b2bBot_commands.log'
                 ]
             ],
 
