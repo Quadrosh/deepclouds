@@ -180,11 +180,11 @@ class B2bSender extends Model
             'action'=>'sender sendByWorker',
         ];
         Yii::info($info, 'b2bBot');
+//        serialize($options)
 
         return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
             'params' => [
-//                'options' => Json::encode($options),
-                'options' => serialize($options),
+                'options' => 'knock knock',
             ]
         ]));
 

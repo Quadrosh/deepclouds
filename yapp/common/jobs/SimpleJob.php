@@ -13,13 +13,13 @@ class SimpleJob extends JobBase
     public function execute(\GearmanJob $job = null)
     {
         $workload = $job->workload();
-        $options = unserialize($workload['options']);
+        $optionsFrom = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
 
-//        $options = [
-//            'chat_id' => '232544919',
-//            'text' => 'чек чек gearman',
-//        ];
+        $options = [
+            'chat_id' => '232544919',
+            'text' => 'чек чек gearman',
+        ];
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
 
@@ -41,7 +41,7 @@ class SimpleJob extends JobBase
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
-        return $result;
+        return $optionsFrom;
     }
 
 
