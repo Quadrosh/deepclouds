@@ -1086,47 +1086,40 @@ class B2bBotController extends \yii\web\Controller
 
 
     private function debug (){
-        $orders = $this->getOrdersFromServer([
-            'phone' => $this->dealer['phone'],
-        ]);
-
-        Yii::info([
-            'action'=>'response from Server - orders',
-            'updateId'=>$this->request['update_id'],
-            'serverResponse'=>$orders,
-        ], 'b2bBot');
-
-        if (isset($orders['error'])) {
-            return $this->sendErrorMessage('Ошибка - '.$orders['message']);
-        }
-
-        $responseToUser = '';
-
-        foreach ($orders as $item) {
-            $responseToUser .= $item['orderId']
-                .' - '.$item['totalCost'].'р.'
-                .PHP_EOL
-                .$item['status']['status'].' | '
-                .$item['status']['payment'].' | '
-                .$item['status']['delivey']
-                .PHP_EOL
-//                .'-------------------------'
-                .PHP_EOL;
-        }
-
-        Yii::info([
-            'action'=>'debug',
-            'updateId'=>$this->request['update_id'],
-            '$orders'=>$orders,
-            '$responseToUser'=>$responseToUser,
-        ], 'b2bBot');
+//        $orders = $this->getOrdersFromServer([
+//            'phone' => $this->dealer['phone'],
+//        ]);
+//
+//        Yii::info([
+//            'action'=>'response from Server - orders',
+//            'updateId'=>$this->request['update_id'],
+//            'serverResponse'=>$orders,
+//        ], 'b2bBot');
+//
+//        if (isset($orders['error'])) {
+//            return $this->sendErrorMessage('Ошибка - '.$orders['message']);
+//        }
+//
+//        $responseToUser = '';
+//
+//        foreach ($orders as $item) {
+//            $responseToUser .= $item['orderId']
+//                .' - '.$item['totalCost'].'р.'
+//                .PHP_EOL
+//                .$item['status']['status'].' | '
+//                .$item['status']['payment'].' | '
+//                .$item['status']['delivey']
+//                .PHP_EOL
+////                .'-------------------------'
+//                .PHP_EOL;
+//        }
 
 
 
 
         $options = [
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => $responseToUser,
+            'text' => 'чек чек ',
             'reply_markup' => Json::encode([
                 'inline_keyboard'=>[
                     [

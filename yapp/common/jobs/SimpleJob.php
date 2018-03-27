@@ -15,6 +15,7 @@ class SimpleJob extends JobBase
         $workload = $job->workload();
         $options = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
+
 //        $options = [
 //            'chat_id' => '232544919',
 //            'text' => 'чек чек gearman',
