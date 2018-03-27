@@ -184,7 +184,7 @@ class B2bSender extends Model
 
         return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
             'params' => [
-                'options' => 'knock knock',
+                'options' => $options,
             ]
         ]));
 
