@@ -421,9 +421,7 @@ class B2bBotController extends \yii\web\Controller
 
 
         elseif (trim(strtolower($message['text'])) == '/debug' ){
-            $sender = new B2bSender;
-            $jsonResponse = $sender->sendByWorker();
-            return $jsonResponse;
+           return $this->debug();
         }
 
 
@@ -1090,6 +1088,13 @@ class B2bBotController extends \yii\web\Controller
             'results'=> Json::encode($result)
         ]);
         return ['message' => 'ok', 'code' => 200];
+    }
+
+
+    private function debug ($options){
+        $sender = new B2bSender;
+        $jsonResponse = $sender->sendByWorker($options);
+        return $jsonResponse;
     }
 
 }

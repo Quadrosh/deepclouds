@@ -173,7 +173,7 @@ class B2bSender extends Model
 
 
 
-    public function sendByWorker()
+    public function sendByWorker($options)
     {
 
         $info = [
@@ -181,43 +181,12 @@ class B2bSender extends Model
         ];
         Yii::info($info, 'b2bBot');
 
-//        $log_msg = ' чек чек';
-//        $path = dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log';
-//        file_put_contents($path, '----------------'.  PHP_EOL
-//           . date(" g:i a, F j, Y").  PHP_EOL . $log_msg .  PHP_EOL, FILE_APPEND);
-//
-//        return ' файл записан в '. $path;
-
-
-//        return Yii::$app->gearman->getDispatcher()->execute('syncCalendar', new JobWorkload([
-//            'params' => [
-//                'data' => 'value'
-//            ]
-//        ]));
-
         return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
             'params' => [
-                'data' => 'value'
+                'options' => $options
             ]
         ]));
 
 
-//        Yii::$app->gearman->getDispatcher()->background('simpleJob', new JobWorkload([
-//            'params' => [
-//                'data' => 'value'
-//            ]
-//        ]));
-
-
-
-//        return 'sent to gearman';
-
-//        $client = new \GearmanClient();
-//        $client->addServer();
-//        $client->setTimeout(29000);
-//
-//        $data = 'slon yooo';
-//        $res = $client->doNormal('revert_string', $data);
-//        return $res;
     }
 }
