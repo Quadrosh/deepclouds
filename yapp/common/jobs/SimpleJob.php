@@ -28,6 +28,10 @@ class SimpleJob extends JobBase
         Yii::warning('chek trace','b2bBot' );
         Yii::warning('chek trace' );
 
+        $log_msg = 'чек чек chek';
+
+        file_put_contents('job.log', $log_msg. date('d-M-Y') . PHP_EOL, FILE_APPEND);
+
 
         $options = [
             'chat_id' => '232544919',
