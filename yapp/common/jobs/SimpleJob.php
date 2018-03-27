@@ -31,7 +31,7 @@ class SimpleJob extends JobBase
 
         $info = [
             'action'=>'B2B Gearman Job send 2 user',
-            'options'=>$options,
+//            'options'=>$options,
             'workload'=>$workload,
             'jsonOptions'=>$jsonOptions,
             'result'=>$result,
