@@ -421,6 +421,7 @@ class B2bBotController extends \yii\web\Controller
 
 
         elseif (trim(strtolower($message['text'])) == '/debug' ){
+
            return $this->debug();
         }
 
@@ -922,13 +923,6 @@ class B2bBotController extends \yii\web\Controller
                 .PHP_EOL;
         }
 
-        Yii::info([
-            'action'=>'debug',
-            'updateId'=>$this->request['update_id'],
-            '$orders'=>$orders,
-            '$responseToUser'=>$responseToUser,
-        ], 'b2bBot');
-
 
 
 
@@ -1091,7 +1085,57 @@ class B2bBotController extends \yii\web\Controller
     }
 
 
-    private function debug ($options){
+    private function debug (){
+        $orders = $this->getOrdersFromServer([
+            'phone' => $this->dealer['phone'],
+        ]);
+
+        Yii::info([
+            'action'=>'response from Server - orders',
+            'updateId'=>$this->request['update_id'],
+            'serverResponse'=>$orders,
+        ], 'b2bBot');
+
+        if (isset($orders['error'])) {
+            return $this->sendErrorMessage('Ошибка - '.$orders['message']);
+        }
+
+        $responseToUser = '';
+
+        foreach ($orders as $item) {
+            $responseToUser .= $item['orderId']
+                .' - '.$item['totalCost'].'р.'
+                .PHP_EOL
+                .$item['status']['status'].' | '
+                .$item['status']['payment'].' | '
+                .$item['status']['delivey']
+                .PHP_EOL
+//                .'-------------------------'
+                .PHP_EOL;
+        }
+
+        Yii::info([
+            'action'=>'debug',
+            'updateId'=>$this->request['update_id'],
+            '$orders'=>$orders,
+            '$responseToUser'=>$responseToUser,
+        ], 'b2bBot');
+
+
+
+
+        $options = [
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => $responseToUser,
+            'reply_markup' => Json::encode([
+                'inline_keyboard'=>[
+                    [
+                        ['text'=>'Подробнее о заказе','switch_inline_query_current_chat'=> '/order_details'],
+                        ['text'=>'Опции', 'callback_data'=> '/options'],
+                    ],
+                ]
+            ]),
+        ];
         $sender = new B2bSender;
         $jsonResponse = $sender->sendByWorker($options);
         return $jsonResponse;
