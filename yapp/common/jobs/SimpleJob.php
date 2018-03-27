@@ -11,8 +11,7 @@ class SimpleJob extends JobBase
 {
     public function execute(\GearmanJob $job = null)
     {
-
-
+        $workload = $job->workload();
         $options = [
             'chat_id' => '232544919',
             'text' => 'чек чек gearman',
@@ -28,8 +27,10 @@ class SimpleJob extends JobBase
 
 
         $info = [
-            'action'=>'B2B Gearman job',
-            '$result'=>$result,
+            'action'=>'B2B Gearman Job send 2 user',
+            'options'=>$options,
+            'workload'=>$workload,
+            'result'=>$result,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
