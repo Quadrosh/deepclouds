@@ -21,16 +21,12 @@ class SimpleJob extends JobBase
             'job->workload'=>$job->workload(),
         ];
 
-        Yii::trace($info, 'b2bBot');
-        Yii::trace('chek trace', 'b2bBot');
-        Yii::trace('chek trace b2bBot');
-        Yii::warning($info);
-        Yii::warning('chek trace','b2bBot' );
-        Yii::warning('chek trace' );
+        $log_msg = ' чек чек';
+        $path = dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log';
+        file_put_contents($path, '----------------'.  PHP_EOL
+            . date(" g:i a, F j, Y").  PHP_EOL . $log_msg .  PHP_EOL, FILE_APPEND);
 
-        $log_msg = 'чек чек chek';
-
-        file_put_contents('job.log', $log_msg. date('d-M-Y') . PHP_EOL, FILE_APPEND);
+        return ' файл записан в '. $path;
 
 
         $options = [
