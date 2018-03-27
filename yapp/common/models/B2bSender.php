@@ -183,7 +183,8 @@ class B2bSender extends Model
 
         return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
             'params' => [
-                'options' => Json::encode($options),
+//                'options' => Json::encode($options),
+                'options' => serialize($options),
             ]
         ]));
 

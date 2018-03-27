@@ -13,12 +13,12 @@ class SimpleJob extends JobBase
     public function execute(\GearmanJob $job = null)
     {
         $workload = $job->workload();
-        $jsonOptions = Json::decode($workload['options']);
+        $options = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
-        $options = [
-            'chat_id' => '232544919',
-            'text' => 'чек чек gearman',
-        ];
+//        $options = [
+//            'chat_id' => '232544919',
+//            'text' => 'чек чек gearman',
+//        ];
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
 
@@ -31,9 +31,9 @@ class SimpleJob extends JobBase
 
         $info = [
             'action'=>'B2B Gearman Job send 2 user',
-//            'options'=>$options,
+            'options'=>$options,
             'workload'=>$workload,
-            'jsonOptions'=>$jsonOptions,
+//            'serialOptions'=>$serialOptions,
             'result'=>$result,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
