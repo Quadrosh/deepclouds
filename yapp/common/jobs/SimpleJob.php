@@ -6,13 +6,14 @@ use Yii;
 
 
 use shakura\yii2\gearman\JobBase;
+use yii\helpers\Json;
 
 class SimpleJob extends JobBase
 {
     public function execute(\GearmanJob $job = null)
     {
         $workload = $job->workload();
-        $workload2 = $workload['options'];
+        $jsonOptions = Json::decode($workload['options']);
 //        $workload2 = $job->workload(['options']);
         $options = [
             'chat_id' => '232544919',
@@ -32,7 +33,7 @@ class SimpleJob extends JobBase
             'action'=>'B2B Gearman Job send 2 user',
             'options'=>$options,
             'workload'=>$workload,
-            'workload2'=>$workload2,
+            'jsonOptions'=>$jsonOptions,
             'result'=>$result,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
