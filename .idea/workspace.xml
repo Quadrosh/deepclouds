@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" afterPath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php" afterPath="$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="B2bSender.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="B2bSender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6257669">
-              <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleJob.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SimpleJob.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="85" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.31288344">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -199,8 +199,8 @@
         <option value="$PROJECT_DIR$/yapp/frontend/config/main.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
         <option value="$PROJECT_DIR$/yapp/console/config/main.php" />
-        <option value="$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+        <option value="$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php" />
       </list>
     </option>
   </component>
@@ -863,14 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="85" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -879,10 +871,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/runtime/logs/job.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6257669">
-          <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/jobs/SimpleJob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31288344">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           <folding />
         </state>
       </provider>

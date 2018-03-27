@@ -21,12 +21,12 @@ class SimpleJob extends JobBase
             'job->workload'=>$job->workload(),
         ];
 
-        $log_msg = ' чек чек';
-        $path = dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log';
-        file_put_contents($path, '----------------'.  PHP_EOL
-            . date(" g:i a, F j, Y").  PHP_EOL . $log_msg .  PHP_EOL, FILE_APPEND);
 
-        return ' файл записан в '. $path;
+        $path = dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log';
+        file_put_contents($path, '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info).PHP_EOL, FILE_APPEND);
+
+
 
 
         $options = [
