@@ -16,7 +16,7 @@ class SimpleJob extends JobBase
         $workload = $job->workload();
 
         $jobWorkload = unserialize($workload);
-        $opt = $jobWorkload->params['options'];
+        $options = $jobWorkload->params['options'];
 
 //        $jw = new JobWorkload;
 //        $opt = $jw->load()
@@ -25,10 +25,10 @@ class SimpleJob extends JobBase
 //        $optionsFrom = unserialize($workload['options']);
 //        $workload2 = $job->workload(['options']);
 
-        $options = [
-            'chat_id' => '232544919',
-            'text' => 'чек чек gearman',
-        ];
+//        $options = [
+//            'chat_id' => '232544919',
+//            'text' => 'чек чек gearman',
+//        ];
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
 
@@ -42,9 +42,9 @@ class SimpleJob extends JobBase
         $info = [
             'action'=>'B2B Gearman Job send 2 user',
             'options'=>$options,
-            'workload'=>$workload,
-            'jobWorkload'=>$jobWorkload,
-            'opt'=>$opt,
+//            'workload'=>$workload,
+//            'jobWorkload'=>$jobWorkload,
+//            '$options'=>$options,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
