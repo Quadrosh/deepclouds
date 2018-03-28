@@ -23,10 +23,10 @@ class SendToUserJob extends JobBase
     }
 
 
-    public function init(){
-        self::$_instance = self::getInstance();
-        return true;
-    }
+//    public function init(){
+//        self::$_instance = self::getInstance();
+//        return true;
+//    }
 
 
     public function execute(\GearmanJob $job = null)
