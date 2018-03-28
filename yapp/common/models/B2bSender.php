@@ -181,11 +181,13 @@ class B2bSender extends Model
         $task['name']='sendToUser';
         $task['address']=$options['chat_id'];
         $task['workload']=serialize($options);
-        $task->save();
+        $saving = $task->save();
 
 
         $info = [
-            'action'=>'sender sendByWorker',
+            'action'=>'saving task',
+            'saving'=>$saving,
+            'errors'=>$task->errors,
         ];
         Yii::info($info, 'b2bBot');
 //        serialize($options)
