@@ -12,22 +12,31 @@ use yii\helpers\Json;
 
 class SendToUserJob extends JobBase
 {
+    private static $_instance = null;
+
+    public static function getInstance()
+    {
+        if (self::$_instance != null) {
+            return self::$_instance;
+        }
+        return new self;
+    }
+
+
+
+
     public function execute(\GearmanJob $job = null)
     {
-
-        $periodInSec = 5;
+        $this->_instance = self::getInstance();
+        $periodInSec = 20;
         $jobLimit = 2;
-
         $startOfPeriod = time();
-
         $jobIter = 0;
-
 
         $info = [
             'action'=>'B2B Gearman start job',
             'startOfPeriod'=>$startOfPeriod,
             'jobIter'=>$jobIter,
-
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
