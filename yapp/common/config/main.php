@@ -19,8 +19,8 @@ return [
                 'simpleJob' => [
                     'class' => 'common\jobs\SimpleJob'
                 ],
-                'syncCalendar' => [
-                    'class' => 'common\jobs\SyncCalendar'
+                'sendToUserJob' => [
+                    'class' => 'common\jobs\SendToUserJob'
                 ],
             ]
         ],

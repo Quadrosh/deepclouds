@@ -67,7 +67,15 @@ AppAsset::register($this);
                     ]);
                     $menuItems = [
                         Yii::$app->user->can('creatorPermission', [])
-                            ? (['label' => 'Администраторы', 'url' => ['/usermanage']])
+                            ? (
+                        [
+                            'label' => 'Управление',
+                            'items' => [
+                                ['label' => 'Администраторы', 'url' => ['/usermanage']],
+                                ['label' => 'tasks', 'url' => ['/task']],
+                            ]
+                        ]
+                        )
                             : (['label' => false]),
                     ];
                     if (Yii::$app->user->isGuest) {

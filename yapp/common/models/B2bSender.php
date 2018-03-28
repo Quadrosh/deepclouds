@@ -176,17 +176,27 @@ class B2bSender extends Model
     public function sendByWorker($options)
     {
 
+        $task = new Task();
+        $task['site']='b2b';
+        $task['name']='sendToUser';
+        $task['address']=$options['chat_id'];
+        $task['workload']=serialize($options);
+        $task->save();
+
+
         $info = [
             'action'=>'sender sendByWorker',
         ];
         Yii::info($info, 'b2bBot');
 //        serialize($options)
 
-        return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
-            'params' => [
-                'options' => $options,
-            ]
-        ]));
+        return Yii::$app->gearman->getDispatcher()->execute('sendToUserJob');
+
+//        return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
+//            'params' => [
+//                'options' => $options,
+//            ]
+//        ]));
 
 
     }
