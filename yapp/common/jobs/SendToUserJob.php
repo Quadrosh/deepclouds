@@ -23,11 +23,14 @@ class SendToUserJob extends JobBase
     }
 
 
+    public function init(){
+        self::$_instance = self::getInstance();
+        return true;
+    }
 
 
     public function execute(\GearmanJob $job = null)
     {
-        $this->_instance = self::getInstance();
         $periodInSec = 20;
         $jobLimit = 2;
         $startOfPeriod = time();
