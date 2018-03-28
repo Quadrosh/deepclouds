@@ -15,8 +15,19 @@ class SendToUserJob extends JobBase
     public function execute(\GearmanJob $job = null)
     {
 
+        $periodInSec = 5;
+        $jobLimit = 2;
+
+        $startOfPeriod = time();
+
+        $jobIter = 0;
+
+
         $info = [
             'action'=>'B2B Gearman start job',
+            'startOfPeriod'=>$startOfPeriod,
+            'jobIter'=>$jobIter,
+
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
@@ -38,31 +49,54 @@ class SendToUserJob extends JobBase
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
         foreach ($tasks as $task) {
-            $options = unserialize($task['workload']);
 
-            $chat_id = $options['chat_id'];
-            $urlEncodedText = urlencode($options['text']);
+            if ($startOfPeriod + $periodInSec > time()) {
 
-            $sender = new B2bSender;
-            $result = $sender->sendToUser('https://api.telegram.org/bot' .
-                Yii::$app->params['b2bBotToken'].
-                '/sendMessage?chat_id='.$chat_id .
-                '&text='.$urlEncodedText, $options, true);
+                if ($jobIter <= $jobLimit) {
 
+                    $this->process($task);
+                    $jobIter ++;
 
-            $info = [
-                'action'=>'B2B Gearman Job send 2 user',
-                'options'=>$options,
-                'result'=>$result,
+                } else {
+                    $jobIter = 0;
+                    time_sleep_until($startOfPeriod + $periodInSec);
+                    $startOfPeriod = time();
+                    $this->process($task);
 
-            ];
-            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-                '----------------'.PHP_EOL
-                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+                }
 
-            return $result;
+            } else {
+
+            }
+
         }
 
+    }
+
+    /*
+     * @var common\models\Task  $task
+     * */
+    private function process($task)
+    {
+        $options = unserialize($task['workload']);
+        $chat_id = $options['chat_id'];
+        $urlEncodedText = urlencode($options['text']);
+        $sender = new B2bSender;
+        $result = $sender->sendToUser('https://api.telegram.org/bot' .
+            Yii::$app->params['b2bBotToken'].
+            '/sendMessage?chat_id='.$chat_id .
+            '&text='.$urlEncodedText, $options, true);
+        if ($result) {
+            $task->delete();
+        }
+        $info = [
+            'action'=>'B2B Gearman Job send 2 user',
+            'options'=>$options,
+            'result'=>$result,
+        ];
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
     }
 
 

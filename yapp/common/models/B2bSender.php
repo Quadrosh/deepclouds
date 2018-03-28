@@ -192,7 +192,13 @@ class B2bSender extends Model
         Yii::info($info, 'b2bBot');
 //        serialize($options)
 
-        return Yii::$app->gearman->getDispatcher()->execute('sendToUserJob');
+        $result = Yii::$app->gearman->getDispatcher()->execute('sendToUserJob');
+
+        if ($result) {
+            return 'it seems i send something';
+        } else {
+            return false;
+        }
 
 //        return Yii::$app->gearman->getDispatcher()->execute('simpleJob', new JobWorkload([
 //            'params' => [
