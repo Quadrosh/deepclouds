@@ -45,7 +45,8 @@ class Task extends \yii\db\ActiveRecord
         return [
             [['name', 'address'], 'required'],
             [['created_at'], 'integer'],
-            [['site', 'name', 'address', 'workload', 'statua'], 'string', 'max' => 255],
+            [['site', 'name', 'address', 'statua'], 'string', 'max' => 255],
+            [['workload'], 'string'],
         ];
     }
 

@@ -179,7 +179,7 @@ class B2bSender extends Model
         $task = new Task();
         $task['site']='b2b';
         $task['name']='sendToUser';
-        $task['address']=$options['chat_id'];
+        $task['address']=strval($options['chat_id']);
         $task['workload']=serialize($options);
         $saving = $task->save();
 

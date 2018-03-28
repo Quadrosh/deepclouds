@@ -4,6 +4,7 @@
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" afterPath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/Task.php" afterPath="$PROJECT_DIR$/yapp/common/models/Task.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +48,8 @@
       <file leaf-file-name="B2bSender.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6652174">
-              <caret line="189" column="36" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.44347826">
+              <caret line="181" column="52" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -58,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/yapp/common/models/Task.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+              <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -197,9 +198,9 @@
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/task/index.php" />
-        <option value="$PROJECT_DIR$/yapp/common/models/Task.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
         <option value="$PROJECT_DIR$/yapp/common/jobs/SendToUserJob.php" />
+        <option value="$PROJECT_DIR$/yapp/common/models/Task.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
       </list>
     </option>
@@ -984,14 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bBotRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1000,10 +993,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6652174">
-          <caret line="189" column="36" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.44347826">
+          <caret line="181" column="52" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
           <folding />
         </state>
       </provider>
