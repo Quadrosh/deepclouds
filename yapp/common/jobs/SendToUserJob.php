@@ -15,11 +15,27 @@ class SendToUserJob extends JobBase
     public function execute(\GearmanJob $job = null)
     {
 
+        $info = [
+            'action'=>'B2B Gearman start job',
+        ];
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
         $tasks = Task::find()->where([
             'site'=>'b2b',
             'name'=>'sendToUser',
         ])->all();
 
+
+        $info = [
+            'action'=>'B2B Gearman found tasks',
+            'tasks'=> $tasks,
+        ];
+
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
         foreach ($tasks as $task) {
             $options = unserialize($task['workload']);
@@ -43,6 +59,8 @@ class SendToUserJob extends JobBase
             file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
                 '----------------'.PHP_EOL
                 .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
+            return $result;
         }
 
     }
