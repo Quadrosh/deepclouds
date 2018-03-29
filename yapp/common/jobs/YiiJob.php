@@ -6,6 +6,7 @@ use common\models\B2bSender;
 use common\models\JobCounter;
 use common\models\Task;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class YiiJob.
@@ -44,27 +45,50 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['queue'] = 0;
             $counter->save();
         }
-        elseif ($counter['start'] < time() - 60 * 5) {
-            $counter['start'] = time();
-            $counter['count'] = 0;
-            $counter['queue'] = 0;
-            $counter->save();
-        }
+//        elseif ($counter['start'] < time() - 60 * 5) {
+//            $counter['start'] = time();
+//            $counter['count'] = 0;
+//            $counter['queue'] = 0;
+//            $counter->save();
+//        }
 
-        $key = $counter['start'];
         $counter['count'] = $counter['count']+1;
         $counter['queue'] = $counter['queue']+1;
         $counter->save();
-
 
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
             $counter->save();
+
+            $info = [
+                'action'=>'count > $jobLimit',
+                '$counter'=>ArrayHelper::toArray($counter, [], false),
+            ];
+            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+                '----------------'.PHP_EOL
+                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+            time_sleep_until($counter['start']);
         }
+
+        $info = [
+            'action'=>'just counter',
+            '$counter'=>ArrayHelper::toArray($counter, [], false),
+        ];
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+        time_sleep_until($counter['start']);
 
 
         if ($counter['start'] > time()) {
+            $info = [
+                'action'=>'B2B Job start > time',
+                '$counter'=>ArrayHelper::toArray($counter, [], false),
+            ];
+            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+                '----------------'.PHP_EOL
+                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
             time_sleep_until($counter['start']);
         }
 
@@ -97,7 +121,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $info = [
             'action'=>'B2B Yii Gearman Job send 2 user',
-            'options'=>$options,
+//            'options'=>$options,
             'result'=>$result,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
