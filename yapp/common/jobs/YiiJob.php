@@ -73,25 +73,22 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $info = [
             'action'=>'just counter',
-            '$counter start'=>$counter['start'],
-            '$counter count'=>$counter['count'],
-            '$counter queue'=>$counter['queue'],
+            '$counter'=>ArrayHelper::toArray($counter, [], false),
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-        time_sleep_until($counter['start']);
 
 
         if ($counter['start'] > time()) {
             $info = [
                 'action'=>'B2B Job start > time',
-                'now'=>time(),
-                'until'=>$counter['start'],
+                '$counter'=>ArrayHelper::toArray($counter, [], false),
             ];
             file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
                 '----------------'.PHP_EOL
                 .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
 
             time_sleep_until($counter['start']);
         }
