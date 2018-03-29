@@ -35,11 +35,11 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         }
 
         self::$count++;
-//
-//        if (self::$count > $jobLimit) {
-//            self::$startOfPeriod = self::$startOfPeriod + $periodInSec;
-//            self::$count = 1;
-//        }
+
+        if (self::$count > $jobLimit) {
+            self::$startOfPeriod = self::$startOfPeriod + $periodInSec;
+            self::$count = 1;
+        }
 
 
 
