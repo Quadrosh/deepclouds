@@ -28,16 +28,19 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $jobLimit = 2;
         $key = null;
 
+
+
+
+        $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+
         $info = [
-            'action'=>'B2B Yii Gearman debug start',
-            'time'=>time(),
+            'action'=>'B2B Yii Gearman debug',
+            '$counter'=>$counter,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
-
-        $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
         if ($counter == null) {
             $counter = new JobCounter();
             $counter['name']='sendToUser';
