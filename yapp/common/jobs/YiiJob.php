@@ -13,7 +13,9 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 {
     public $options;
 
-    public $property2;
+
+    public static $startOfPeriod;
+    public static $count;
 
     /**
      * @inheritdoc
@@ -22,22 +24,47 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
     {
         $periodInSec = 20;
         $jobLimit = 2;
-        $startOfPeriod = time();
-        $jobIter = 0;
+
+
+        if (self::$startOfPeriod == null) {
+            self::$startOfPeriod = time();
+        }
+        if (self::$count == null) {
+            self::$count = 0;
+        }
+
+        self::$count++;
+
+        if (self::$count > $jobLimit) {
+            self::$startOfPeriod = self::$startOfPeriod + $periodInSec;
+            self::$count = 1;
+        }
+
+
 
         $info = [
             'action'=>'B2B Yii Gearman start job',
-            'startOfPeriod'=>$startOfPeriod,
-            'jobIter'=>$jobIter,
+            'time'=>time(),
+            'startOfPeriod'=>self::$startOfPeriod,
+            'myCount'=>self::$count,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
+
+        if (self::$startOfPeriod > time()) {
+            time_sleep_until(self::$startOfPeriod);
+        }
+
+
         $options = $this->options;
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
+        if (self::$count >= $jobLimit) {
+
+        }
         $result = $sender->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
