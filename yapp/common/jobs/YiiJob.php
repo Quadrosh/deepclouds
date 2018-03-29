@@ -56,6 +56,15 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $counter['queue'] = $counter['queue']+1;
         $counter->save();
 
+        $this->log([
+            'action'=>'counter +1',
+            'counter count'=>$counter['count'],
+            'counter queue'=>$counter['queue'],
+            'queue id' => $this->id,
+            'counter start' => $counter['start'],
+            'now'=>time(),
+        ]);
+
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
