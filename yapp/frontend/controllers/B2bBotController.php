@@ -1119,7 +1119,7 @@ class B2bBotController extends \yii\web\Controller
 
         $options = [
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => $responseToUser,
+            'text' => 'текст', // $responseToUser
             'reply_markup' => Json::encode([
                 'inline_keyboard'=>[
                     [
