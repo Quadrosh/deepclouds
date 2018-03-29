@@ -32,8 +32,10 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
         $this->log([
-            'action'=>'counter find',
-            '$counter'=>ArrayHelper::toArray($counter, [], false),
+            'action'=>'counter init find',
+            'counter count'=>$counter['count'],
+            'counter queue'=>$counter['queue'],
+            'counter start' => $counter['start'],
             'now'=>time(),
         ]);
 
@@ -45,11 +47,19 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['queue'] = 0;
             $counter->save();
         }
-        elseif ($counter['queue'] < 1) {
+        elseif ($counter['queue'] < 1  &&  $counter['start'] < (time()-$periodInSec)) {
             $counter['start'] = time();
             $counter['count'] = 0;
             $counter['queue'] = 0;
             $counter->save();
+
+            $this->log([
+                'action'=>'queue < 1',
+                'counter count'=>$counter['count'],
+                'counter queue'=>$counter['queue'],
+                'counter start' => $counter['start'],
+                'now'=>time(),
+            ]);
         }
 //        elseif ($counter['start'] < time() - 60 * 5) {
 //            $counter['start'] = time();
