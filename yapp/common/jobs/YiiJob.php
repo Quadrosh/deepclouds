@@ -9,8 +9,8 @@ use Yii;
 /**
  * Class YiiJob.
  */
-//class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
-class YiiJob extends \yii\base\Object implements \yii\queue\Job
+class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
+//class YiiJob extends \yii\base\Object implements \yii\queue\Job
 {
     public $options;
 
