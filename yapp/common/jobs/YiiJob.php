@@ -29,18 +29,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $key = null;
 
 
-
-
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
-
-        $info = [
-            'action'=>'B2B Yii Gearman debug',
-            '$counter'=>$counter,
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-
         if ($counter == null) {
             $counter = new JobCounter();
             $counter['name']='sendToUser';
@@ -51,24 +40,25 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         }
         elseif ( $counter['count'] < 1) {
             $counter['start'] = time();
-            $save = $counter->save();
+            $counter->save();
 
-            $info = [
-                'action'=>'B2B Yii Gearman job save count < 1 ',
-                'save'=>$save,
-                'errors'=>$counter->errors,
-            ];
-            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-                '----------------'.PHP_EOL
-                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
         }
 
-
-
         $key = $counter['start'];
-
         $counter['count']++;
-        $counter->save();
+        $save = $counter->save();
+
+//        debugging
+        $info = [
+            'action'=>'B2B Yii Gearman debug',
+            '$counter'=>$counter,
+            '$save'=>$save,
+            'errors'=>$counter->errors,
+        ];
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
 
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
