@@ -46,8 +46,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $info = [
             'action'=>'B2B Yii Gearman start job',
             'time'=>time(),
-//            'startOfPeriod'=>self::$startOfPeriod,
-//            'myCount'=>self::$count,
+            'startOfPeriod'=>self::$startOfPeriod,
+            'myCount'=>self::$count,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
