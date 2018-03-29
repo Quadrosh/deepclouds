@@ -49,7 +49,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $info = [
             'action'=>'B2B Yii Gearman debug before count++',
             '$counter'=>$counter,
-            '____key'=>$key,
+            '__1__key'=>$key,
 //            '$save'=>$save,
 //            'errors'=>$counter->errors,
         ];
@@ -59,12 +59,14 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
 
 
-        $count = $counter['count']++;
+        $count = $counter['count']+1;
+        $counter['count'] = $count;
 
         $info = [
             'action'=>'B2B Yii Gearman debug',
             '$counter'=>$counter,
             '$count'=>$count,
+            '$counter[count]'=>$counter['count'],
 //            '$save'=>$save,
 //            'errors'=>$counter->errors,
         ];
