@@ -54,9 +54,9 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
 
-//        if (self::$startOfPeriod > time()) {
-//            time_sleep_until(self::$startOfPeriod);
-//        }
+        if (self::$startOfPeriod > time()) {
+            time_sleep_until(self::$startOfPeriod);
+        }
 
 
         $options = $this->options;
