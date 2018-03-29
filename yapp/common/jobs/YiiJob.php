@@ -60,7 +60,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             'action'=>'counter +1',
             'counter count'=>$counter['count'],
             'counter queue'=>$counter['queue'],
-            'queue id' => $this->id,
+//            'queue id' => $this->id,
             'counter start' => $counter['start'],
             'now'=>time(),
         ]);
