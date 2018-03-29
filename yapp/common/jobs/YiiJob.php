@@ -46,11 +46,15 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['name']='sendToUser';
             $counter['start'] = time();
             $counter['count'] = 0;
+            $counter->save();
+
+        }
+        elseif ( $counter['count'] < 1) {
+            $counter['start'] = time();
             $save = $counter->save();
 
-
             $info = [
-                'action'=>'B2B Yii Gearman job save',
+                'action'=>'B2B Yii Gearman job save count < 1 ',
                 'save'=>$save,
                 'errors'=>$counter->errors,
             ];
@@ -58,6 +62,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
                 '----------------'.PHP_EOL
                 .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
         }
+
+
 
         $key = $counter['start'];
 
