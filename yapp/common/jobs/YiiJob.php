@@ -3,6 +3,7 @@
 namespace common\jobs;
 
 use common\models\B2bSender;
+use common\models\JobCounter;
 use common\models\Task;
 use Yii;
 
@@ -15,8 +16,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
     public $options;
 
 
-    public static $startOfPeriod;
-    public static $count;
+//    public $startOfPeriod;
+//    public $count;
 
     /**
      * @inheritdoc
@@ -25,37 +26,43 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
     {
         $periodInSec = 20;
         $jobLimit = 2;
+        $key = null;
 
 
-        if (self::$startOfPeriod == null) {
-            self::$startOfPeriod = time();
-        }
-        if (self::$count == null) {
-            self::$count = 0;
-        }
-
-        self::$count++;
-
-        if (self::$count > $jobLimit) {
-            self::$startOfPeriod = self::$startOfPeriod + $periodInSec;
-            self::$count = 1;
+        $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+        if ($counter == null) {
+            $counter = new JobCounter();
+            $counter['name']='sendToUser';
+            $counter['start'] = time();
+            $counter['count'] = 0;
+            $counter->save();
         }
 
+        $key = $counter['start'];
+
+        $counter['count']++;
+        $counter->save();
+
+        if ($counter['count'] > $jobLimit) {
+            $counter['start'] = $counter['start'] + $periodInSec;
+            $counter['count'] = $counter['count']-$jobLimit+1;
+            $counter->save();
+        }
 
 
         $info = [
             'action'=>'B2B Yii Gearman start job',
             'time'=>time(),
-            'startOfPeriod'=>self::$startOfPeriod,
-            'myCount'=>self::$count,
+            'startOfPeriod'=>$counter['start'],
+            'myCount'=>$counter['count'],
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
 
 
-        if (self::$startOfPeriod > time()) {
-            time_sleep_until(self::$startOfPeriod);
+        if ($counter['start'] > time()) {
+            time_sleep_until($counter['start']);
         }
 
 
@@ -68,6 +75,15 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, true);
+        if ($result == true) {
+
+            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+            if ($counter['start'] == $key) {
+                $counter['count']--;
+                $counter->save();
+            }
+
+        }
 
         $info = [
             'action'=>'B2B Yii Gearman Job send 2 user',

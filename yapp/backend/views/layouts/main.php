@@ -73,6 +73,7 @@ AppAsset::register($this);
                             'items' => [
                                 ['label' => 'Администраторы', 'url' => ['/usermanage']],
                                 ['label' => 'tasks', 'url' => ['/task']],
+                                ['label' => 'job counter', 'url' => ['/job-counter']],
                             ]
                         ]
                         )

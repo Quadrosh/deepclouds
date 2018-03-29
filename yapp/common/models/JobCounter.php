@@ -6,24 +6,23 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "task".
+ * This is the model class for table "job_counter".
  *
  * @property integer $id
- * @property string $site
  * @property string $name
- * @property string $address
- * @property string $workload
- * @property string $statua
+ * @property integer $start
+ * @property integer $count
+ * @property string $status
  * @property integer $created_at
  */
-class Task extends \yii\db\ActiveRecord
+class JobCounter extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'task';
+        return 'job_counter';
     }
 
     public function behaviors()
@@ -36,17 +35,15 @@ class Task extends \yii\db\ActiveRecord
             ],
         ];
     }
-
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'address'], 'required'],
-            [['created_at'], 'integer'],
-            [['site', 'name', 'address', 'status'], 'string', 'max' => 255],
-            [['workload'], 'string'],
+            [['name', 'start', 'count'], 'required'],
+            [['start', 'count', 'created_at'], 'integer'],
+            [['name', 'status'], 'string', 'max' => 255],
         ];
     }
 
@@ -57,11 +54,10 @@ class Task extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'site' => 'Site',
             'name' => 'Name',
-            'address' => 'Address',
-            'workload' => 'Workload',
-            'statua' => 'Statua',
+            'start' => 'Start',
+            'count' => 'Count',
+            'status' => 'Status',
             'created_at' => 'Created At',
         ];
     }
