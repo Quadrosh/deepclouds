@@ -61,34 +61,26 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['count'] = $counter['count'] - $jobLimit;
             $counter->save();
 
-            $info = [
+
+            $this->log([
                 'action'=>'count > $jobLimit',
                 '$counter count'=>$counter['count'],
-            ];
-            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-                '----------------'.PHP_EOL
-                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-            time_sleep_until($counter['start']);
+            ]);
         }
 
-        $info = [
+
+        $this->log([
             'action'=>'just counter',
             '$counter'=>ArrayHelper::toArray($counter, [], false),
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+        ]);
 
 
         if ($counter['start'] > time()) {
-            $info = [
+
+            $this->log([
                 'action'=>'B2B Job start > time',
                 '$counter'=>ArrayHelper::toArray($counter, [], false),
-            ];
-            file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-                '----------------'.PHP_EOL
-                .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-
+            ]);
 
             time_sleep_until($counter['start']);
         }
@@ -120,18 +112,23 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             '&text='.$urlEncodedText, $options, true);
 
 
-        $info = [
+        $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',
-//            'options'=>$options,
             'result'=>$result,
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+        ]);
+
+
+
 
         return $result;
     }
 
+    private function log($info)
+    {
+        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
+            '----------------'.PHP_EOL
+            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+    }
     /**
      * @inheritdoc
      */
