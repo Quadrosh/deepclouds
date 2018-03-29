@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\jobs\YiiJob;
 use shakura\yii2\gearman\JobWorkload;
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -173,7 +174,7 @@ class B2bSender extends Model
 
 
 
-    public function sendByWorker($options)
+    public function sendByWorker__OLD($options)
     {
 
         $task = new Task();
@@ -200,5 +201,13 @@ class B2bSender extends Model
             return false;
         }
 
+    }
+
+    public function sendByWorker($options)
+    {
+        $id = Yii::$app->queue->push(new YiiJob([
+            'options' => $options,
+        ]));
+        return $id;
     }
 }

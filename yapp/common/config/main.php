@@ -1,5 +1,8 @@
 <?php
 return [
+    'bootstrap' => [
+        'queue', // Компонент регистрирует свои консольные команды
+    ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'controllerMap' => [
         'gearman' => [
@@ -9,6 +12,11 @@ return [
     ],
 
     'components' => [
+        'queue' => [
+            'class' => \yii\queue\Gearman\Queue::class,
+            'as log' => \yii\queue\LogBehavior::class,
+            // Индивидуальные настройки драйвера
+        ],
         'gearman' => [
             'class' => 'shakura\yii2\gearman\GearmanComponent',
             'servers' => [
