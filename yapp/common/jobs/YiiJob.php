@@ -49,7 +49,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
-            $counter['count'] = $counter['count']-$jobLimit+1;
+            $counter['count'] = $counter['count'] - $jobLimit + 1;
             $counter->save();
         }
 
