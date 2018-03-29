@@ -58,7 +58,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             time_sleep_until($counter['start']);
         }
 
-        $result = $this->process();
+
+        $this->process();
 
 //        if ($result == true) {
 //            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
