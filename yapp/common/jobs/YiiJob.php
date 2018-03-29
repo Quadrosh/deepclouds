@@ -24,7 +24,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
      */
     public function execute($queue)
     {
-        $periodInSec = 20;
+        $periodInSec = 10;
         $jobLimit = 2;
         $key = null;
 
@@ -36,47 +36,15 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['start'] = time();
             $counter['count'] = 0;
             $counter->save();
-
         }
         elseif ( $counter['count'] < 1) {
             $counter['start'] = time();
             $counter->save();
-
         }
 
         $key = $counter['start'];
-        //        debugging
-        $info = [
-            'action'=>'B2B Yii Gearman debug before count++',
-            '$counter'=>$counter,
-            '__1__key'=>$key,
-//            '$save'=>$save,
-//            'errors'=>$counter->errors,
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-
-
-
-        $count = $counter['count']+1;
-        $counter['count'] = $count;
-
-        $info = [
-            'action'=>'B2B Yii Gearman debug',
-            '$counter'=>$counter,
-            '$count'=>$count,
-            '$counter[count]'=>$counter['count'],
-//            '$save'=>$save,
-//            'errors'=>$counter->errors,
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-
-        $save = $counter->save();
-
-
+        $counter['count'] = $counter['count']+1;
+        $counter->save();
 
 
         if ($counter['count'] > $jobLimit) {
@@ -86,22 +54,24 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         }
 
 
-        $info = [
-            'action'=>'B2B Yii Gearman start job',
-            'time'=>time(),
-            'startOfPeriod'=>$counter['start'],
-            'myCount'=>$counter['count'],
-        ];
-        file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
-            '----------------'.PHP_EOL
-            .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
-
-
         if ($counter['start'] > time()) {
             time_sleep_until($counter['start']);
         }
 
+        $result = $this->process();
 
+        if ($result == true) {
+            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+            if ($counter['start'] == $key) {
+                $counter['count'] = $counter['count']-1;
+                $counter->save();
+            }
+        }
+    }
+
+
+    private function process()
+    {
         $options = $this->options;
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
@@ -111,15 +81,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, true);
-        if ($result == true) {
 
-            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
-            if ($counter['start'] == $key) {
-                $counter['count']--;
-                $counter->save();
-            }
-
-        }
 
         $info = [
             'action'=>'B2B Yii Gearman Job send 2 user',
@@ -129,9 +91,9 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
+        return $result;
     }
-
-
 
     /**
      * @inheritdoc

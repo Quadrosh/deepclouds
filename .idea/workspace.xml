@@ -57,11 +57,11 @@
       <file leaf-file-name="YiiJob.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/common/jobs/YiiJob.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23076923">
-              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.034615386">
+              <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
               <folding>
-                <element signature="e#1244#1446#0#PHP" expanded="false" />
-                <element signature="e#1796#1998#0#PHP" expanded="false" />
+                <element signature="e#1254#1456#0#PHP" expanded="false" />
+                <element signature="e#1806#2008#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -871,11 +871,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/jobs/YiiJob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23076923">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.034615386">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
           <folding>
-            <element signature="e#1244#1446#0#PHP" expanded="false" />
-            <element signature="e#1796#1998#0#PHP" expanded="false" />
+            <element signature="e#1254#1456#0#PHP" expanded="false" />
+            <element signature="e#1806#2008#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
