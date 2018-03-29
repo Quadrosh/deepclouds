@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'start',
                 'value' => function($data)
                 {
-//                    return \Yii::$app->formatter->asDatetime($data['start'], 'dd/MM/yy HH:mm:ss');
-                    return date(" g:i a, F j, Y",$data['start']);
+                    return \Yii::$app->formatter->asDatetime($data['start'], 'dd/MM/yy HH:mm:ss');
+//                    return date(" g:i a, F j, Y",$data['start']);
                 },
                 'format'=> 'html',
             ],
