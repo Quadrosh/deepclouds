@@ -59,27 +59,32 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
-            $counter->save();
+            $save = $counter->save();
 
 
             $this->log([
                 'action'=>'count > $jobLimit',
                 '$counter count'=>$counter['count'],
+                '$counter start'=>$counter['start'],
+                'now'=>time(),
+                '$save'=>$save,
             ]);
         }
 
 
-        $this->log([
-            'action'=>'just counter',
-            '$counter'=>ArrayHelper::toArray($counter, [], false),
-        ]);
+//        $this->log([
+//            'action'=>'just counter',
+////            '$counter'=>ArrayHelper::toArray($counter, [], false),
+//        ]);
 
 
         if ($counter['start'] > time()) {
 
             $this->log([
-                'action'=>'B2B Job start > time',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
+                'action'=>'B2B Job start > now',
+                '$counter count'=>$counter['count'],
+                '$counter start'=>$counter['start'],
+                'now'=>time(),
             ]);
 
             time_sleep_until($counter['start']);
@@ -105,20 +110,15 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
-
         $result = $sender->sendToUser('https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, true);
 
-
         $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',
-            'result'=>$result,
+//            'result'=>$result,
         ]);
-
-
-
 
         return $result;
     }
