@@ -111,11 +111,21 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         if ($result == true) {
             $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+            $this->log([
+                'action'=>'counter find after complete job',
+                '$counter'=>ArrayHelper::toArray($counter, [], false),
+                'now'=>time(),
+            ]);
             $counter['queue'] = $counter['queue']-1;
             if ($counter['queue'] < 1 ) {
-                $counter['count'] = 0;
+//                $counter['count'] = 0;
             }
             $counter->save();
+            $this->log([
+                'action'=>'counter save after complete job',
+                '$counter'=>ArrayHelper::toArray($counter, [], false),
+                'now'=>time(),
+            ]);
         }
     }
 
