@@ -15,8 +15,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\Job
     public $options;
 
 
-    public static $startOfPeriod;
-    public static $count;
+//    public static $startOfPeriod;
+//    public static $count;
 
     /**
      * @inheritdoc
@@ -46,8 +46,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\Job
         $info = [
             'action'=>'B2B Yii Gearman start job',
             'time'=>time(),
-            'startOfPeriod'=>self::$startOfPeriod,
-            'myCount'=>self::$count,
+//            'startOfPeriod'=>self::$startOfPeriod,
+//            'myCount'=>self::$count,
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
