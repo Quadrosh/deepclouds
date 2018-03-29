@@ -15,8 +15,8 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
     public $options;
 
 
-//    public static $startOfPeriod;
-//    public static $count;
+    public static $startOfPeriod;
+    public static $count;
 
     /**
      * @inheritdoc
