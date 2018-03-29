@@ -63,7 +63,7 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
             $info = [
                 'action'=>'count > $jobLimit',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
+                '$counter count'=>$counter['count'],
             ];
             file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
                 '----------------'.PHP_EOL
@@ -73,7 +73,9 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $info = [
             'action'=>'just counter',
-            '$counter'=>ArrayHelper::toArray($counter, [], false),
+            '$counter start'=>$counter['start'],
+            '$counter count'=>$counter['count'],
+            '$counter queue'=>$counter['queue'],
         ];
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
@@ -84,11 +86,13 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         if ($counter['start'] > time()) {
             $info = [
                 'action'=>'B2B Job start > time',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
+                'now'=>time(),
+                'until'=>$counter['start'],
             ];
             file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
                 '----------------'.PHP_EOL
                 .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+
             time_sleep_until($counter['start']);
         }
 
