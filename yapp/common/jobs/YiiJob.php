@@ -35,21 +35,31 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['name']='sendToUser';
             $counter['start'] = time();
             $counter['count'] = 0;
+            $counter['queue'] = 0;
             $counter->save();
         }
-        elseif ( $counter['count'] < 1) {
+        elseif ($counter['queue'] < 1) {
             $counter['start'] = time();
+            $counter['count'] = 0;
+            $counter['queue'] = 0;
+            $counter->save();
+        }
+        elseif ($counter['start'] < time() - 60 * 5) {
+            $counter['start'] = time();
+            $counter['count'] = 0;
+            $counter['queue'] = 0;
             $counter->save();
         }
 
         $key = $counter['start'];
         $counter['count'] = $counter['count']+1;
+        $counter['queue'] = $counter['queue']+1;
         $counter->save();
 
 
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
-            $counter['count'] = $counter['count'] - $jobLimit + 1;
+            $counter['count'] = $counter['count'] - $jobLimit;
             $counter->save();
         }
 
@@ -59,15 +69,16 @@ class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
         }
 
 
-        $this->process();
+        $result = $this->process();
 
-//        if ($result == true) {
-//            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
-//            if ($counter['start'] == $key) {
-//                $counter['count'] = $counter['count']-1;
-//                $counter->save();
-//            }
-//        }
+        if ($result == true) {
+            $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
+            $counter['queue'] = $counter['queue']-1;
+            if ($counter['queue'] < 1 ) {
+                $counter['count'] = 0;
+            }
+            $counter->save();
+        }
     }
 
 

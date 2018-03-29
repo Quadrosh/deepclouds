@@ -34,8 +34,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'=> 'html',
             ],
             'count',
-            'status',
+            'queue',
+//            'status',
 //             'created_at',
+//            [
+//                'attribute'=>'start',
+//                'value' => function($data)
+//                {
+//                    return \Yii::$app->formatter->asDatetime($data['start'], 'dd/MM/yy HH:mm:ss');
+////                    return date(" g:i a, F j, Y",$data['start']);
+//                },
+//                'format'=> 'html',
+//            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

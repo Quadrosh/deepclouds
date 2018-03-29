@@ -10,8 +10,10 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property integer $id
  * @property string $name
+ * @property string $job_key
  * @property integer $start
  * @property integer $count
+ * @property integer $queue
  * @property string $status
  * @property integer $created_at
  */
@@ -31,7 +33,7 @@ class JobCounter extends \yii\db\ActiveRecord
             [
                 'class' => TimestampBehavior::className(),
                 'updatedAtAttribute' => false,
-                'createdAtAttribute'=>'created_at',
+//                'createdAtAttribute'=>'created_at',
             ],
         ];
     }
@@ -42,8 +44,8 @@ class JobCounter extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'start', 'count'], 'required'],
-            [['start', 'count', 'created_at'], 'integer'],
-            [['name', 'status'], 'string', 'max' => 255],
+            [['start', 'count', 'created_at', 'queue'], 'integer'],
+            [['name', 'job_key', 'status'], 'string', 'max' => 255],
         ];
     }
 
@@ -57,6 +59,7 @@ class JobCounter extends \yii\db\ActiveRecord
             'name' => 'Name',
             'start' => 'Start',
             'count' => 'Count',
+            'queue' => 'Queue',
             'status' => 'Status',
             'created_at' => 'Created At',
         ];

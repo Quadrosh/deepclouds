@@ -30,10 +30,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'start',
+//            'start',
+            [
+                'attribute'=>'start',
+                'value' => function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data['start'], 'dd/MM/yy HH:mm:ss');
+//                    return date(" g:i a, F j, Y",$data['start']);
+                },
+                'format'=> 'html',
+            ],
             'count',
+            'queue',
             'status',
-            'created_at',
+//            'created_at',
+            [
+                'attribute'=>'created_at',
+                'value' => function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data['created_at'], 'dd/MM/yy HH:mm:ss');
+//                    return date(" g:i a, F j, Y",$data['start']);
+                },
+                'format'=> 'html',
+            ],
         ],
     ]) ?>
 
