@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'count')->textInput() ?>
 
+    <?= $form->field($model, 'queue')->textInput() ?>
+
     <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
