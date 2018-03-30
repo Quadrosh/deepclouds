@@ -11,14 +11,10 @@ use yii\helpers\ArrayHelper;
 /**
  * Class YiiJob.
  */
-class YiiJob extends \yii\base\Object implements \yii\queue\RetryableJob
-//class YiiJob extends \yii\base\Object implements \yii\queue\Job
+class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 {
     public $options;
 
-
-//    public $startOfPeriod;
-//    public $count;
 
     /**
      * @inheritdoc

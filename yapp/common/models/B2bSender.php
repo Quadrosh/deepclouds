@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use common\jobs\YiiJob;
+use common\jobs\SendLimitedJob;
 use shakura\yii2\gearman\JobWorkload;
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -205,7 +205,7 @@ class B2bSender extends Model
 
     public function sendByWorker($options)
     {
-        $id = Yii::$app->queue->push(new YiiJob([
+        $id = Yii::$app->queue->push(new SendLimitedJob([
             'options' => $options,
         ]));
         return $id;

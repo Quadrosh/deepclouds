@@ -29,8 +29,8 @@ return [
                 'simpleJob' => [
                     'class' => 'common\jobs\SimpleJob'
                 ],
-                'sendToUserJob' => [
-                    'class' => 'common\jobs\SendToUserJob'
+                'sendLimitedJob' => [
+                    'class' => 'common\jobs\SendLimitedJob'
                 ],
             ]
         ],
