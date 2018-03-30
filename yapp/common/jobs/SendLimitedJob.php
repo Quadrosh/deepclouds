@@ -36,6 +36,10 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         ]);
 
         if ($counter == null) {
+            $this->log([
+                'action'=>'$counter == null',
+                'now'=>microtime(true),
+            ]);
             $counter = new JobCounter();
             $counter['name']='sendToUser';
             $counter['start'] = microtime(true);
