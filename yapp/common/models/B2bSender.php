@@ -213,6 +213,9 @@ class B2bSender extends Model
 
         $i =10;
         while($i > 0){
+            $text = strval($options['text']);
+            $microtime = microtime(true);
+            $options['text'] = $i . PHP_EOL.' controller - '. $text . PHP_EOL.' sender - '.$microtime;
             Yii::$app->queue->push(new SendLimitedJob([
                 'options' => $options,
             ]));
