@@ -219,6 +219,7 @@ class B2bSender extends Model
             Yii::$app->queue->push(new SendLimitedJob([
                 'options' => $options,
             ]));
+            $i = $i-1;
         }
         return 'its done';
     }
