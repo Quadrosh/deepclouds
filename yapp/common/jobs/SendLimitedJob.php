@@ -14,6 +14,8 @@ use yii\helpers\ArrayHelper;
 class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 {
     public $options;
+    public $url;
+    public $dataInBody;
 
 
     /**
@@ -21,19 +23,20 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
      */
     public function execute($queue)
     {
-        $periodInSec = 10;
-        $jobLimit = 2;
+        $periodInSec = 1;
+        $jobLimit = 25;
 //        $key = null;
 
 
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
-        $this->log([
-            'action'=>'counter init find',
-            'counter count'=>$counter['count'],
-            'counter queue'=>$counter['queue'],
-            'counter start' => $counter['start'],
-            'now'=>microtime(true),
-        ]);
+
+//        $this->log([
+//            'action'=>'counter init find',
+//            'counter count'=>$counter['count'],
+//            'counter queue'=>$counter['queue'],
+//            'counter start' => $counter['start'],
+//            'now'=>microtime(true),
+//        ]);
 
         if ($counter == null) {
             $this->log([
@@ -45,28 +48,29 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
-            $save = $counter->save();
-            $this->log([
-                'action'=>'create counter',
-                'counter start'=>$counter['start'],
-                'counter save'=>$save,
-                'save errors'=>$counter->errors,
-                'now'=>microtime(true),
-            ]);
+            $counter->save();
+
+//            $this->log([
+//                'action'=>'create counter',
+//                'counter start'=>$counter['start'],
+//                'counter save'=>$save,
+//                'save errors'=>$counter->errors,
+//                'now'=>microtime(true),
+//            ]);
         }
-        elseif ($counter['queue'] < 1  &&  $counter['start'] < (microtime(true)-$periodInSec)) {
+        elseif ($counter['queue'] < 1  &&  $counter['start'] < (microtime(true)-$periodInSec*2)) {
             $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
             $counter->save();
 
-            $this->log([
-                'action'=>'queue < 1',
-                'counter count'=>$counter['count'],
-                'counter queue'=>$counter['queue'],
-                'counter start' => $counter['start'],
-                'now'=>microtime(true),
-            ]);
+//            $this->log([
+//                'action'=>'queue < 1',
+//                'counter count'=>$counter['count'],
+//                'counter queue'=>$counter['queue'],
+//                'counter start' => $counter['start'],
+//                'now'=>microtime(true),
+//            ]);
         }
 //        elseif ($counter['start'] < time() - 60 * 5) {
 //            $counter['start'] = time();
@@ -77,31 +81,30 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $counter['count'] = $counter['count']+1;
         $counter['queue'] = $counter['queue']+1;
-        $save =  $counter->save();
+        $counter->save();
 
-        $this->log([
-            'action'=>'counter +1',
-            '$save'=>$save,
-            'errors'=>$counter->errors,
-            'counter count'=>$counter['count'],
-            'counter queue'=>$counter['queue'],
-            'counter start' => $counter['start'],
-            'now'=>microtime(true),
-        ]);
+//        $this->log([
+//            'action'=>'counter +1',
+//            '$save'=>$save,
+//            'errors'=>$counter->errors,
+//            'counter count'=>$counter['count'],
+//            'counter queue'=>$counter['queue'],
+//            'counter start' => $counter['start'],
+//            'now'=>microtime(true),
+//        ]);
 
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
-            $save = $counter->save();
+            $counter->save();
 
-
-            $this->log([
-                'action'=>'count > $jobLimit',
-                '$counter count'=>$counter['count'],
-                '$counter start'=>$counter['start'],
-                'now'=>microtime(true),
-                '$save'=>$save,
-            ]);
+//            $this->log([
+//                'action'=>'count > $jobLimit',
+//                '$counter count'=>$counter['count'],
+//                '$counter start'=>$counter['start'],
+//                'now'=>microtime(true),
+//                '$save'=>$save,
+//            ]);
         }
 
 
@@ -113,16 +116,16 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         if ($counter['start'] > microtime(true)) {
             $timeToSleep = $counter['start'] - microtime(true);
-            $this->log([
-                'action'=>'B2B Job start > now',
-                '$counter count'=>$counter['count'],
-                '$counter start'=>$counter['start'],
-                '$timeToSleep'=>$timeToSleep,
-                'now'=>microtime(true),
-            ]);
+
+//            $this->log([
+//                'action'=>'B2B Job start > now',
+//                '$counter count'=>$counter['count'],
+//                '$counter start'=>$counter['start'],
+//                '$timeToSleep'=>$timeToSleep,
+//                'now'=>microtime(true),
+//            ]);
 
             usleep($timeToSleep*1000000);
-           // time_sleep_until($counter['start']);   // usleep
         }
 
 
@@ -136,33 +139,27 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 //                'now'=>time(),
 //            ]);
             $counter['queue'] = $counter['queue']-1;
-            if ($counter['queue'] < 1 ) {
-//                $counter['count'] = 0;
-            }
             $counter->save();
-            $this->log([
-                'action'=>'counter save after complete job',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>microtime(true),
-            ]);
+//            $this->log([
+//                'action'=>'counter save after complete job',
+//                '$counter'=>ArrayHelper::toArray($counter, [], false),
+//                'now'=>microtime(true),
+//            ]);
         }
     }
 
 
     private function process()
     {
-        $options = $this->options;
-        $chat_id = $options['chat_id'];
-        $urlEncodedText = urlencode($options['text']);
+//        $options = $this->options;
+//        $chat_id = $options['chat_id'];
+//        $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
-        $result = $sender->sendToUser('https://api.telegram.org/bot' .
-            Yii::$app->params['b2bBotToken'].
-            '/sendMessage?chat_id='.$chat_id .
-            '&text='.$urlEncodedText, $options, true);
+        $result = $sender->sendToUser($this->url, $this->options, $this->dataInBody);
 
         $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',
-//            'result'=>$result,
+            'result'=>$result,
         ]);
 
         return $result;

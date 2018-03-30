@@ -174,43 +174,14 @@ class B2bSender extends Model
 
 
 
-    public function sendByWorker__OLD($options)
+
+    public function sendDebugJob($options)
     {
 
-        $task = new Task();
-        $task['site']='b2b';
-        $task['name']='sendToUser';
-        $task['address']=strval($options['chat_id']);
-        $task['workload']=serialize($options);
-        $saving = $task->save();
-
-
-        $info = [
-            'action'=>'saving task',
-            'saving'=>$saving,
-            'errors'=>$task->errors,
-        ];
-        Yii::info($info, 'b2bBot');
-//        serialize($options)
-
-        $result = Yii::$app->gearman->getDispatcher()->execute('sendToUserJob');
-
-        if ($result) {
-            return 'it seems i send something';
-        } else {
-            return false;
-        }
-
-    }
-
-    public function sendByWorker($options)
-    {
 //        $options['text'] = microtime(true);
 //        $id = Yii::$app->queue->push(new SendLimitedJob([
 //            'options' => $options,
 //        ]));
-
-
         $i =10;
         while($i > 0){
             $text = strval($options['text']);
@@ -222,5 +193,16 @@ class B2bSender extends Model
             $i = $i-1;
         }
         return 'its done';
+    }
+
+    public function sendJob($url, $options, $dataInBody=true)
+    {
+
+            Yii::$app->queue->push(new SendLimitedJob([
+                'url' => $url,
+                'options' => $options,
+                'dataInBody' => $dataInBody,
+            ]));
+
     }
 }
