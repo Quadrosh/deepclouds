@@ -23,7 +23,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
     {
         $periodInSec = 10;
         $jobLimit = 2;
-        $key = null;
+//        $key = null;
 
 
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
@@ -32,19 +32,19 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             'counter count'=>$counter['count'],
             'counter queue'=>$counter['queue'],
             'counter start' => $counter['start'],
-            'now'=>time(),
+            'now'=>microtime(true),
         ]);
 
         if ($counter == null) {
             $counter = new JobCounter();
             $counter['name']='sendToUser';
-            $counter['start'] = time();
+            $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
             $counter->save();
         }
-        elseif ($counter['queue'] < 1  &&  $counter['start'] < (time()-$periodInSec)) {
-            $counter['start'] = time();
+        elseif ($counter['queue'] < 1  &&  $counter['start'] < (microtime(true)-$periodInSec)) {
+            $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
             $counter->save();
@@ -54,7 +54,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
                 'counter count'=>$counter['count'],
                 'counter queue'=>$counter['queue'],
                 'counter start' => $counter['start'],
-                'now'=>time(),
+                'now'=>microtime(true),
             ]);
         }
 //        elseif ($counter['start'] < time() - 60 * 5) {
@@ -75,7 +75,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             'counter count'=>$counter['count'],
             'counter queue'=>$counter['queue'],
             'counter start' => $counter['start'],
-            'now'=>time(),
+            'now'=>microtime(true),
         ]);
 
         if ($counter['count'] > $jobLimit) {
@@ -88,7 +88,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
                 'action'=>'count > $jobLimit',
                 '$counter count'=>$counter['count'],
                 '$counter start'=>$counter['start'],
-                'now'=>time(),
+                'now'=>microtime(true),
                 '$save'=>$save,
             ]);
         }
@@ -100,16 +100,18 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 //        ]);
 
 
-        if ($counter['start'] > time()) {
-
+        if ($counter['start'] > microtime(true)) {
+            $timeToSleep = $counter['start'] - microtime(true);
             $this->log([
                 'action'=>'B2B Job start > now',
                 '$counter count'=>$counter['count'],
                 '$counter start'=>$counter['start'],
-                'now'=>time(),
+                '$timeToSleep'=>$timeToSleep,
+                'now'=>microtime(true),
             ]);
 
-            time_sleep_until($counter['start']);
+            usleep($timeToSleep*1000000);
+           // time_sleep_until($counter['start']);   // usleep
         }
 
 
@@ -117,11 +119,11 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         if ($result == true) {
             $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
-            $this->log([
-                'action'=>'counter find after complete job',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>time(),
-            ]);
+//            $this->log([
+//                'action'=>'counter find after complete job',
+//                '$counter'=>ArrayHelper::toArray($counter, [], false),
+//                'now'=>time(),
+//            ]);
             $counter['queue'] = $counter['queue']-1;
             if ($counter['queue'] < 1 ) {
 //                $counter['count'] = 0;
@@ -130,7 +132,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $this->log([
                 'action'=>'counter save after complete job',
                 '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>time(),
+                'now'=>microtime(true),
             ]);
         }
     }

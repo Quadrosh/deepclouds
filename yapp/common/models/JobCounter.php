@@ -44,7 +44,8 @@ class JobCounter extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'start', 'count'], 'required'],
-            [['start', 'count', 'created_at', 'queue'], 'integer'],
+            [['start'], 'float'],
+            [['count', 'created_at', 'queue'], 'integer'],
             [['name', 'job_key', 'status'], 'string', 'max' => 255],
         ];
     }
