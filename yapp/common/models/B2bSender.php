@@ -206,9 +206,17 @@ class B2bSender extends Model
     public function sendByWorker($options)
     {
 //        $options['text'] = microtime(true);
-        $id = Yii::$app->queue->push(new SendLimitedJob([
-            'options' => $options,
-        ]));
-        return $id;
+//        $id = Yii::$app->queue->push(new SendLimitedJob([
+//            'options' => $options,
+//        ]));
+
+
+        $i =10;
+        while($i > 0){
+            Yii::$app->queue->push(new SendLimitedJob([
+                'options' => $options,
+            ]));
+        }
+        return 'its done';
     }
 }
