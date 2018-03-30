@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/yapp/common/jobs/SyncCalendar.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/yapp/common/jobs/YiiJob.php" afterPath="$PROJECT_DIR$/yapp/common/jobs/SendLimitedJob.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/config/main.php" afterPath="$PROJECT_DIR$/yapp/common/config/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" afterPath="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1121" column="49" selection-start-line="1121" selection-start-column="49" selection-end-line="1121" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.5690377">
+              <caret line="1122" column="52" selection-start-line="1122" selection-start-column="52" selection-end-line="1122" selection-end-column="52" />
               <folding>
                 <element signature="e#10067#10276#0#PHP" expanded="false" />
               </folding>
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="B2bSender.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="B2bSender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.154812">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -61,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/yapp/common/jobs/SendLimitedJob.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="20" />
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -200,10 +198,10 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/job-counter/view.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/JobCounter.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/job-counter/_form.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
         <option value="$PROJECT_DIR$/yapp/common/jobs/YiiJob.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/main.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bSender.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
       </list>
     </option>
   </component>
@@ -457,7 +455,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="415" width="1394" height="485" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.193008" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
@@ -852,16 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1121" column="49" selection-start-line="1121" selection-start-column="49" selection-end-line="1121" selection-end-column="49" />
-          <folding>
-            <element signature="e#10067#10276#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.8451884">
@@ -881,16 +869,26 @@
     <entry file="file://$PROJECT_DIR$/yapp/common/jobs/SendLimitedJob.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="20" />
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.154812">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5690377">
+          <caret line="1122" column="52" selection-start-line="1122" selection-start-column="52" selection-end-line="1122" selection-end-column="52" />
+          <folding>
+            <element signature="e#10067#10276#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1117,9 +1117,10 @@ class B2bBotController extends \yii\web\Controller
 
 
 
+        $microtime = microtime(true);
         $options = [
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'текст', // $responseToUser
+            'text' => $microtime, // $responseToUser
             'reply_markup' => Json::encode([
                 'inline_keyboard'=>[
                     [
