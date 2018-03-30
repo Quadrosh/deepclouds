@@ -41,7 +41,14 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
-            $counter->save();
+            $save = $counter->save();
+            $this->log([
+                'action'=>'create counter',
+                'counter start'=>$counter['start'],
+                'counter save'=>$save,
+                'save errors'=>$counter->errors,
+                'now'=>microtime(true),
+            ]);
         }
         elseif ($counter['queue'] < 1  &&  $counter['start'] < (microtime(true)-$periodInSec)) {
             $counter['start'] = microtime(true);
