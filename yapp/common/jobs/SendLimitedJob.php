@@ -177,6 +177,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         file_put_contents(dirname(dirname(__DIR__)).'/frontend/runtime/logs/job.log',
             '----------------'.PHP_EOL
             .date(" g:i a, F j, Y").PHP_EOL.print_r($info,true).PHP_EOL, FILE_APPEND);
+        Yii::info('job done');
     }
     /**
      * @inheritdoc
