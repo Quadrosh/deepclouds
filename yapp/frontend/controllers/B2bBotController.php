@@ -1046,7 +1046,7 @@ class B2bBotController extends \yii\web\Controller
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
         $jsonResponse = $sender->sendToUser(
-
+            $this->request['id'],
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
