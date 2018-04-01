@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'update_id',
             'user_id',
             'request:ntext',
+            'status',
 //            'answer:ntext',
 //            [
 //                'attribute'=>'user_time',

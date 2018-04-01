@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'request:ntext',
             'answer:ntext',
-//            'user_time',
+            'status',
             [
                 'attribute'=>'user_time',
                 'value' => function($data)
