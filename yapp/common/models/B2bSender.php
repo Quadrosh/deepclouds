@@ -204,5 +204,7 @@ class B2bSender extends Model
                 'dataInBody' => $dataInBody,
             ]));
 
+        return 'job in queue';
+
     }
 }

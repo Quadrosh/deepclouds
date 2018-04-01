@@ -122,6 +122,7 @@ class B2bBotController extends \yii\web\Controller
         $this->request['user_id'] = $this->user['id'];
         $this->request['update_id'] = strval($updateId);
         $this->request['user_time'] = intval($message['date']);
+        $this->request['status'] = 'received';
 
 
 
@@ -1031,6 +1032,7 @@ class B2bBotController extends \yii\web\Controller
     {
         $this->request['answer'] = $options['text'];
         $this->request['answer_time'] = time();
+        $this->request['status'] = 'processed';
         $this->request->save();
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
