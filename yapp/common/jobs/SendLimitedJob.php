@@ -22,7 +22,12 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         return [
             // anonymous behavior, behavior class name only
 //            MyBehavior::className(),
-            \yii\queue\LogBehavior::className(),
+
+
+
+//            \yii\queue\LogBehavior::className(),
+
+
 
             // named behavior, behavior class name only
 //            'myBehavior2' => MyBehavior::className(),
@@ -155,26 +160,21 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         if ($result == true) {
             $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
 
-            $this->log([
-                'action'=>'counter find after complete job',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>time(),
-            ]);
+//            $this->log([
+//                'action'=>'counter find after complete job',
+//                '$counter'=>ArrayHelper::toArray($counter, [], false),
+//                'now'=>time(),
+//            ]);
 
             $counter['queue'] = $counter['queue']-1;
             $counter->save();
 
-            $this->log([
-                'action'=>'counter save after complete job',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>microtime(true),
-            ]);
-        } else {
-                $this->log([
-                'action'=>'$result == false',
-                '$counter'=>ArrayHelper::toArray($counter, [], false),
-                'now'=>microtime(true),
-            ]);
+//            $this->log([
+//                'action'=>'counter save after complete job',
+//                '$counter'=>ArrayHelper::toArray($counter, [], false),
+//                'now'=>microtime(true),
+//            ]);
+
         }
     }
 
@@ -187,6 +187,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 
         $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',
+            'requestId'=>$this->requestId,
             'result'=>$result,
         ]);
 
