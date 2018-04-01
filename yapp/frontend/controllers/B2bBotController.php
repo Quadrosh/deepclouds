@@ -993,7 +993,7 @@ class B2bBotController extends \yii\web\Controller
     public function answerCallbackQuery(array $options = [])
     {
         $sender = new B2bSender;
-        $jsonResponse = $sender->sendToUser(
+        $jsonResponse = $sender->sendJob(
             $this->request['id'],
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
@@ -1017,7 +1017,7 @@ class B2bBotController extends \yii\web\Controller
         $this->request['status'] = 'processed';
         $this->request->save();
         $sender = new B2bSender;
-        $jsonResponse = $sender->sendToUser(
+        $jsonResponse = $sender->sendJob(
             $this->request['id'],
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
@@ -1043,7 +1043,7 @@ class B2bBotController extends \yii\web\Controller
         $chat_id = $options['chat_id'];
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
-        $jsonResponse = $sender->sendToUser(
+        $jsonResponse = $sender->sendJob(
             $this->request['id'],
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
