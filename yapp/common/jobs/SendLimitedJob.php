@@ -4,7 +4,6 @@ namespace common\jobs;
 
 use common\models\B2bSender;
 use common\models\JobCounter;
-use common\models\Task;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -13,6 +12,7 @@ use yii\helpers\ArrayHelper;
  */
 class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 {
+    public $requestId;
     public $options;
     public $url;
     public $dataInBody;
@@ -72,12 +72,12 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 //                'now'=>microtime(true),
 //            ]);
         }
-//        elseif ($counter['start'] < time() - 60 * 5) {
-//            $counter['start'] = time();
-//            $counter['count'] = 0;
-//            $counter['queue'] = 0;
-//            $counter->save();
-//        }
+        elseif ($counter['start'] < microtime(true) - 60 * 5) {
+            $counter['start'] = microtime(true);
+            $counter['count'] = 0;
+            $counter['queue'] = 0;
+            $counter->save();
+        }
 
         $counter['count'] = $counter['count']+1;
         $counter['queue'] = $counter['queue']+1;
@@ -155,7 +155,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 //        $chat_id = $options['chat_id'];
 //        $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
-        $result = $sender->sendToUser($this->url, $this->options, $this->dataInBody);
+        $result = $sender->sendToUser($this->requestId, $this->url, $this->options, $this->dataInBody);
 
         $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',

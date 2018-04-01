@@ -114,13 +114,14 @@ class B2bSender extends Model
     /**
      * Sends message to user
      *
+     * @param int $requestId
      * @param string $url
      * @param string []  $options
      * @param boolean  $dataInBody
      *
      * @return string json
      */
-    public static function sendToUser($url, $options = [], $dataInBody = false)
+    public static function sendToUser($requestId, $url, $options = [], $dataInBody = false)
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -150,6 +151,9 @@ class B2bSender extends Model
             Yii::info($info, 'b2bBot');
         }
         curl_close($ch);
+        $request = B2bBotRequest::findOne(['id'=>$requestId]);
+        $request['status'] = 'answered';
+        $request->save();
         return $r;
     }
 
@@ -195,10 +199,11 @@ class B2bSender extends Model
         return 'its done';
     }
 
-    public function sendJob($url, $options, $dataInBody=true)
+    public function sendJob($requestId, $url, $options, $dataInBody=true)
     {
 
             Yii::$app->queue->push(new SendLimitedJob([
+                'requestId' => $requestId,
                 'url' => $url,
                 'options' => $options,
                 'dataInBody' => $dataInBody,

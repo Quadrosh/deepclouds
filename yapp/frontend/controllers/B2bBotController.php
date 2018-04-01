@@ -993,7 +993,9 @@ class B2bBotController extends \yii\web\Controller
     public function answerCallbackQuery(array $options = [])
     {
         $sender = new B2bSender;
-        $jsonResponse = $sender->sendToUser('https://api.telegram.org/bot' .
+        $jsonResponse = $sender->sendToUser(
+            $this->request['id'],
+            'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
         return $jsonResponse;
@@ -1011,8 +1013,14 @@ class B2bBotController extends \yii\web\Controller
      */
     public function answerInlineQuery(array $options = [])
     {
+        $this->request['answer'] = 'inline_data';
+        $this->request['answer_time'] = time();
+        $this->request['status'] = 'processed';
+        $this->request->save();
         $sender = new B2bSender;
-        $jsonResponse = $sender->sendToUser('https://api.telegram.org/bot' .
+        $jsonResponse = $sender->sendToUser(
+            $this->request['id'],
+            'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
         return $jsonResponse;
@@ -1038,6 +1046,7 @@ class B2bBotController extends \yii\web\Controller
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
         $jsonResponse = $sender->sendToUser(
+
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
@@ -1088,6 +1097,10 @@ class B2bBotController extends \yii\web\Controller
 
 
     private function debug (){
+
+
+
+
         $orders = $this->getOrdersFromServer([
             'phone' => $this->dealer['phone'],
         ]);
@@ -1138,6 +1151,7 @@ class B2bBotController extends \yii\web\Controller
         $urlEncodedText = urlencode($options['text']);
         $sender = new B2bSender;
         $jsonResponse = $sender->sendJob(
+            $this->request['id'],
             'https://api.telegram.org/bot' .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
