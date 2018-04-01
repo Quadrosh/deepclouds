@@ -153,6 +153,7 @@ class B2bSender extends Model
         curl_close($ch);
         $request = B2bBotRequest::findOne(['id'=>$requestId]);
         $request['status'] = 'answered';
+        $request['answer_time'] = time();
         $request->save();
         return $r;
     }

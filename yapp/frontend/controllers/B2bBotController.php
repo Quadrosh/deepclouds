@@ -1014,7 +1014,6 @@ class B2bBotController extends \yii\web\Controller
     public function answerInlineQuery(array $options = [])
     {
         $this->request['answer'] = 'inline_data';
-        $this->request['answer_time'] = time();
         $this->request['status'] = 'processed';
         $this->request->save();
         $sender = new B2bSender;
@@ -1039,7 +1038,6 @@ class B2bBotController extends \yii\web\Controller
     public function sendMessage($options, $dataInBody = true)
     {
         $this->request['answer'] = $options['text'];
-        $this->request['answer_time'] = time();
         $this->request['status'] = 'processed';
         $this->request->save();
         $chat_id = $options['chat_id'];
