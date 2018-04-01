@@ -17,6 +17,27 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
     public $url;
     public $dataInBody;
 
+    public function behaviors()
+    {
+        return [
+            // anonymous behavior, behavior class name only
+//            MyBehavior::className(),
+            \yii\queue\LogBehavior::className(),
+
+            // named behavior, behavior class name only
+//            'myBehavior2' => MyBehavior::className(),
+//
+//            // anonymous behavior, configuration array
+//            [
+//                'class' => MyBehavior::className(),
+//                'prop1' => 'value1',
+//                'prop2' => 'value2',
+//            ],
+
+
+        ];
+    }
+
 
     /**
      * @inheritdoc
