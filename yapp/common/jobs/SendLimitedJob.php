@@ -48,8 +48,8 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
      */
     public function execute($queue)
     {
-        $periodInSec = 10;
-        $jobLimit = 2;
+        $periodInSec = 1;
+        $jobLimit = 25;
 
 
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
