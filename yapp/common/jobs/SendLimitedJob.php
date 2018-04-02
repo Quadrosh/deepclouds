@@ -25,9 +25,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
 //            MyBehavior::className(),
 
 
-
 //            \yii\queue\LogBehavior::className(),
-
 
 
             // named behavior, behavior class name only
@@ -52,7 +50,6 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
     {
         $periodInSec = 10;
         $jobLimit = 2;
-//        $key = null;
 
 
         $counter = JobCounter::find()->where(['name'=>'sendToUser'])->one();
@@ -129,6 +126,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         if ($counter['count'] > $jobLimit) {
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
+            $counter['reset_date'] = time();
             $counter->save();
             $counterStat = new JobCounterStat;
             $counterStat['name']='sendToUser';
