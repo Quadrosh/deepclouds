@@ -13,9 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Job Counter', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -58,7 +56,24 @@ $this->params['breadcrumbs'][] = $this->title;
 //                'format'=> 'html',
 //            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+//            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => \yii\grid\ActionColumn::className(),
+                'buttons' => [
+                    'delete'=>function($url,$model){
+                        $newUrl = Yii::$app->getUrlManager()->createUrl(['/job-counter/reset','id'=>$model['id']]);
+                        return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-refresh"></span>', $newUrl,
+                            ['title' => Yii::t('yii', 'Reset'), 'data-pjax' => '0','data-method'=>'post']);
+                    },
+//                    'view'=>function($url,$model){
+//                        return false;
+//                    },
+//                    'update'=>function($url,$model){
+//                        return false;
+//                    },
+
+                ]
+            ],
         ],
     ]); ?>
 </div>
