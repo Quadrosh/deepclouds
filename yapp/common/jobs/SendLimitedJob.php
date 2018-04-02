@@ -50,8 +50,8 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
      */
     public function execute($queue)
     {
-        $periodInSec = 1;
-        $jobLimit = 25;
+        $periodInSec = 10;
+        $jobLimit = 2;
 //        $key = null;
 
 
