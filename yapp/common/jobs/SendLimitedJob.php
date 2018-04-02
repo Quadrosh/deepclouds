@@ -4,6 +4,7 @@ namespace common\jobs;
 
 use common\models\B2bSender;
 use common\models\JobCounter;
+use common\models\JobCounterStat;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -74,6 +75,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['start'] = microtime(true);
             $counter['count'] = 0;
             $counter['queue'] = 0;
+            $counter['max_count'] = 0;
             $counter->save();
 
 //            $this->log([
@@ -109,6 +111,11 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $counter['queue'] = $counter['queue']+1;
         $counter->save();
 
+        if ($counter['count'] > $counter['max_count']) {
+            $counter['max_count']=$counter['count'];
+            $counter->save();
+        }
+
 //        $this->log([
 //            'action'=>'counter +1',
 //            '$save'=>$save,
@@ -123,6 +130,9 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['start'] = $counter['start'] + $periodInSec;
             $counter['count'] = $counter['count'] - $jobLimit;
             $counter->save();
+            $counterStat = new JobCounterStat;
+            $counterStat['count'] = $jobLimit;
+            $counterStat->save();
 
 //            $this->log([
 //                'action'=>'count > $jobLimit',

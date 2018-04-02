@@ -6,25 +6,21 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "job_counter".
+ * This is the model class for table "job_counter_stat".
  *
  * @property integer $id
  * @property string $name
- * @property string $job_key
- * @property integer $start
  * @property integer $count
- * @property integer $queue
- * @property string $status
  * @property integer $created_at
  */
-class JobCounter extends \yii\db\ActiveRecord
+class JobCounterStat extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'job_counter';
+        return 'job_counter_stat';
     }
 
     public function behaviors()
@@ -43,10 +39,9 @@ class JobCounter extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'start', 'count'], 'required'],
-            [['start'], 'double'],
-            [['count', 'created_at', 'queue','max_count','reset_date'], 'integer'],
-            [['name', 'job_key', 'status'], 'string', 'max' => 255],
+            [['name'], 'required'],
+            [['count', 'created_at'], 'integer'],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -58,12 +53,7 @@ class JobCounter extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'start' => 'Start',
             'count' => 'Count',
-            'queue' => 'Queue',
-            'max_count' => 'Max Count',
-            'reset_date' => 'Reset Date',
-            'status' => 'Status',
             'created_at' => 'Created At',
         ];
     }

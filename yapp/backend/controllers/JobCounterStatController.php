@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\JobCounter;
+use common\models\JobCounterStat;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -11,9 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * JobCounterController implements the CRUD actions for JobCounter model.
+ * JobCounterStatController implements the CRUD actions for JobCounterStat model.
  */
-class JobCounterController extends Controller
+class JobCounterStatController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,7 +31,7 @@ class JobCounterController extends Controller
     }
 
     /**
-     * Lists all JobCounter models.
+     * Lists all JobCounterStat models.
      * @return mixed
      */
     public function actionIndex()
@@ -39,7 +39,7 @@ class JobCounterController extends Controller
         Url::remember();
 
         $dataProvider = new ActiveDataProvider([
-            'query' => JobCounter::find(),
+            'query' => JobCounterStat::find(),
         ]);
 
         return $this->render('index', [
@@ -48,26 +48,27 @@ class JobCounterController extends Controller
     }
 
     /**
-     * Displays a single JobCounter model.
+     * Displays a single JobCounterStat model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
         Url::remember();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new JobCounter model.
+     * Creates a new JobCounterStat model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new JobCounter();
+        $model = new JobCounterStat();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(Url::previous());
@@ -79,7 +80,7 @@ class JobCounterController extends Controller
     }
 
     /**
-     * Updates an existing JobCounter model.
+     * Updates an existing JobCounterStat model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -98,7 +99,7 @@ class JobCounterController extends Controller
     }
 
     /**
-     * Deletes an existing JobCounter model.
+     * Deletes an existing JobCounterStat model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,29 +112,18 @@ class JobCounterController extends Controller
     }
 
     /**
-     * Finds the JobCounter model based on its primary key value.
+     * Finds the JobCounterStat model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return JobCounter the loaded model
+     * @return JobCounterStat the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = JobCounter::findOne($id)) !== null) {
+        if (($model = JobCounterStat::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    public function reset($id)
-    {
-
-        $counter = $this->findModel($id);
-        $counter['max_count'] = 0;
-        $counter['reset_date'] = time();
-        $counter->save();
-
-        return $this->redirect(Url::previous());
     }
 }
