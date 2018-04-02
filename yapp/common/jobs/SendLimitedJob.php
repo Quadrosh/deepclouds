@@ -131,6 +131,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             $counter['count'] = $counter['count'] - $jobLimit;
             $counter->save();
             $counterStat = new JobCounterStat;
+            $counterStat['name']='sendToUser';
             $counterStat['count'] = $jobLimit;
             $counterStat->save();
 

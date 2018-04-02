@@ -35,6 +35,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'count',
             'queue',
+            'max_count',
+            [
+                'attribute'=>'reset_date',
+                'value' => function($data)
+                {
+                    return \Yii::$app->formatter->asDatetime($data['reset_date'], 'dd/MM/yy HH:mm:ss');
+//                    return date(" g:i a, F j, Y",$data['start']);
+                },
+                'format'=> 'html',
+            ],
+
 //            'status',
 //             'created_at',
 //            [
