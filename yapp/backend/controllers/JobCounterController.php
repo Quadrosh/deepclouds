@@ -126,10 +126,12 @@ class JobCounterController extends Controller
         }
     }
 
-    public function reset($id)
+    public function actionReset($id)
     {
 
         $counter = $this->findModel($id);
+        $counter['count'] = 0;
+        $counter['queue'] = 0;
         $counter['max_count'] = 0;
         $counter['reset_date'] = time();
         $counter->save();
