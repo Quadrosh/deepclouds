@@ -13,14 +13,28 @@ use yii\filters\VerbFilter;
 /**
  * JobCounterController implements the CRUD actions for JobCounter model.
  */
-class JobCounterController extends Controller
+class JobCounterController extends BackController
 {
+
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'except' => ['error'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['creatorPermission'],
+                    ],
+                    [
+                        'allow' => false,
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

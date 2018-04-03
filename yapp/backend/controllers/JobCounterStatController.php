@@ -13,14 +13,28 @@ use yii\filters\VerbFilter;
 /**
  * JobCounterStatController implements the CRUD actions for JobCounterStat model.
  */
-class JobCounterStatController extends Controller
+class JobCounterStatController extends BackController
 {
+
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'except' => ['error'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['creatorPermission'],
+                    ],
+                    [
+                        'allow' => false,
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -40,6 +54,14 @@ class JobCounterStatController extends Controller
 
         $dataProvider = new ActiveDataProvider([
             'query' => JobCounterStat::find(),
+            'pagination'=> [
+                'pageSize' => 100,
+            ],
+            'sort' =>[
+                'defaultOrder'=> [
+                    'id' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [
