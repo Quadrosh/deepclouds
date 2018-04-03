@@ -38,12 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'password_reset_token',
              'email:email',
              'status',
-            [
-                'attribute'=>'created_at',
-                'value'=> function($data){
-                    return  \Yii::$app->formatter->asDatetime($data->created_at, "php:d-m-Y H:i:s");
-                }
-            ],
+//            [
+//                'attribute'=>'created_at',
+//                'value'=> function($data){
+//                    return  \Yii::$app->formatter->asDatetime($data->created_at, "php:d-m-Y H:i:s");
+//                }
+//            ],
 
             [
                 'attribute'=>'updated_at',
