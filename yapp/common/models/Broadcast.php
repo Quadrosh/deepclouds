@@ -11,8 +11,8 @@ use Yii;
  * @property string $bot
  * @property string $name
  * @property string $text
- * @property integer $count
- * @property integer $all_count
+ * @property integer $sent_count
+ * @property string $addresses
  * @property integer $start_time
  * @property integer $end_time
  * @property string $status
@@ -35,8 +35,8 @@ class Broadcast extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['text'], 'string'],
-            [['count', 'all_count', 'start_time', 'end_time', 'created_at'], 'integer'],
+            [['text', 'addresses'], 'string'],
+            [['sent_count', 'start_time', 'end_time', 'created_at'], 'integer'],
             [['bot', 'name', 'status'], 'string', 'max' => 255],
         ];
     }
@@ -51,8 +51,8 @@ class Broadcast extends \yii\db\ActiveRecord
             'bot' => 'Bot',
             'name' => 'Name',
             'text' => 'Text',
-            'count' => 'Count',
-            'all_count' => 'All Count',
+            'sent_count' => 'Sent Count',
+            'addresses' => 'Addresses',
             'start_time' => 'Start Time',
             'end_time' => 'End Time',
             'status' => 'Status',

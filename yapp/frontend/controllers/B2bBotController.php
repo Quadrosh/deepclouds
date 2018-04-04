@@ -220,6 +220,11 @@ class B2bBotController extends \yii\web\Controller
                 $commandArr = explode('/', $this->request['request']);
                 $phone = $commandArr[1];
 
+                if (substr($phone,0,1) == '+') {
+                    $count = count($phone)-1;
+                    $phone = substr($phone,1,$count);
+                }
+
                 $this->user['phone'] = $phone;
                 $this->user->save();
                 Yii::info([
@@ -1095,8 +1100,6 @@ class B2bBotController extends \yii\web\Controller
 
 
     private function debug (){
-
-
 
 
         $orders = $this->getOrdersFromServer([
