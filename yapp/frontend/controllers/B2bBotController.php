@@ -710,13 +710,14 @@ class B2bBotController extends \yii\web\Controller
      * */
     private function emailProcess($text){
 
-        Yii::info([
-            'action'=>'emailProcess',
-            'bot_command'=>$this->user['bot_command'],
-        ], 'b2bBot');
-
         $this->user['bot_command'] = null;
         $this->user->save();
+
+
+        Yii::info([
+            'action'=>'$this->dealer',
+            '$this->dealer'=>$this->dealer,
+        ], 'b2bBot');
 
         $res = $this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name']);
         Yii::info([
