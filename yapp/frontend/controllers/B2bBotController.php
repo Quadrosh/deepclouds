@@ -1215,7 +1215,7 @@ class B2bBotController extends \yii\web\Controller
 //            'text' => 'user='.$this->user['id'].PHP_EOL.'bot_command='. $this->user['bot_command'],
 //        ]);
 
-        return Yii::$app->params['b2bFromEmail'];
+//        return Yii::$app->params['b2bFromEmail'];
 
         return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
 
