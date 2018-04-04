@@ -1171,10 +1171,11 @@ class B2bBotController extends \yii\web\Controller
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => $this->user['bot_command'],
+
+            'text' => 'user='.$this->user['id'].PHP_EOL.'bot_command='. $this->user['bot_command'],
         ]);
 
-        return $this->user['bot_command'];
+        return 'ok';
 
 
 
