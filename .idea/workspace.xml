@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" afterPath="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
     </list>
     <ignored path="deepclouds.iws" />
@@ -36,10 +35,10 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3642857">
-              <caret line="392" column="8" selection-start-line="392" selection-start-column="8" selection-end-line="392" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.4857143">
+              <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
               <folding>
-                <element signature="e#10507#10716#0#PHP" expanded="false" />
+                <element signature="e#10522#10731#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -799,12 +798,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>439</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>676</line>
+          <line>672</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
@@ -1209,10 +1203,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3642857">
-          <caret line="392" column="8" selection-start-line="392" selection-start-column="8" selection-end-line="392" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.4857143">
+          <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
           <folding>
-            <element signature="e#10507#10716#0#PHP" expanded="false" />
+            <element signature="e#10522#10731#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

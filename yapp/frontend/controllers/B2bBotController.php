@@ -77,9 +77,9 @@ class B2bBotController extends \yii\web\Controller
         $cleanInput = Json::decode($input);
         $allreadyRequested = B2bBotRequest::find()->where(['update_id'=>$cleanInput['update_id']])->one();
 
-//        if ($allreadyRequested) {
-//            return 'ok';
-//        }
+        if ($allreadyRequested) {
+            return 'this request in process';
+        }
 
         Yii::info([
             'action'=>'request from User',
