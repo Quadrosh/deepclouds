@@ -134,14 +134,6 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-
-        Yii::info([
-            'action'=>'$this->request received',
-            'bot_command'=>$this->user['bot_command'],
-        ], 'b2bBot');
-
-
-
         if ($message) {
 
             if (isset($message['text'])) {
@@ -342,10 +334,6 @@ class B2bBotController extends \yii\web\Controller
      * */
     private function textMessageAction($message){
 
-        Yii::info([
-            'action'=>'textMessageAction',
-            'bot_command'=>$this->user['bot_command'],
-        ], 'b2bBot');
 
         if ($this->user['bot_command'] == 'sendEmail'){
 
@@ -403,10 +391,6 @@ class B2bBotController extends \yii\web\Controller
             return $this->emailInit();
         }
 
-        // сообщение менеджеру - обработка запроса
-//        elseif ($this->user['bot_command'] == 'sendEmail'){
-//            return $this->emailProcess($message['text']);
-//        }
 
         // Инфо по артикулу - инициализация
         elseif (trim(strtolower($message['text'])) == '/product' || $message['text'] == 'Инфо по артикулу' ){
@@ -453,10 +437,6 @@ class B2bBotController extends \yii\web\Controller
            return $this->debug();
         }
 
-        Yii::info([
-            'action'=>'нет такой команды',
-            'bot_command'=>$this->user['bot_command'],
-        ], 'b2bBot');
 
 
         $this->sendMessage([
