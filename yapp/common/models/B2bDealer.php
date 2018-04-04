@@ -58,7 +58,7 @@ class B2bDealer extends \yii\db\ActiveRecord
             'name' => 'Имя',
             'email' => 'Email',
             'phone' => 'Основной телефон',
-            'entry_phones' => 'Телефоны сотрудников',
+            'entry_phones' => 'Телефоны сотрудников (через запятую без пробелов в формате 79200000000)',
             'status' => 'Статус',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
