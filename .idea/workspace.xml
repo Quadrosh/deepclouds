@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bDealer.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.3512304">
-              <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+              <caret line="75" column="96" selection-start-line="75" selection-start-column="96" selection-end-line="75" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -1221,7 +1221,7 @@
     <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bDealer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3512304">
-          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+          <caret line="75" column="96" selection-start-line="75" selection-start-column="96" selection-end-line="75" selection-end-column="96" />
           <folding />
         </state>
       </provider>
