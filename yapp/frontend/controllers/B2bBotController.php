@@ -331,6 +331,10 @@ class B2bBotController extends \yii\web\Controller
      * */
     private function textMessageAction($message){
 
+        if ($this->user['bot_command'] == 'sendEmail'){
+            return $this->emailProcess($message['text']);
+        }
+
         if (trim(strtolower($message['text'])) == '/start') {
             return $this->helloMessage();
         }
@@ -381,10 +385,11 @@ class B2bBotController extends \yii\web\Controller
             $this->user['bot_command'] == 'last_name_request') {
             return $this->emailInit();
         }
+
         // сообщение менеджеру - обработка запроса
-        elseif ($this->user['bot_command'] == 'sendEmail'){
-            return $this->emailProcess($message['text']);
-        }
+//        elseif ($this->user['bot_command'] == 'sendEmail'){
+//            return $this->emailProcess($message['text']);
+//        }
 
         // Инфо по артикулу - инициализация
         elseif (trim(strtolower($message['text'])) == '/product' || $message['text'] == 'Инфо по артикулу' ){
