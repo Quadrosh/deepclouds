@@ -670,10 +670,6 @@ class B2bBotController extends \yii\web\Controller
         $this->user['bot_command'] = 'sendEmail';
         $this->user->save();
 
-        Yii::info([
-            'action'=>'init sendEmail',
-            'bot_command'=>$this->user['bot_command'],
-        ], 'b2bBot');
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
@@ -693,18 +689,6 @@ class B2bBotController extends \yii\web\Controller
 
         $this->user['bot_command'] = null;
         $this->user->save();
-
-
-        Yii::info([
-            'action'=>'$this->dealer',
-            '$this->dealer'=>$this->dealer,
-        ], 'b2bBot');
-
-        $res = $this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name']);
-        Yii::info([
-            'action'=>'$this->dealer->sendEmail',
-            '$res'=>$res,
-        ], 'b2bBot');
 
         if ($this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name'])) {
             $this->sendMessage([
