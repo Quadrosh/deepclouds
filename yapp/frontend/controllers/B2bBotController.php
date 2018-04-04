@@ -76,9 +76,10 @@ class B2bBotController extends \yii\web\Controller
 
         $cleanInput = Json::decode($input);
         $allreadyRequested = B2bBotRequest::find()->where(['update_id'=>$cleanInput['update_id']])->one();
-        if ($allreadyRequested) {
-            return 'ok';
-        }
+
+//        if ($allreadyRequested) {
+//            return 'ok';
+//        }
 
         Yii::info([
             'action'=>'request from User',
@@ -1208,13 +1209,15 @@ class B2bBotController extends \yii\web\Controller
 
 //        $this->emailInit();
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
+//        $this->sendMessage([
+//            'chat_id' => $this->user['telegram_user_id'],
+//
+//            'text' => 'user='.$this->user['id'].PHP_EOL.'bot_command='. $this->user['bot_command'],
+//        ]);
 
-            'text' => 'user='.$this->user['id'].PHP_EOL.'bot_command='. $this->user['bot_command'],
-        ]);
+        return Yii::$app->params['b2bFromEmail'];
 
-        return 'ok';
+        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
 
 
 
