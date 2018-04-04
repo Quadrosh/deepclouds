@@ -74,9 +74,9 @@ class B2bBotController extends \yii\web\Controller
         $callbackQuery = Yii::$app->request->post('callback_query'); // array
         $inlineQuery = Yii::$app->request->post('inline_query'); // array
 
-//        if (B2bBotRequest::find()->where(['update_id'=>$input['update_id']])->one()) {
-//            return 'ok';
-//        }
+        if (B2bBotRequest::find()->where(['update_id'=>$input['update_id']])->one()) {
+            return 'ok';
+        }
 
         Yii::info([
             'action'=>'request from User',
