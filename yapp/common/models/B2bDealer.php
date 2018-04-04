@@ -73,7 +73,8 @@ class B2bDealer extends \yii\db\ActiveRecord
      */
     public function sendEmail($text,$from)
     {
-        return BotSettings::find()->where(['bot'=>'b2b'])->andWhere(['name'=>'input_email_address'])->one();
+        return BotSettings::find()->all();
+            BotSettings::find()->where(['bot'=>'b2b'])->andWhere(['name'=>'input_email_address'])->one();
         $address = BotSettings::find()->where(['bot'=>'b2b', 'name'=>'input_email_address'])->one();
 
         return Yii::$app->params['b2bFromEmail'];
