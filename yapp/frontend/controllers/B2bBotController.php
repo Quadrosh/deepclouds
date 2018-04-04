@@ -74,6 +74,10 @@ class B2bBotController extends \yii\web\Controller
         $callbackQuery = Yii::$app->request->post('callback_query'); // array
         $inlineQuery = Yii::$app->request->post('inline_query'); // array
 
+//        if (B2bBotRequest::find()->where(['update_id'=>$input['update_id']])->one()) {
+//            return 'ok';
+//        }
+
         Yii::info([
             'action'=>'request from User',
             'input'=>Json::decode($input),
@@ -93,6 +97,10 @@ class B2bBotController extends \yii\web\Controller
         }
 
 
+        Yii::info([
+            'action'=>'User find',
+            'bot_command'=>$this->user['bot_command'],
+        ], 'b2bBot');
 
 
         if (!$user) {
@@ -128,6 +136,10 @@ class B2bBotController extends \yii\web\Controller
 
 
 
+        Yii::info([
+            'action'=>'$this->request received',
+            'bot_command'=>$this->user['bot_command'],
+        ], 'b2bBot');
 
 
 
@@ -435,6 +447,11 @@ class B2bBotController extends \yii\web\Controller
 
            return $this->debug();
         }
+
+        Yii::info([
+            'action'=>'нет такой команды',
+            'bot_command'=>$this->user['bot_command'],
+        ], 'b2bBot');
 
 
         $this->sendMessage([
