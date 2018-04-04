@@ -73,8 +73,9 @@ class B2bDealer extends \yii\db\ActiveRecord
      */
     public function sendEmail($text,$from)
     {
+        $address = BotSettings::find()->where(['bot'=>'b2b', 'name'=>'input_email_address'])->one();
         return Yii::$app->mailer->compose()
-            ->setTo(Yii::$app->params['b2bMainInputEmail'])
+            ->setTo($address['value'])
             ->setFrom(Yii::$app->params['b2bFromEmail'])
             ->setSubject($this->phone.'-'.$from)
             ->setTextBody($text)
@@ -84,3 +85,4 @@ class B2bDealer extends \yii\db\ActiveRecord
             ->send();
     }
 }
+// Yii::$app->params['b2bMainInputEmail']
