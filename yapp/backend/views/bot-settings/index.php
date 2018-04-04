@@ -28,7 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'value:ntext',
             // 'created_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => \yii\grid\ActionColumn::className(),
+                'buttons' => [
+                    'delete'=>function($url,$model){
+                        return false;
+                    },
+
+                ]
+            ],
         ],
     ]); ?>
 </div>
