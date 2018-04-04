@@ -223,15 +223,6 @@ class B2bBotController extends \yii\web\Controller
                 if (substr($phone,0,1) == '+') {
                     $count = strlen($phone)-1;
                     $phone = substr($phone,1,$count);
-                    $this->sendMessage([
-                        'chat_id' => $this->user['telegram_user_id'],
-                        'text' => 'phone -'.$phone. PHP_EOL.'count -'.$count,
-                    ]);
-//                    Yii::info([
-//                        'action'=>'user_phone_ + ',
-//                        'updateId'=>$this->request['update_id'],
-//                        'user phone'=>$this->request['request'],
-//                    ], 'b2bBot');
                 }
 
                 $this->user['phone'] = $phone;
