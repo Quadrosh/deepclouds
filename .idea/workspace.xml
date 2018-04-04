@@ -35,10 +35,10 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6880952">
-              <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.7785714">
+              <caret line="723" column="24" selection-start-line="723" selection-start-column="24" selection-end-line="723" selection-end-column="24" />
               <folding>
-                <element signature="e#10841#11050#0#PHP" expanded="false" />
+                <element signature="e#10650#10859#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -289,8 +289,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="111" />
+    <option name="x" value="156" />
+    <option name="y" value="120" />
     <option name="width" value="1429" />
     <option name="height" value="793" />
   </component>
@@ -647,7 +647,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="111" width="1429" height="793" extended-state="0" />
+    <frame x="156" y="120" width="1429" height="793" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -706,17 +706,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>710</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>101</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>142</line>
+          <line>136</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -729,8 +719,18 @@
           <line>691</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
+          <line>343</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
+          <line>712</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1128,10 +1128,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6880952">
-          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.7785714">
+          <caret line="723" column="24" selection-start-line="723" selection-start-column="24" selection-end-line="723" selection-end-column="24" />
           <folding>
-            <element signature="e#10841#11050#0#PHP" expanded="false" />
+            <element signature="e#10650#10859#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -98,13 +98,7 @@ class B2bBotController extends \yii\web\Controller
             $user = null;
         }
 
-//
-//        Yii::info([
-//            'action'=>'User find',
-//            'update'=>$this->request['id'],
-//
-//            'bot_command'=>$this->user['bot_command'],
-//        ], 'b2bBot');
+
 
 
         if (!$user) {
@@ -347,7 +341,13 @@ class B2bBotController extends \yii\web\Controller
      * */
     private function textMessageAction($message){
 
+        Yii::info([
+            'action'=>'textMessageAction',
+            'bot_command'=>$this->user['bot_command'],
+        ], 'b2bBot');
+
         if ($this->user['bot_command'] == 'sendEmail'){
+
             return $this->emailProcess($message['text']);
         }
 
@@ -709,8 +709,20 @@ class B2bBotController extends \yii\web\Controller
      * @return array Массив с кодом 200 (индикация успешной обработки запроса)
      * */
     private function emailProcess($text){
+
+        Yii::info([
+            'action'=>'emailProcess',
+            'bot_command'=>$this->user['bot_command'],
+        ], 'b2bBot');
+
         $this->user['bot_command'] = null;
         $this->user->save();
+
+        $res = $this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name']);
+        Yii::info([
+            'action'=>'$this->dealer->sendEmail',
+            '$res'=>$res,
+        ], 'b2bBot');
 
         if ($this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name'])) {
             $this->sendMessage([
