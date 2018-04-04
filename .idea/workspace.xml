@@ -4,7 +4,6 @@
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" afterPath="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,21 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="B2bDealer.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bDealer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35123968">
-              <caret line="60" column="93" selection-start-line="60" selection-start-column="93" selection-end-line="60" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.2107438">
+              <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -303,8 +292,8 @@
         <option value="$PROJECT_DIR$/yapp/backend/controllers/JobCounterController.php" />
         <option value="$PROJECT_DIR$/yapp/console/controllers/BroadcastController.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" />
       </list>
     </option>
   </component>
@@ -1039,18 +1028,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php">
+    <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bDealer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        <state vertical-scroll-proportion="1.3347107">
+          <caret line="60" column="93" selection-start-line="60" selection-start-column="93" selection-end-line="60" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/common/models/B2bDealer.php">
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35123968">
-          <caret line="60" column="93" selection-start-line="60" selection-start-column="93" selection-end-line="60" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.2107438">
+          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="b2b-dealer-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <p>Авторизация происходит по основному телефону.</p>
+    <p>Авторизация в B2B API происходит по основному телефону дилера.</p>
 
     <p>
         <?= Html::a('Создать дилера', ['create'], ['class' => 'btn btn-success']) ?>
