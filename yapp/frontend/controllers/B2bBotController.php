@@ -215,7 +215,7 @@ class B2bBotController extends \yii\web\Controller
             $this->sendMessage([
 
                 'chat_id' => $this->user['telegram_user_id'],
-                'text' => 'Для начала процесса авторизации уточните номер телефона, на который зарегистрирован Ваш аккаунт Телеграм.',
+                'text' => $this->settings['m_start_authorize']['value'],
                 'reply_markup' => Json::encode([
                     'one_time_keyboard'=> true,
                     'keyboard'=>[

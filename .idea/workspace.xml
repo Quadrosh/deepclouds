@@ -35,10 +35,10 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8429752">
-              <caret line="806" column="5" selection-start-line="806" selection-start-column="5" selection-end-line="806" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.6319703">
+              <caret line="217" column="60" selection-start-line="217" selection-start-column="60" selection-end-line="217" selection-end-column="60" />
               <folding>
-                <element signature="e#10775#10984#0#PHP" expanded="false" />
+                <element signature="e#10713#10922#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -658,13 +658,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php</url>
-          <line>791</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
@@ -1070,10 +1063,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8429752">
-          <caret line="806" column="5" selection-start-line="806" selection-start-column="5" selection-end-line="806" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.6319703">
+          <caret line="217" column="60" selection-start-line="217" selection-start-column="60" selection-end-line="217" selection-end-column="60" />
           <folding>
-            <element signature="e#10775#10984#0#PHP" expanded="false" />
+            <element signature="e#10713#10922#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
