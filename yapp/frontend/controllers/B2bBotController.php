@@ -1191,11 +1191,11 @@ class B2bBotController extends \yii\web\Controller
 //        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
         //            ->indexBy(['bot_name'])
 
-        $settings = BotSettings::find()
+        $this->settings = BotSettings::find()
             ->where(['bot_name'=>'b2b'])
             ->asArray()
             ->all();
-        return $settings;
+        return $this->settings;
 
 
 
