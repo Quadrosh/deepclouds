@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.56198347">
-              <caret line="1201" column="25" selection-start-line="1201" selection-start-column="25" selection-end-line="1201" selection-end-column="25" />
+              <caret line="1201" column="59" selection-start-line="1201" selection-start-column="59" selection-end-line="1201" selection-end-column="59" />
               <folding>
                 <element signature="e#10775#10984#0#PHP" expanded="false" />
               </folding>
@@ -1046,7 +1046,7 @@
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56198347">
-          <caret line="1201" column="25" selection-start-line="1201" selection-start-column="25" selection-end-line="1201" selection-end-column="25" />
+          <caret line="1201" column="59" selection-start-line="1201" selection-start-column="59" selection-end-line="1201" selection-end-column="59" />
           <folding>
             <element signature="e#10775#10984#0#PHP" expanded="false" />
           </folding>

@@ -1199,7 +1199,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 //        return $this->settings;
-        return $this->settings['start_authorize'];
+        return $this->settings['start_authorize']['value'];
 
 
 
