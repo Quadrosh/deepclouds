@@ -62,11 +62,11 @@ class B2bBotController extends \yii\web\Controller
             $this->enableCsrfValidation = false;
         }
 
-        $this->settings = BotSettings::find()
-            ->where(['bot_name'=>'b2b'])
-            ->indexBy('name')
-            ->asArray()
-            ->all();
+//        $this->settings = BotSettings::find()
+//            ->where(['bot_name'=>'b2b'])
+//            ->indexBy('name')
+//            ->asArray()
+//            ->all();
 
         return parent::beforeAction($action);
     }
@@ -1188,18 +1188,19 @@ class B2bBotController extends \yii\web\Controller
 
 //        $this->sendMessage([
 //            'chat_id' => $this->user['telegram_user_id'],
-//
-//            'text' => 'user='.$this->user['id'].PHP_EOL.'bot_command='. $this->user['bot_command'],
+//            'text' => $this->settings['m_search_init']['value'],
 //        ]);
 
-//        return Yii::$app->params['b2bFromEmail'];
 
-//        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
-        //            ->indexBy(['bot_name'])
+            $this->settings = BotSettings::find()
+            ->where(['bot_name'=>'b2b'])
+            ->indexBy('name')
+            ->asArray()
+           ->select('id, value as full')
+            ->all();
 
-
-//        return $this->settings;
-        return $this->settings['start_authorize']['value'];
+        return $this->settings;
+//        return $this->settings['start_authorize']['value'];
 
 
 
