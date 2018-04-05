@@ -1198,7 +1198,8 @@ class B2bBotController extends \yii\web\Controller
         //            ->indexBy(['bot_name'])
 
 
-        return $this->settings;
+//        return $this->settings;
+        return $this->settings['start_authorize'];
 
 
 
