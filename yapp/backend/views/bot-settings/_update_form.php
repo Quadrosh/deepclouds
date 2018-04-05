@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'value')->textarea(['rows' => 1]) ?>
         </div>
     </div>
 
