@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php" afterPath="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,13 +32,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="279.55554">
-              <caret line="671" column="0" selection-start-line="671" selection-start-column="0" selection-end-line="671" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7989556">
+              <caret line="1195" column="20" selection-start-line="1195" selection-start-column="20" selection-end-line="1195" selection-end-column="20" />
               <folding>
-                <element signature="e#10522#10731#0#PHP" expanded="false" />
+                <element signature="e#10612#10821#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54390246">
+            <state vertical-scroll-proportion="0.0">
               <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding />
             </state>
@@ -302,10 +302,10 @@
         <option value="$PROJECT_DIR$/yapp/common/models/BotSettings.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/view.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
-        <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/index.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php" />
+        <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
       </list>
     </option>
   </component>
@@ -659,58 +659,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="b2b-bot-user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="b2b-bot-request" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deepclouds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -801,7 +749,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32993445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3219316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3219178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1191,16 +1139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="279.55554">
-          <caret line="671" column="0" selection-start-line="671" selection-start-column="0" selection-end-line="671" selection-end-column="0" />
-          <folding>
-            <element signature="e#10522#10731#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/config/params-local.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1251,9 +1189,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-dealer/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54390246">
+        <state vertical-scroll-proportion="0.0">
           <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7989556">
+          <caret line="1195" column="20" selection-start-line="1195" selection-start-column="20" selection-end-line="1195" selection-end-column="20" />
+          <folding>
+            <element signature="e#10612#10821#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

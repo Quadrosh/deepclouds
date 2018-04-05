@@ -7,6 +7,7 @@ use common\models\B2bBotRequest;
 use common\models\B2bBotUser;
 use common\models\B2bDealer;
 use common\models\B2bSender;
+use common\models\BotSettings;
 use yii\filters\ContentNegotiator;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -32,6 +33,11 @@ class B2bBotController extends \yii\web\Controller
      */
     private $request;
 
+    /**
+     * @var array
+     */
+    private $settings;
+
     public function behaviors() {
         return [
             'contentNegotiator' => [
@@ -55,6 +61,7 @@ class B2bBotController extends \yii\web\Controller
         if (in_array($action->id, ['do','test'])) {
             $this->enableCsrfValidation = false;
         }
+
         return parent::beforeAction($action);
     }
 
@@ -1181,7 +1188,13 @@ class B2bBotController extends \yii\web\Controller
 
 //        return Yii::$app->params['b2bFromEmail'];
 
-        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
+//        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
+        $this->settings = BotSettings::find()
+            ->where(['bot_name'=>'b2b'])
+            ->indexBy(['bot_name'])
+            ->asArray()
+            ->all();
+        return $this->settings;
 
 
 
