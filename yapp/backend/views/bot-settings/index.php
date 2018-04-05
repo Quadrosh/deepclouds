@@ -23,13 +23,36 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
 //            'bot_name',
-            'name',
-            'discription',
-            'value:ntext',
-            // 'created_at',
+//            'name',
+            [
+//                'class' => 'kartik\grid\DataColumn',
+                'attribute'=>'name',
+                'format'=>'html',
+                'contentOptions' => [
+                    'style'=>'width: 20%; overflow: scroll;word-wrap: break-word;white-space:pre-line;'
+                ],
+            ],
+            [
+                'attribute'=>'discription',
+                'format'=>'html',
+                'contentOptions' => [
+                    'style'=>'width: 30%; overflow: scroll;word-wrap: break-word;white-space:pre-line;'
+                ],
+            ],
+
+            [
+                'attribute'=>'value',
+                'format'=>'html',
+                'contentOptions' => [
+                    'style'=>'width: 40%; overflow: scroll;word-wrap: break-word;white-space:pre-line;'
+                ],
+            ],
 
             [
                 'class' => \yii\grid\ActionColumn::className(),
+                'contentOptions' => [
+                    'style'=>'width: 10%; overflow: scroll;word-wrap: break-word;white-space:pre-line;'
+                ],
                 'buttons' => [
                     'delete'=>function($url,$model){
                         return false;

@@ -23,23 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'request:ntext',
             'status',
-//            'answer:ntext',
-//            [
-//                'attribute'=>'user_time',
-//                'value' => function($data)
-//                {
-//                    return \Yii::$app->formatter->asDatetime($data['user_time'], 'dd/MM/yy HH:mm:ss');
-//                },
-//                'format'=> 'html',
-//            ],
-//            [
-//                'attribute'=>'request_time',
-//                'value' => function($data)
-//                {
-//                    return \Yii::$app->formatter->asDatetime($data['request_time'], 'dd/MM/yy HH:mm:ss');
-//                },
-//                'format'=> 'html',
-//            ],
             [
                 'attribute'=>'answer_time',
                 'value' => function($data)
@@ -48,8 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format'=> 'html',
             ],
-
-//            ['class' => 'yii\grid\ActionColumn'],
             [
                 'class' => \yii\grid\ActionColumn::className(),
                 'buttons' => [

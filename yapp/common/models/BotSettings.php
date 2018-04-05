@@ -55,8 +55,8 @@ class BotSettings extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'bot_name' => 'Bot Name',
-            'name' => 'Name',
-            'discription' => 'Discription',
+            'name' => 'Setting',
+            'discription' => 'Description',
             'value' => 'Value',
             'created_at' => 'Created At',
         ];
