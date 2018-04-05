@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php" afterPath="$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,14 +32,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56198347">
-              <caret line="1201" column="59" selection-start-line="1201" selection-start-column="59" selection-end-line="1201" selection-end-column="59" />
+            <state vertical-scroll-proportion="-223.51852">
+              <caret line="791" column="143" selection-start-line="791" selection-start-column="17" selection-end-line="791" selection-end-column="143" />
               <folding>
                 <element signature="e#10775#10984#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6319703">
+              <caret line="31" column="73" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,7 +129,6 @@
         <option value="$PROJECT_DIR$/yapp/console/controllers/BroadcastController.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/b2b-dealer/index.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/layouts/main.php" />
-        <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/view.php" />
         <option value="$PROJECT_DIR$/yapp/common/config/params-local.php" />
         <option value="$PROJECT_DIR$/yapp/common/models/B2bDealer.php" />
@@ -131,6 +140,7 @@
         <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/update.php" />
         <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/_update_form.php" />
         <option value="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
+        <option value="$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php" />
       </list>
     </option>
   </component>
@@ -638,7 +648,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -857,16 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <marker date="1522861301000" expanded="true" signature="206:1168" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yapp/backend/views/b2b-bot-user/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1045,11 +1045,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56198347">
-          <caret line="1201" column="59" selection-start-line="1201" selection-start-column="59" selection-end-line="1201" selection-end-column="59" />
+        <state vertical-scroll-proportion="-223.51852">
+          <caret line="791" column="143" selection-start-line="791" selection-start-column="17" selection-end-line="791" selection-end-column="143" />
           <folding>
             <element signature="e#10775#10984#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yapp/backend/views/bot-settings/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6319703">
+          <caret line="31" column="73" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>

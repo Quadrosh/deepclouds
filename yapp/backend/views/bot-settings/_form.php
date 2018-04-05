@@ -23,13 +23,13 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-sm-6">
-            <?= $form->field($model, 'value')->textarea(['rows' => 1]) ?>
+            <?= $form->field($model, 'discription')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <?= $form->field($model, 'discription')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'value')->textarea(['rows' => 1]) ?>
         </div>
     </div>
 
