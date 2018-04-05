@@ -62,11 +62,11 @@ class B2bBotController extends \yii\web\Controller
             $this->enableCsrfValidation = false;
         }
 
-//        $this->settings = BotSettings::find()
-//            ->where(['bot_name'=>'b2b'])
-//            ->indexBy('name')
-//            ->asArray()
-//            ->all();
+        $this->settings = BotSettings::find()
+            ->where(['bot_name'=>'b2b'])
+            ->indexBy('name')
+            ->asArray()
+            ->all();
 
         return parent::beforeAction($action);
     }
@@ -1186,18 +1186,13 @@ class B2bBotController extends \yii\web\Controller
 
 //        $this->emailInit();
 
-//        $this->sendMessage([
-//            'chat_id' => $this->user['telegram_user_id'],
-//            'text' => $this->settings['m_search_init']['value'],
-//        ]);
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => $this->settings['m_search_init']['value'],
+        ]);
 
 
-            $this->settings = BotSettings::find()
-            ->where(['bot_name'=>'b2b'])
-            ->indexBy('name')
-            ->asArray()
-           ->select('id, value as full')
-            ->all();
+
 
         return $this->settings;
 //        return $this->settings['start_authorize']['value'];
