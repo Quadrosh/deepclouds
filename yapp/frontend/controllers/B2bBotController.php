@@ -264,7 +264,7 @@ class B2bBotController extends \yii\web\Controller
                         $this->user->save();
                         $this->sendMessage([
                             'chat_id' => $this->user['telegram_user_id'],
-                            'text' => 'Ошибка - на этот номер оформлено более одного доступа, свяжитесь с руководством для удаления ненужных доступов',
+                            'text' => $this->settings['m_authorize_doubled']['value'],
                         ]);
                         return false;
                     }
@@ -281,7 +281,7 @@ class B2bBotController extends \yii\web\Controller
                     if ($this->dealer['status'] != 'active') { // неактивный дилер
                         $this->sendMessage([
                             'chat_id' => $this->user['telegram_user_id'],
-                            'text' => 'Ошибка - неактивный статус дилера',
+                            'text' => $this->settings['m_authorize_inactive_dealer']['value'],
                         ]);
                         return false;
                     } else { // дилер с активным статусом
@@ -290,7 +290,7 @@ class B2bBotController extends \yii\web\Controller
                         $this->user->save();
                         $this->sendMessage([
                             'chat_id' => $this->user['telegram_user_id'],
-                            'text' => 'Вы авторизованы',
+                            'text' => $this->settings['m_authorize_success']['value'],
                         ]);
                         $this->options();
                         return false;
@@ -299,7 +299,7 @@ class B2bBotController extends \yii\web\Controller
                 } else {  // нет дилера у кого этот номер в доступах
                     $this->sendMessage([
                         'chat_id' => $this->user['telegram_user_id'],
-                        'text' => 'Нет доступа на этот номер, свяжитесь со своим руководстом или менеджером отдела B2B',
+                        'text' => $this->settings['m_authorize_fault']['value'],
                     ]);
                     return false ;
                 }
@@ -308,7 +308,7 @@ class B2bBotController extends \yii\web\Controller
             } else {
                 $this->sendMessage([
                     'chat_id' => $this->user['telegram_user_id'],
-                    'text' => 'Неверный формат, отправьте телефон нажатием на кнопку',
+                    'text' => $this->settings['m_authorize_push_the_button']['value'],
                     'reply_markup' => Json::encode([
                         'one_time_keyboard'=> true,
                         'keyboard'=>[
