@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-sm-6">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'name')->textInput(['readOnly'=> true]) ?>
         </div>
         <div class="col-sm-6">
             <?= $form->field($model, 'discription')->textInput(['maxlength' => true]) ?>
