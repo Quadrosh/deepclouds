@@ -1193,7 +1193,7 @@ class B2bBotController extends \yii\web\Controller
 
         $this->settings = BotSettings::find()
             ->where(['bot_name'=>'b2b'])
-            ->indexBy(['bot_name'])
+            ->indexBy('bot_name')
             ->asArray()
             ->all();
         return $this->settings;
