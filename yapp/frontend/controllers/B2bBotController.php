@@ -1189,12 +1189,13 @@ class B2bBotController extends \yii\web\Controller
 //        return Yii::$app->params['b2bFromEmail'];
 
 //        return $this->dealer->sendEmail('text', $this->user['real_first_name'].' '.$this->user['real_last_name']);
-        $this->settings = BotSettings::find()
+        //            ->indexBy(['bot_name'])
+
+        $settings = BotSettings::find()
             ->where(['bot_name'=>'b2b'])
-            ->indexBy(['bot_name'])
             ->asArray()
             ->all();
-        return $this->settings;
+        return $settings;
 
 
 
