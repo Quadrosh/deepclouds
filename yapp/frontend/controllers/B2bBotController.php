@@ -1110,6 +1110,11 @@ class B2bBotController extends \yii\web\Controller
 
     private function debug (){
 
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'вошли в debug',
+        ]);
+
 
         while(true) {
             $start_time = time();
@@ -1129,8 +1134,16 @@ class B2bBotController extends \yii\web\Controller
 
         }
 
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'перед таймаутом',
+        ]);
         sleep(15);
 
+        $this->sendMessage([
+            'chat_id' => $this->user['telegram_user_id'],
+            'text' => 'после таймаута',
+        ]);
 
 
 
