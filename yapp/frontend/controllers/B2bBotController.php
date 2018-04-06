@@ -1110,68 +1110,6 @@ class B2bBotController extends \yii\web\Controller
 
     private function debug (){
 
-//
-//        $orders = $this->getOrdersFromServer([
-//            'phone' => $this->dealer['phone'],
-//        ]);
-
-//        Yii::info([
-//            'action'=>'response from Server - orders',
-//            'updateId'=>$this->request['update_id'],
-//            'serverResponse'=>$orders,
-//        ], 'b2bBot');
-//
-//        if (isset($orders['error'])) {
-//            return $this->sendErrorMessage('Ошибка - '.$orders['message']);
-//        }
-//
-//        $responseToUser = '';
-//
-//        foreach ($orders as $item) {
-//            $responseToUser .= $item['orderId']
-//                .' - '.$item['totalCost'].'р.'
-//                .PHP_EOL
-//                .$item['status']['status'].' | '
-//                .$item['status']['payment'].' | '
-//                .$item['status']['delivey']
-//                .PHP_EOL
-////                .'-------------------------'
-//                .PHP_EOL;
-//        }
-//
-//
-//
-//
-//        $microtime = microtime(true);
-//        $options = [
-//            'chat_id' => $this->user['telegram_user_id'],
-//            'text' => $microtime, // $responseToUser
-//            'reply_markup' => Json::encode([
-//                'inline_keyboard'=>[
-//                    [
-//                        ['text'=>'Подробнее о заказе','switch_inline_query_current_chat'=> '/order_details'],
-//                        ['text'=>'Опции', 'callback_data'=> '/options'],
-//                    ],
-//                ]
-//            ]),
-//        ];
-
-//
-//        $chat_id = $options['chat_id'];
-//        $urlEncodedText = urlencode($options['text']);
-//        $sender = new B2bSender;
-//        $jsonResponse = $sender->sendJob(
-//            $this->request['id'],
-//            'https://api.telegram.org/bot' .
-//            Yii::$app->params['b2bBotToken'].
-//            '/sendMessage?chat_id='.$chat_id .
-//            '&text='.$urlEncodedText, $options, true
-//        );
-//        return $jsonResponse;
-
-
-
-//        $this->emailInit();
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
@@ -1180,11 +1118,7 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-
         return $this->settings;
-//        return $this->settings['start_authorize']['value'];
-
-
 
     }
 
