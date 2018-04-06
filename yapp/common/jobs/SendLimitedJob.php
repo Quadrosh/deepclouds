@@ -200,7 +200,7 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
             'action'=>'B2B Yii Gearman Job send 2 user',
             'requestId'=>$this->requestId,
             'result'=>$result,
-            'cleanResult'=>$cleanResult,
+            'cleanResult-OK'=>$cleanResult['ok'],
         ]);
 
         return $result;
