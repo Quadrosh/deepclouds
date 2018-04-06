@@ -778,7 +778,7 @@ class B2bBotController extends \yii\web\Controller
     private function searchInit($limit = 10){
         $text = $this->settings['m_search_init_1']['value'];
         if ($limit != 10) {
-            $text = 'Поиск '.$limit.' результатов';
+            $text = $this->settings['m_search_not_10_init_1']['value'].$limit.$this->settings['m_search_not_10_init_2']['value'];
             $this->user['bot_command'] = 'search_'.$limit;
         } else {
             $this->user['bot_command'] = 'search';
@@ -809,10 +809,10 @@ class B2bBotController extends \yii\web\Controller
             'serverResponse'=>$serverResponseArr,
         ], 'b2bBot');
         if (isset($serverResponseArr['error'])) {
-            return $this->sendErrorMessage('Ошибка - '.$serverResponseArr['message']);
+            return $this->sendErrorMessage($this->settings['m_search_api_error_message']['value'].$serverResponseArr['message']);
         }
         if ($serverResponseArr == []) {
-            return $this->sendErrorMessage('Поиск не дал результов');
+            return $this->sendErrorMessage($this->settings['m_search_api_return_empty_array']['value']);
         }
 
         $responseToUser = '';
@@ -866,10 +866,10 @@ class B2bBotController extends \yii\web\Controller
         ], 'b2bBot');
 
         if (isset($serverResponse['error'])) {
-            return $this->sendErrorMessage('Ошибка - '.$serverResponse['message']);
+            return $this->sendErrorMessage($this->settings['m_order_api_error_message']['value'].$serverResponse['message']);
         }
         if ($serverResponse == []) {
-            return $this->sendErrorMessage('Поиск не увенчался успехом');
+            return $this->sendErrorMessage($this->settings['m_order_api_return_empty_array']['value']);
         }
 
         $responseToUser = $orderId.' - '
