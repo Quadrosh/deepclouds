@@ -1116,29 +1116,29 @@ class B2bBotController extends \yii\web\Controller
         ]);
 
 
-        while(true) {
-            $start_time = time();
-            if ((time() - $start_time) > 10) {
-//                $serverError = [];
-//                $serverError['error'] = 1;
-//                $serverError['message'] = 'Извините, B2B сервер не отвечает'
-//                    .PHP_EOL .'В данный момент запрос не может быть обработан';
-//                $serverError['code'] = 500;
-//                return Json::encode($serverError);
-                $this->sendMessage([
-                    'chat_id' => $this->user['telegram_user_id'],
-                    'text' => 'выскочили по таймауту',
-                ]);
-                return 'ok';
-            }
-            // Other processing
-            $this->sendMessage([
-                'chat_id' => $this->user['telegram_user_id'],
-                'text' => 'перед таймаутом',
-            ]);
-            sleep(15);
-
-        }
+//        while(true) {
+//            $start_time = time();
+//            if ((time() - $start_time) > 10) {
+////                $serverError = [];
+////                $serverError['error'] = 1;
+////                $serverError['message'] = 'Извините, B2B сервер не отвечает'
+////                    .PHP_EOL .'В данный момент запрос не может быть обработан';
+////                $serverError['code'] = 500;
+////                return Json::encode($serverError);
+//                $this->sendMessage([
+//                    'chat_id' => $this->user['telegram_user_id'],
+//                    'text' => 'выскочили по таймауту',
+//                ]);
+//                return 'ok';
+//            }
+//            // Other processing
+//            $this->sendMessage([
+//                'chat_id' => $this->user['telegram_user_id'],
+//                'text' => 'перед таймаутом',
+//            ]);
+//            sleep(15);
+//
+//        }
 
 
 
