@@ -1122,7 +1122,8 @@ class B2bBotController extends \yii\web\Controller
                 $serverError['message'] = 'Извините, B2B сервер не отвечает'
                     .PHP_EOL .'В данный момент запрос не может быть обработан';
                 $serverError['code'] = 500;
-                return Json::encode($serverError);
+//                return Json::encode($serverError);
+                return json_encode($serverError);
 
 //                $this->sendMessage([
 //                    'chat_id' => $this->user['telegram_user_id'],
