@@ -32,6 +32,7 @@ class BotSettings extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
+            [['name'], 'unique' ],
             [['value'], 'string'],
             [['created_at'], 'integer'],
             [['bot_name', 'name', 'discription'], 'string', 'max' => 255],

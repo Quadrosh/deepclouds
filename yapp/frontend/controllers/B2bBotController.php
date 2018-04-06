@@ -437,7 +437,7 @@ class B2bBotController extends \yii\web\Controller
             if ($limit > 30) {
                 $this->sendMessage([
                     'chat_id' => $message['from']['id'],
-                    'text' => 'Настройка превышает предельное значение',
+                    'text' => $this->settings['m_search_more_than_alowed']['value'],
                 ]);
                 return ['message' => 'ok', 'code' => 200];
             }
@@ -454,7 +454,7 @@ class B2bBotController extends \yii\web\Controller
 
         $this->sendMessage([
             'chat_id' => $message['from']['id'],
-            'text' => 'нет такой команды',
+            'text' =>  $this->settings['m_no_such_command']['value'],
         ]);
         return $this->options();
 
@@ -474,7 +474,7 @@ class B2bBotController extends \yii\web\Controller
     {
         $this->answerCallbackQuery([
             'callback_query_id' => $callbackQuery['id'],
-            'text' => 'В процессе...',
+            'text' =>  $this->settings['m_answer_callback']['value'],
         ]);
         Yii::info([
             'action'=>'request Callback Query',
@@ -568,7 +568,7 @@ class B2bBotController extends \yii\web\Controller
         $this->sendMessage([
 
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Список доступных опций показан ниже на клавиатуре:',
+            'text' => $this->settings['m_options']['value'],
             'reply_markup' => Json::encode([
                 'one_time_keyboard'=> true,
                 'keyboard'=>[
@@ -597,20 +597,7 @@ class B2bBotController extends \yii\web\Controller
      * @return array Массив с кодом 200 (индикация успешной обработки запроса)
      * */
     private function help(){
-        $text =
-            'Доступные команды:'.PHP_EOL.
-            '/orders - оформленные накладные'.PHP_EOL.
-            'order/МУЗ0000001 - информация по заказу'.PHP_EOL.
-            '/search - поиск товара в базе, ответ ограничен 10-ю результатами'.PHP_EOL.
-            '/search_20 - поиск товара в базе, ответ ограничен 20-ю результатами'.PHP_EOL.
-            '/search_30 - поиск товара в базе, ответ ограничен 30-ю результатами'.PHP_EOL.
-            '/product - информация по артикулу'.PHP_EOL.
-            'product/a000001 - информация по артикулу в один клик'.PHP_EOL.
-            '/email - отправить сообщение менеджеру'.PHP_EOL.
-            '/unauthorize - отменить авторизацию и удалить привязку к дилеру'.PHP_EOL.
-            '/help - памятка помощи'.PHP_EOL.
-            PHP_EOL
-        ;
+        $text = $this->settings['m_help_text']['value'].PHP_EOL;
         $this->sendMessage([
 
             'chat_id' => $this->user['telegram_user_id'],
@@ -638,7 +625,7 @@ class B2bBotController extends \yii\web\Controller
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Привет, я ATtrade_bot. Сначала Вам необходимо пройти авторизацию.',
+            'text' => $this->settings['m_hello']['value'],
         ]);
         return $this->checkAuth();
     }
@@ -661,7 +648,7 @@ class B2bBotController extends \yii\web\Controller
                 $this->user->save();
                 $this->sendMessage([
                     'chat_id' => $this->user['telegram_user_id'],
-                    'text' => 'Пожалуйста, уточните Вашу Фамилию.'.PHP_EOL.'Отправьте ответным сообщением',
+                    'text' => $this->settings['m_write_your_last_name']['value'],
                 ]);
                 return ['message' => 'ok', 'code' => 200];
             } else {
@@ -669,7 +656,7 @@ class B2bBotController extends \yii\web\Controller
                 $this->user->save();
                 $this->sendMessage([
                     'chat_id' => $this->user['telegram_user_id'],
-                    'text' => 'Пожалуйста, уточните Ваше Имя.'.PHP_EOL.'Отправьте его ответным сообщением',
+                    'text' => $this->settings['m_write_your_first_name']['value'],
                 ]);
                 return ['message' => 'ok', 'code' => 200];
             }
@@ -686,7 +673,7 @@ class B2bBotController extends \yii\web\Controller
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Отправка сообщения менеджеру.'.PHP_EOL.'Введите текст',
+            'text' => $this->settings['m_send_message_to_manager']['value'],
         ]);
         return ['message' => 'ok', 'code' => 200];
     }
@@ -706,13 +693,13 @@ class B2bBotController extends \yii\web\Controller
         if ($this->dealer->sendEmail($text, $this->user['real_first_name'].' '.$this->user['real_last_name'])) {
             $this->sendMessage([
                 'chat_id' => $this->user['telegram_user_id'],
-                'text' => 'Сообщение отправлено.',
+                'text' => $this->settings['m_send_message_sent']['value'],
             ]);
             return ['message' => 'ok', 'code' => 200];
         } else {
             $this->sendMessage([
                 'chat_id' => $this->user['telegram_user_id'],
-                'text' => 'Не удалось отправить сообщение. Повторите попытку позже.',
+                'text' => $this->settings['m_send_message_error']['value'],
             ]);
             return ['message' => 'ok', 'code' => 200];
         }
@@ -732,7 +719,7 @@ class B2bBotController extends \yii\web\Controller
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'Информация по товару.'.PHP_EOL.'Отправьте контрольный номер',
+            'text' => $this->settings['m_one_product_init']['value'],
         ]);
         return ['message' => 'ok', 'code' => 200];
     }

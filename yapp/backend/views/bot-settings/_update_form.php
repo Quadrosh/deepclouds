@@ -17,7 +17,6 @@ use yii\widgets\ActiveForm;
         </div>
 
     </div>
-
     <div class="row">
         <div class="col-sm-6">
             <?= $form->field($model, 'name')->textInput(['readOnly'=> true]) ?>
@@ -25,7 +24,6 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-6">
             <?= $form->field($model, 'discription')->textInput(['maxlength' => true]) ?>
         </div>
-
     </div>
     <div class="row">
         <div class="col-sm-12">
