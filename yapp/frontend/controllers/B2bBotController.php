@@ -1130,19 +1130,19 @@ class B2bBotController extends \yii\web\Controller
                 return 'ok';
             }
             // Other processing
-//            $this->sendMessage([
-//                'chat_id' => $this->user['telegram_user_id'],
-//                'text' => 'перед таймаутом',
-//            ]);
-//            sleep(15);
+            $this->sendMessage([
+                'chat_id' => $this->user['telegram_user_id'],
+                'text' => 'перед таймаутом',
+            ]);
+            sleep(15);
 
         }
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'перед таймаутом',
-        ]);
-        sleep(15);
+//        $this->sendMessage([
+//            'chat_id' => $this->user['telegram_user_id'],
+//            'text' => 'перед таймаутом',
+//        ]);
+//        sleep(15);
 
 
 
