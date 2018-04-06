@@ -51,62 +51,77 @@ class B2bSender extends Model
 
     public function sendToServer($url, $options = [])
     {
-        $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
-        $optQuery = http_build_query($options);
-        $ch = curl_init($url.'?'.$optQuery);
+        while(true) {
+            $start_time = time();
+            if ((time() - $start_time) > 25) {
+                $serverError = [];
+                $serverError['error'] = 1;
+                $serverError['message'] = 'Извините, B2B сервер не отвечает'
+                    .PHP_EOL .'В данный момент запрос не может быть обработан';
+                $serverError['code'] = 500;
+                return Json::encode($serverError);
+            }
+
+            // Other processing
+
+            $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
+            $optQuery = http_build_query($options);
+            $ch = curl_init($url.'?'.$optQuery);
 
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
 //        curl_setopt($ch, CURLOPT_ENCODING,'gzip,deflate');
-        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 25);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 27);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
-        curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
+            curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
 
-        // debug
+            // debug
 //        $fp = fopen('../runtime/logs/curl_debug_log.txt', 'w');
 //        curl_setopt($ch, CURLOPT_VERBOSE, 1);
 //        curl_setopt($ch, CURLOPT_STDERR, $fp);
 
-        $r = curl_exec($ch);
+            $r = curl_exec($ch);
 
-        if($r == false){
-            $text = 'curl error '.curl_error($ch);
-            Yii::info($text, 'b2bBot');
-            return $text;
-        } else {
-            $info = curl_getinfo($ch);
-            $info['url'] = str_replace(Yii::$app->params['b2bServerApiKey'],'_not_logged_',  $info['url']);
-            $options['apiKey']='_not_logged_';
-            $info = [
-                    'action'=>'curl to Server',
-                    'options'=>$options,
-                    'curl_version'=>curl_version(),
-                ] + $info;
-            Yii::info($info, 'b2bBot');
-            if ($info['http_code'] == 500) {
-                $serverError = [];
-                $serverError['error'] = 1;
-                $serverError['message'] = 'Извините, на сервере технические проблемы.'
-                    .PHP_EOL .'В данный момент запрос не может быть обработан';
-                $serverError['code'] = 500;
-                curl_close($ch);
-                return Json::encode($serverError);
+            if($r == false){
+                $text = 'curl error '.curl_error($ch);
+                Yii::info($text, 'b2bBot');
+                return $text;
+            } else {
+                $info = curl_getinfo($ch);
+                $info['url'] = str_replace(Yii::$app->params['b2bServerApiKey'],'_not_logged_',  $info['url']);
+                $options['apiKey']='_not_logged_';
+                $info = [
+                        'action'=>'curl to Server',
+                        'options'=>$options,
+                        'curl_version'=>curl_version(),
+                    ] + $info;
+                Yii::info($info, 'b2bBot');
+                if ($info['http_code'] == 500) {
+                    $serverError = [];
+                    $serverError['error'] = 1;
+                    $serverError['message'] = 'Извините, на сервере технические проблемы.'
+                        .PHP_EOL .'В данный момент запрос не может быть обработан';
+                    $serverError['code'] = 500;
+                    curl_close($ch);
+                    return Json::encode($serverError);
+                }
+                if ($info['http_code'] == 400) {
+                    $serverError = [];
+                    $serverError['error'] = 1;
+                    $serverError['message'] = 'Извините, у нас проблемы со связью.'
+                        .PHP_EOL .'В данный момент запрос не может быть обработан.';
+                    $serverError['code'] = 400;
+                    curl_close($ch);
+                    return Json::encode($serverError);
+                }
             }
-            if ($info['http_code'] == 400) {
-                $serverError = [];
-                $serverError['error'] = 1;
-                $serverError['message'] = 'Извините, у нас проблемы со связью.'
-                    .PHP_EOL .'В данный момент запрос не может быть обработан.';
-                $serverError['code'] = 400;
-                curl_close($ch);
-                return Json::encode($serverError);
-            }
+            curl_close($ch);
+            return $r;
         }
-        curl_close($ch);
-        return $r;
+
     }
 
 
