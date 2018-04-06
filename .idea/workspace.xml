@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5820fe4-904a-48cd-9126-12f74eae1e42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" afterPath="$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php" />
     </list>
     <ignored path="deepclouds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +34,8 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55380577">
-              <caret line="1154" column="20" selection-start-line="1154" selection-start-column="20" selection-end-line="1154" selection-end-column="20" />
+            <state vertical-scroll-proportion="1.1338583">
+              <caret line="1145" column="11" selection-start-line="1145" selection-start-column="11" selection-end-line="1145" selection-end-column="11" />
               <folding>
                 <element signature="e#10790#10999#0#PHP" expanded="false" />
               </folding>
@@ -828,8 +827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55380577">
-          <caret line="1154" column="20" selection-start-line="1154" selection-start-column="20" selection-end-line="1154" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.1338583">
+          <caret line="1145" column="11" selection-start-line="1145" selection-start-column="11" selection-end-line="1145" selection-end-column="11" />
           <folding>
             <element signature="e#10790#10999#0#PHP" expanded="false" />
           </folding>
