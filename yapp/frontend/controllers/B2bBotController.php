@@ -1129,6 +1129,7 @@ class B2bBotController extends \yii\web\Controller
                     'chat_id' => $this->user['telegram_user_id'],
                     'text' => 'выскочили по таймауту',
                 ]);
+                return 'ok';
             }
             // Other processing
             $this->sendMessage([

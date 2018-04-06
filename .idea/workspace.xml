@@ -35,8 +35,8 @@
       <file leaf-file-name="B2bBotController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4944238">
-              <caret line="1141" column="7" selection-start-line="1141" selection-start-column="7" selection-end-line="1141" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.5576208">
+              <caret line="1130" column="19" selection-start-line="1130" selection-start-column="19" selection-end-line="1130" selection-end-column="19" />
               <folding>
                 <element signature="e#10790#10999#0#PHP" expanded="false" />
               </folding>
@@ -828,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yapp/frontend/controllers/B2bBotController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4944238">
-          <caret line="1141" column="7" selection-start-line="1141" selection-start-column="7" selection-end-line="1141" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.5576208">
+          <caret line="1130" column="19" selection-start-line="1130" selection-start-column="19" selection-end-line="1130" selection-end-column="19" />
           <folding>
             <element signature="e#10790#10999#0#PHP" expanded="false" />
           </folding>
