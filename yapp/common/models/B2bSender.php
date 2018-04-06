@@ -63,6 +63,7 @@ class B2bSender extends Model
                 return Json::encode($serverError);
             }
 
+            sleep(28);
             // Other processing
 
             $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
