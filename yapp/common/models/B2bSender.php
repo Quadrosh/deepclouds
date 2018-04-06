@@ -52,9 +52,10 @@ class B2bSender extends Model
     public function sendToServer($url, $options = [])
     {
         $start_time = time();
+
         while(true) {
 
-            if ((time() - $start_time) > 25) {   // exit by timeout
+            if ((time() - $start_time) > 10) {   // exit by timeout
                 $serverError = [];
                 $serverError['error'] = 1;
                 $serverError['message'] = 'Извините, B2B сервер не отвечает'
