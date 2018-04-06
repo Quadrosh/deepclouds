@@ -52,16 +52,14 @@ class B2bSender extends Model
     public function sendToServer($url, $options = [])
     {
         $start_time = time();
+        $serverError = [];
 
         while(true) {
 
             if ((time() - $start_time) > 10) {
 
-                $serverError = [];
                 $serverError['error'] = 1;
-                $serverError['message'] = 'Извините, B2B сервер не отвечает'
-                    .PHP_EOL .'В данный момент запрос не может быть обработан';
-                $serverError['code'] = 500;
+                $serverError['message'] = 'Извините, B2B сервер не отвечает'.PHP_EOL .'В данный момент запрос не может быть обработан';
                 return Json::encode($serverError);
             }
 
