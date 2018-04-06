@@ -1110,10 +1110,10 @@ class B2bBotController extends \yii\web\Controller
 
     private function debug (){
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'вошли в debug',
-        ]);
+//        $this->sendMessage([
+//            'chat_id' => $this->user['telegram_user_id'],
+//            'text' => 'вошли в debug',
+//        ]);
 
 
 //        while(true) {
@@ -1142,16 +1142,17 @@ class B2bBotController extends \yii\web\Controller
 
 
 
-        $this->sendMessage([
-            'chat_id' => $this->user['telegram_user_id'],
-            'text' => 'после таймаута',
-        ]);
+//        $this->sendMessage([
+//            'chat_id' => $this->user['telegram_user_id'],
+//            'text' => 'после таймаута',
+//        ]);
 
 
 
 
 
-        return $this->settings;
+//        return $this->settings;
+        return true;
 
     }
 
