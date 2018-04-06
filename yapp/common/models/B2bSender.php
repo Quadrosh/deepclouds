@@ -55,7 +55,8 @@ class B2bSender extends Model
 
         while(true) {
 
-            if ((time() - $start_time) > 10) {   // exit by timeout
+            if ((time() - $start_time) > 10) {
+
                 $serverError = [];
                 $serverError['error'] = 1;
                 $serverError['message'] = 'Извините, B2B сервер не отвечает'
