@@ -7,6 +7,7 @@ use common\models\JobCounter;
 use common\models\JobCounterStat;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 
 /**
  * Class YiiJob.
@@ -194,10 +195,12 @@ class SendLimitedJob extends \yii\base\Object implements \yii\queue\RetryableJob
         $sender = new B2bSender;
         $result = $sender->sendToUser($this->requestId, $this->url, $this->options, $this->dataInBody);
 
+        $cleanResult = Json::decode($result);
         $this->log([
             'action'=>'B2B Yii Gearman Job send 2 user',
             'requestId'=>$this->requestId,
             'result'=>$result,
+            'cleanResult'=>$cleanResult,
         ]);
 
         return $result;
