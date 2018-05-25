@@ -69,18 +69,42 @@ class B2bSender extends Model
 //
 //        }
 
+//        $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
+//        $optQuery = http_build_query($options);
+//        $ch = curl_init($url.'?'.$optQuery);
+
+//        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+//        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 27);
+
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // return string
+//        curl_setopt($ch, CURLOPT_POST, true); // use http post
+//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // no check sert by remote
+
+
+        $prxy       = 'http://smzvl.teletype.live:1080'; // proxy_url:port
+        $prxy_auth = 'telegram:telegram';       // 'auth_user:auth_pass'
+
+
+
         $options['apiKey']= Yii::$app->params['b2bServerApiKey'];
         $optQuery = http_build_query($options);
-        $ch = curl_init($url.'?'.$optQuery);
+        $url = $url.'?'.$optQuery;
 
+        $ch = curl_init();
+        curl_setopt_array ($ch, array(CURLOPT_URL => $url, CURLOPT_RETURNTRANSFER => true));
+        curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);  // тип прокси
+        curl_setopt($ch, CURLOPT_PROXY,  $prxy);                 // ip, port прокси
+        curl_setopt($ch, CURLOPT_PROXYUSERPWD, $prxy_auth);  // авторизация на прокси
+        curl_setopt($ch, CURLOPT_HEADER, false);                // отключение передачи заголовков в запросе
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
-        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 27);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 27);    // timeout
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, $optQuery);
-        curl_setopt($ch, CURLOPT_POST, true); // Content-Type: application/x-www-form-urlencoded' header.
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // return string
+        curl_setopt($ch, CURLOPT_POST, true); // use http post
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // no check sert by remote
 
         $r = curl_exec($ch);
 
