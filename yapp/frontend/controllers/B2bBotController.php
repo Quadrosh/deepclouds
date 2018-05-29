@@ -88,17 +88,26 @@ class B2bBotController extends \yii\web\Controller
         $inlineQuery = Yii::$app->request->post('inline_query'); // array
 
         $cleanInput = Json::decode($input);
-        $allreadyRequested = B2bBotRequest::find()->where(['update_id'=>$cleanInput['update_id']])->one();
+        $updateId = isset($cleanInput['update_id'])?$cleanInput['update_id']:null;
+        $message = isset($cleanInput['message'])?$cleanInput['message']:null;
+        $callbackQuery = isset($cleanInput['callback_query'])?$cleanInput['callback_query']:null;
+        $inlineQuery = isset($cleanInput['inline_query'])?$cleanInput['inline_query']:null;
+
+
+
+        $allreadyRequested = B2bBotRequest::find()->where(['update_id'=> $updateId])->one();
 
         if ($allreadyRequested) {
-            return 'this request in process';
+            return 'this request allready requested';
         }
+
 
         Yii::info([
             'action'=>'request from User',
-            'input'=>Json::decode($input),
+            'input'=>$cleanInput,
 
         ], 'b2bBot');
+
 
 
 
@@ -127,6 +136,10 @@ class B2bBotController extends \yii\web\Controller
                 Yii::info([
                     'action'=>'Error when save user',
                     'errors'=>$user->errors,
+//                    '$user->telegram_user_id'=>$user['telegram_user_id'],
+//                    '$message'=>$message,
+//                    'input Json::decode'=>Json::decode($input),
+//                    'input raw'=>$input,
                 ], 'b2bBot');
             }
         }
@@ -1009,9 +1022,16 @@ class B2bBotController extends \yii\web\Controller
         $sender = new B2bSender;
         $jsonResponse = $sender->sendJob(
             $this->request['id'],
-            'https://api.telegram.org/bot' .
+            Yii::$app->params['totUrl'].'?tourl='.
+            Yii::$app->params['patch'] .
             Yii::$app->params['b2bBotToken'] .
             '/answerCallbackQuery', $options);
+
+//        $jsonResponse = $sender->sendJob(
+//            $this->request['id'],
+//            'https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'] .
+//            '/answerCallbackQuery', $options);
         return $jsonResponse;
     }
 
@@ -1033,9 +1053,16 @@ class B2bBotController extends \yii\web\Controller
         $sender = new B2bSender;
         $jsonResponse = $sender->sendJob(
             $this->request['id'],
-            'https://api.telegram.org/bot' .
+            Yii::$app->params['totUrl'].'?tourl='.
+            Yii::$app->params['patch'] .
             Yii::$app->params['b2bBotToken'] .
             '/answerInlineQuery', $options, true);
+
+//        $jsonResponse = $sender->sendJob(
+//            $this->request['id'],
+//            'https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'] .
+//            '/answerInlineQuery', $options, true);
         return $jsonResponse;
     }
 
@@ -1059,11 +1086,20 @@ class B2bBotController extends \yii\web\Controller
         $sender = new B2bSender;
         $jsonResponse = $sender->sendJob(
             $this->request['id'],
-            'https://api.telegram.org/bot' .
+            Yii::$app->params['totUrl'].'?tourl='.
+            Yii::$app->params['patch'] .
             Yii::$app->params['b2bBotToken'].
             '/sendMessage?chat_id='.$chat_id .
             '&text='.$urlEncodedText, $options, $dataInBody
         );
+
+//        $jsonResponse = $sender->sendJob(
+//            $this->request['id'],
+//            'https://api.telegram.org/bot' .
+//            Yii::$app->params['b2bBotToken'].
+//            '/sendMessage?chat_id='.$chat_id .
+//            '&text='.$urlEncodedText, $options, $dataInBody
+//        );
         return $jsonResponse;
     }
 
