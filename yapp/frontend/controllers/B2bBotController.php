@@ -1089,9 +1089,7 @@ class B2bBotController extends \yii\web\Controller
             Yii::$app->params['totUrl'].'?tourl='.
             Yii::$app->params['patch'] .
             Yii::$app->params['b2bBotToken'].
-            '/sendMessage?chat_id='.$chat_id .
-            '&text='.$urlEncodedText, $options, $dataInBody
-        );
+            '/sendMessage', $options, $dataInBody);
 
 //        $jsonResponse = $sender->sendJob(
 //            $this->request['id'],
@@ -1146,8 +1144,6 @@ class B2bBotController extends \yii\web\Controller
 
     private function debug (){
 
-
-
         $start_time = time();
 
         while(true) {
@@ -1158,14 +1154,8 @@ class B2bBotController extends \yii\web\Controller
                 $serverError['message'] = 'Извините, B2B сервер не отвечает'
                     .PHP_EOL .'В данный момент запрос не может быть обработан';
                 $serverError['code'] = 500;
-//                return Json::encode($serverError);
                 return json_encode($serverError);
 
-//                $this->sendMessage([
-//                    'chat_id' => $this->user['telegram_user_id'],
-//                    'text' => 'выскочили по таймауту',
-//                ]);
-//                return 'ok';
             }
             // Other processing
             $this->sendMessage([
@@ -1176,22 +1166,11 @@ class B2bBotController extends \yii\web\Controller
 
         }
 
-//        $this->sendMessage([
-//            'chat_id' => $this->user['telegram_user_id'],
-//            'text' => 'перед таймаутом',
-//        ]);
-//        sleep(15);
-
-
 
         $this->sendMessage([
             'chat_id' => $this->user['telegram_user_id'],
             'text' => 'после таймаута',
         ]);
-
-
-
-
 
 //        return $this->settings;
         return true;

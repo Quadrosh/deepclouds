@@ -134,8 +134,6 @@ class B2bSender extends Model
         }
         curl_close($ch);
         return $r;
-
-
     }
 
 
